@@ -11,6 +11,8 @@
 #include "TMath.h"
 #include <XML/Helper.h>
 
+#include "Acts/Plugins/DD4hep/ActsExtension.hpp"
+#include "Acts/Definitions/Units.hpp"
 using namespace std;
 using namespace dd4hep;
 
@@ -39,7 +41,24 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
   Material   m_Cu    = det.material("Copper");
   Material   m_Al    = det.material("Aluminum");
   Material   m_Be    = det.material("Beryllium");
+  Material   m_Vacuum    = det.material("Vacuum");
   string     vis_name  = x_det.visStr();
+
+  Acts::ActsExtension* beampipeExtension = new Acts::ActsExtension();
+  bool isBeamPipe = x_det.hasChild(_U(beampipe));
+  beampipeExtension->addType("passive cylinder", "layer");
+  if (isBeamPipe) {
+    beampipeExtension->addType("beampipe", "layer");
+  }
+
+  //tubeVolume.setVisAttributes(oddd, x_det.visStr());
+
+  //// Place it in the mother
+  //Volume motherVolume = oddd.pickMotherVolume(cylinderElement);
+  //PlacedVolume placedTube = motherVolume.placeVolume(tubeVolume);
+  //placedTube.addPhysVolID(detName, cylinderElement.id());
+  //sdet.setPlacement(placedTube);
+
 
   int n = 0;
 
@@ -79,6 +98,12 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
 
   // -----------------------------
   // IP beampipe
+  Tube IP_tube(IP_beampipe_ID/2.0, IP_beampipe_OD/2.0, downstream_straight_length/2.0+upstream_straight_length/2.0);
+  Tube IP_vacuum(0.0, IP_beampipe_ID/2.0, downstream_straight_length/2.0+upstream_straight_length/2.0);
+
+  Volume v_IP_tube("v_IP_tube", IP_tube, m_Be);
+  Volume v_IP_vacuum("v_IP_vacuum", IP_vacuum, m_Vacuum );
+
   Tube downstream_IP_tube(IP_beampipe_ID/2.0, IP_beampipe_OD/2.0, downstream_straight_length/2.0);
   Tube downstream_IP_vacuum(0.0, IP_beampipe_ID/2.0, downstream_straight_length/2.0);
   Tube upstream_IP_tube(IP_beampipe_ID/2.0, IP_beampipe_OD/2.0, upstream_straight_length/2.0);
@@ -91,11 +116,15 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
   //v_downstream_IP_tube.setVisAttributes(det,"RedVis");
   sdet.setAttributes(det, v_upstream_IP_tube  , x_det.regionStr(), x_det.limitsStr(), vis_name);
   sdet.setAttributes(det, v_downstream_IP_tube, x_det.regionStr(), x_det.limitsStr(), vis_name);
+  sdet.setAttributes(det, v_IP_tube, x_det.regionStr(), x_det.limitsStr(), vis_name);
 
-  auto pv_upstream_IP_tube = assembly.placeVolume( v_upstream_IP_tube, Position(0, 0, -upstream_straight_length / 2.0));
+  //auto pv_upstream_IP_tube = assembly.placeVolume( v_upstream_IP_tube, Position(0, 0, -upstream_straight_length / 2.0));
+  //auto pv_downstream_IP_tube = assembly.placeVolume( v_downstream_IP_tube, Position(0, 0, downstream_straight_length / 2.0));
+  auto pv_IP_tube = assembly.placeVolume( v_IP_tube, Position(0, 0, -upstream_straight_length / 2.0 +downstream_straight_length / 2.0));
 
-  auto pv_downstream_IP_tube = assembly.placeVolume(
-      v_downstream_IP_tube, Position(0, 0, downstream_straight_length / 2.0));
+  DetElement beampipe_element(sdet, "beampipe_de", 1);
+  beampipe_element.addExtension<Acts::ActsExtension>(beampipeExtension);
+  beampipe_element.setPlacement(pv_IP_tube);
 
   // -----------------------------
   // upstream
