@@ -109,8 +109,7 @@
     <constant name="ForwardRomanPotB_xpos" value="B2PF_XPosition "/>
   </define>
 
-<constant name="ForwardRomanPotA_zpos" value="B1APF_CenterPosition + B1APF_Length/2.0 + 20.0*cm"/>
-    <constant name="ForwardRomanPotA_xpos" value="B1APF_XPosition"/>
+
 
   <detectors>
     <detector 
