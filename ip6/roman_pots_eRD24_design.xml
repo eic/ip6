@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lccdd>
+  <define>
+    <comment>
+      ---------------------------------
+      Roman Pots Implementation from eRD24 R&D Effort
+      Author: Alex Jentsch
+      Date of first commit: June 15th, 2021
+      ---------------------------------
+    </comment>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="942.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="910.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="878.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="846.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="814.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="782.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="750.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="718.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="718.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="750.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="782.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="814.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="846.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="878.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="910.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="942.2*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="943.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="911.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="879.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="847.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="815.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="783.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="751.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="719.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="719.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="751.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="783.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="815.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="847.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="879.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-35.5*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="911.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="943.152*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-32*mm"/>
+    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    
+    <constant name="ForwardRomanPotB_zpos" value="B2PF_CenterPosition - B2PF_Length/2.0 - 20.0*cm"/>
+    <constant name="ForwardRomanPotB_xpos" value="B2PF_XPosition "/>
+  </define>
+
+<constant name="ForwardRomanPotA_zpos" value="B1APF_CenterPosition + B1APF_Length/2.0 + 20.0*cm"/>
+    <constant name="ForwardRomanPotA_xpos" value="B1APF_XPosition"/>
+
+  <detectors>
+    <detector 
+      id="ForwardRomanPot_Station_1_layer_1_ID"
+      name="ForwardRomanPot_Station_1_layer_1_"
+      readout="ForwardRomanPotHits" 
+      type="ref_RectangularTracker"
+      insideTrackingVolume="true"
+      reflect="false"
+      vis="AnlRed">
+      <position x="ForwardRomanPot_Station_1_layer_1_xpos" y="ForwardRomanPot_Station_1_layer_1_ypos" z="ForwardRomanPot_Station_1_layer_1_zpos"/>
+      <layer id="1" 
+        vis="AnlBlue"
+        x="32.0*mm" 
+        y="64.0*mm" >
+        <slice material="Silicon" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+        <slice material="Silicon" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+        <slice material="Silicon" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+        <slice material="Silicon" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      </layer>
+    </detector>
+    <detector 
+      id="ForwardRomanPotB_ID"
+      name="ForwardRomanPotB"
+      readout="ForwardRomanPotHits" 
+      type="ref_RectangularTracker"
+      insideTrackingVolume="true"
+      reflect="false"
+      vis="AnlRed">
+      <position x="ForwardRomanPotB_xpos" y="0" z="ForwardRomanPotB_zpos"/>
+      <layer id="1" 
+        vis="AnlBlue"
+        x="20.0*cm" 
+        y="10.0*cm" >
+        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+      </layer>
+    </detector>
+  </detectors>
+
+  <readouts>
+    <readout name="ForwardRomanPotHits">
+      <segmentation type="CartesianGridXY" grid_size_x="1.0*mm" grid_size_y="1.0*mm" />
+      <id>system:8,barrel:3,layer:4,slice:4,x:32:-16,y:-16</id>  
+    </readout>
+  </readouts>
+
+</lccdd>
+
