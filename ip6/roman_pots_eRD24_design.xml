@@ -125,10 +125,10 @@
         vis="AnlBlue"
         x="32.0*mm" 
         y="64.0*mm" >
-        <slice material="Silicon" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-        <slice material="Silicon" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-        <slice material="Silicon" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-        <slice material="Silicon" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
       </layer>
     </detector>
     <detector 
