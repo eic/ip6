@@ -116,7 +116,7 @@
       id="ForwardRomanPot_Station_1_layer_1_ID"
       name="ForwardRomanPot_Station_1_layer_1_"
       readout="ForwardRomanPotHits" 
-      type="ref_RectangularTracker"
+      type="ip6_RectangularTracker"
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
@@ -135,7 +135,7 @@
       id="ForwardRomanPotB_ID"
       name="ForwardRomanPotB"
       readout="ForwardRomanPotHits" 
-      type="ref_RectangularTracker"
+      type="ip6_RectangularTracker"
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
