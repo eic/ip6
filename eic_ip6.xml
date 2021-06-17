@@ -55,5 +55,6 @@
   <include ref="ip6/far_forward_offM_tracker.xml"/>
   <include ref="ip6/far_forward_romanpots.xml"/>
   <include ref="ip6/far_forward_detectors.xml"/>
+  <include ref="ip6/roman_pots_eRD24_design.xml"/>
 
 </lccdd>
