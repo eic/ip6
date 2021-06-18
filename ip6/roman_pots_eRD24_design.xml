@@ -8,128 +8,248 @@
       Date of first commit: June 15th, 2021
       ---------------------------------
     </comment>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="942.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="910.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="878.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="846.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="814.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="782.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="750.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="718.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="718.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="750.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="782.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="814.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="846.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="878.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="910.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_xpos" value="942.2*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ypos" value="-32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_zpos" value="26000*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="943.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="911.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="879.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="847.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="815.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="783.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="751.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="719.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="719.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="751.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="783.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="815.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="847.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="879.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-35.5*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="911.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_xpos" value="943.152*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ypos" value="-32*mm"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_zpos" value="26020*mm"/>
+    
     
     <constant name="ForwardRomanPotB_zpos" value="B2PF_CenterPosition - B2PF_Length/2.0 - 20.0*cm"/>
     <constant name="ForwardRomanPotB_xpos" value="B2PF_XPosition "/>
   </define>
 
 
-
   <detectors>
     <detector 
-      id="ForwardRomanPot_Station_1_layer_1_ID"
-      name="ForwardRomanPot_Station_1_layer_1_"
+      id="ForwardRomanPot_Station_1_ID"
+      name="ForwardRomanPot_Station_1"
       readout="ForwardRomanPotHits" 
       type="ip6_RectangularTracker"
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
-      <position x="ForwardRomanPot_Station_1_layer_1_xpos" y="ForwardRomanPot_Station_1_layer_1_ypos" z="ForwardRomanPot_Station_1_layer_1_zpos"/>
-      <layer id="1" 
-        vis="AnlBlue"
-        x="32.0*mm" 
-        y="64.0*mm" >
-        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      
+      <layer id="0
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="942.2*mm" y="32*mm" z="26000*mm" />
       </layer>
+      <layer id="1
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="910.2*mm" y="32*mm" z="26000*mm" />
+      </layer>
+      <layer id="2
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="878.2*mm" y="35.5*mm" z="26000*mm" />
+      </layer>
+      <layer id="3
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="846.2*mm" y="35.5*mm" z="26000*mm" />
+      </layer>
+      <layer id="4
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="814.2*mm" y="35.5*mm" z="26000*mm" />
+      </layer>
+      <layer id="5
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="782.2*mm" y="35.5*mm" z="26000*mm" />
+      </layer>
+      <layer id="6
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="750.2*mm" y="32*mm" z="26000*mm" />
+      </layer>
+      <layer id="7
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="718.2*mm" y="32*mm" z="26000*mm" />
+      </layer>
+      <layer id="8
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="718.2*mm" y="-32*mm" z="26000*mm" />
+      </layer>
+      <layer id="9
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="750.2*mm" y="-32*mm" z="26000*mm" />
+      </layer>
+      <layer id="10
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="782.2*mm" y="-35.5*mm" z="26000*mm" />
+      </layer>
+      <layer id="11
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="814.2*mm" y="-35.5*mm" z="26000*mm" />
+      </layer>
+      <layer id="12
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="846.2*mm" y="-35.5*mm" z="26000*mm" />
+      </layer>
+      <layer id="13
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="878.2*mm" y="-35.5*mm" z="26000*mm" />
+      </layer>
+      <layer id="14
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="910.2*mm" y="-32*mm" z="26000*mm" />
+      </layer>
+      <layer id="15
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="942.2*mm" y="-32*mm" z="26000*mm" />
+      </layer>
+      <layer id="16
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="943.152*mm" y="32*mm" z="26020*mm" />
+      </layer>
+      <layer id="17
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="911.152*mm" y="32*mm" z="26020*mm" />
+      </layer>
+      <layer id="18
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="879.152*mm" y="35.5*mm" z="26020*mm" />
+      </layer>
+      <layer id="19
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="847.152*mm" y="35.5*mm" z="26020*mm" />
+      </layer>
+      <layer id="20
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="815.152*mm" y="35.5*mm" z="26020*mm" />
+      </layer>
+      <layer id="21
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="783.152*mm" y="35.5*mm" z="26020*mm" />
+      </layer>
+      <layer id="22
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="751.152*mm" y="32*mm" z="26020*mm" />
+      </layer>
+      <layer id="23
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="719.152*mm" y="32*mm" z="26020*mm" />
+      </layer>
+      <layer id="24
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="719.152*mm" y="-32*mm" z="26020*mm" />
+      </layer>
+      <layer id="25
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="751.152*mm" y="-32*mm" z="26020*mm" />
+      </layer>
+      <layer id="26
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="783.152*mm" y="-35.5*mm" z="26020*mm" />
+      </layer>
+      <layer id="27
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="815.152*mm" y="-35.5*mm" z="26020*mm" />
+      </layer>
+      <layer id="28
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="847.152*mm" y="-35.5*mm" z="26020*mm" />
+      </layer>
+      <layer id="29
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="879.152*mm" y="-35.5*mm" z="26020*mm" />
+      </layer>
+      <layer id="30
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="911.152*mm" y="-32*mm" z="26020*mm" />
+      </layer>
+      <layer id="31
+      vis="AnlBlue"
+      x="32.0*mm"
+      y="64.0*mm" >
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+      <position x="943.152*mm" y="-32*mm" z="26020*mm" />
+      </layer>
+        
     </detector>
     <detector 
       id="ForwardRomanPotB_ID"
@@ -154,7 +274,7 @@
 
   <readouts>
     <readout name="ForwardRomanPotHits">
-      <segmentation type="CartesianGridXY" grid_size_x="1.0*mm" grid_size_y="1.0*mm" />
+      <segmentation type="CartesianGridXY" grid_size_x="0.5*mm" grid_size_y="0.5*mm" />
       <id>system:8,barrel:3,layer:4,slice:4,x:32:-16,y:-16</id>  
     </readout>
   </readouts>
