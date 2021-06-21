@@ -26,35 +26,35 @@
       vis="AnlRed">
       
     <layer id="0" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
-    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-    <position x="942.2*mm" y="32*mm" z="26000*mm" />
+     <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+     <position x="942.2*mm" y="32*mm" z="26000*mm" />
     </layer>
     <layer id="1" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
-    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-    <position x="910.2*mm" y="32*mm" z="26000*mm" />
+     <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+     <position x="910.2*mm" y="32*mm" z="26000*mm" />
     </layer>
-    <layer id="2" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
-    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+     <layer id="2" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+     <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
     <position x="878.2*mm" y="35.5*mm" z="26000*mm" />
     </layer>
-    <layer id="3" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
-    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+     <layer id="3" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+     <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
     <position x="846.2*mm" y="35.5*mm" z="26000*mm" />
     </layer>
-    <layer id="4" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
-    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+     <layer id="4" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+     <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
     <position x="814.2*mm" y="35.5*mm" z="26000*mm" />
     </layer>
-    <layer id="5" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
-    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-    <position x="782.2*mm" y="35.5*mm" z="26000*mm" />
+     <layer id="5" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+     <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+     <position x="782.2*mm" y="35.5*mm" z="26000*mm" />
     </layer>
-    <layer id="6" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
-    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-    <position x="750.2*mm" y="32*mm" z="26000*mm" />
+     <layer id="6" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+     <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+     <position x="750.2*mm" y="32*mm" z="26000*mm" />
     </layer>
-    <layer id="7" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
-    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+     <layer id="7" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+     <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
     <position x="718.2*mm" y="32*mm" z="26000*mm" />
     </layer>
     <layer id="8" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
@@ -176,6 +176,9 @@
       </layer>
     </detector>
   </detectors>
+
+
+
 
   <readouts>
     <readout name="ForwardRomanPotHits">

@@ -23,8 +23,8 @@
 
     </comment>
     <constant name="B0Tracker_ID"          value="150"/>
-    <constant name="ForwardRomanPot_Station_1_layer_1_ID"   value="155"/>
-    <constant name="ForwardRomanPot_Station_1_layer_2_ID"   value="156"/>
+    <constant name="ForwardRomanPot_Station_1_ID"   value="155"/>
+    <constant name="ForwardRomanPot_Station_2_ID"   value="156"/>
     <constant name="ForwardRomanPotB_ID"   value="157"/>
     <constant name="ForwardRomanPotC_ID"   value="158"/>
     <constant name="ForwardOffMTracker_ID" value="159"/>
