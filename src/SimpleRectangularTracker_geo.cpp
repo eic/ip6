@@ -41,6 +41,8 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
     double     zmin       = 0;
     double     layerWidth = 0.;
     int        s_num      = 0;
+    xml::Component  pos_lay  = x_layer.position();
+
     for(xml_coll_t j(x_layer,_U(slice)); j; ++j)  {
       double thickness = xml_comp_t(j).thickness();
       layerWidth += thickness;
@@ -59,17 +61,17 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
         s_vol.setSensitiveDetector(sens);
       }
       s_vol.setAttributes(description, x_slice.regionStr(), x_slice.limitsStr(), x_slice.visStr());
-      pv = l_vol.placeVolume(s_vol, Position(0, 0, z - zmin - layerWidth / 2 + thick / 2));
+      pv = l_vol.placeVolume(s_vol, Position(pos_lay.x(),pos_lay.y(),pos_lay.z()));
       pv.addPhysVolID("slice", s_num);
     }
 
     DetElement layer(sdet,l_nam+"_pos",l_num);
-    pv = assembly.placeVolume(l_vol,Position(0,0,zmin+layerWidth/2.));
+    pv = assembly.placeVolume(l_vol,Position(pos_lay.x(),pos_lay.y(),pos_lay.z()));
     pv.addPhysVolID("layer",l_num);
     pv.addPhysVolID("barrel",1);
     layer.setPlacement(pv);
     if ( reflect )  {
-      pv = assembly.placeVolume(l_vol,Transform3D(RotationY(M_PI),Position(0,0,-zmin-layerWidth/2)));
+      pv = assembly.placeVolume(l_vol,Transform3D(RotationY(M_PI),Position(pos_lay.x(),pos_lay.y(),-pos_lay.z()));
       pv.addPhysVolID("layer",l_num);
       pv.addPhysVolID("barrel",2);
       DetElement layerR = layer.clone(l_nam+"_neg");
