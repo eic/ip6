@@ -71,7 +71,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
     pv.addPhysVolID("barrel",1);
     layer.setPlacement(pv);
     if ( reflect )  {
-      pv = assembly.placeVolume(l_vol,Transform3D(RotationY(M_PI),Position(pos_lay.x(),pos_lay.y(),-pos_lay.z()));
+      pv = assembly.placeVolume(l_vol,Transform3D(RotationY(M_PI),Position(pos_lay.x(),pos_lay.y(),-pos_lay.z())));
       pv.addPhysVolID("layer",l_num);
       pv.addPhysVolID("barrel",2);
       DetElement layerR = layer.clone(l_nam+"_neg");
