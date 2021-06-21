@@ -25,230 +25,135 @@
       reflect="false"
       vis="AnlRed">
       
-      <layer id="0
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="942.2*mm" y="32*mm" z="26000*mm" />
-      </layer>
-      <layer id="1
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="910.2*mm" y="32*mm" z="26000*mm" />
-      </layer>
-      <layer id="2
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="878.2*mm" y="35.5*mm" z="26000*mm" />
-      </layer>
-      <layer id="3
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="846.2*mm" y="35.5*mm" z="26000*mm" />
-      </layer>
-      <layer id="4
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="814.2*mm" y="35.5*mm" z="26000*mm" />
-      </layer>
-      <layer id="5
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="782.2*mm" y="35.5*mm" z="26000*mm" />
-      </layer>
-      <layer id="6
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="750.2*mm" y="32*mm" z="26000*mm" />
-      </layer>
-      <layer id="7
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="718.2*mm" y="32*mm" z="26000*mm" />
-      </layer>
-      <layer id="8
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="718.2*mm" y="-32*mm" z="26000*mm" />
-      </layer>
-      <layer id="9
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="750.2*mm" y="-32*mm" z="26000*mm" />
-      </layer>
-      <layer id="10
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="782.2*mm" y="-35.5*mm" z="26000*mm" />
-      </layer>
-      <layer id="11
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="814.2*mm" y="-35.5*mm" z="26000*mm" />
-      </layer>
-      <layer id="12
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="846.2*mm" y="-35.5*mm" z="26000*mm" />
-      </layer>
-      <layer id="13
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="878.2*mm" y="-35.5*mm" z="26000*mm" />
-      </layer>
-      <layer id="14
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="910.2*mm" y="-32*mm" z="26000*mm" />
-      </layer>
-      <layer id="15
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="942.2*mm" y="-32*mm" z="26000*mm" />
-      </layer>
-      <layer id="16
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="943.152*mm" y="32*mm" z="26020*mm" />
-      </layer>
-      <layer id="17
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="911.152*mm" y="32*mm" z="26020*mm" />
-      </layer>
-      <layer id="18
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="879.152*mm" y="35.5*mm" z="26020*mm" />
-      </layer>
-      <layer id="19
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="847.152*mm" y="35.5*mm" z="26020*mm" />
-      </layer>
-      <layer id="20
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="815.152*mm" y="35.5*mm" z="26020*mm" />
-      </layer>
-      <layer id="21
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="783.152*mm" y="35.5*mm" z="26020*mm" />
-      </layer>
-      <layer id="22
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="751.152*mm" y="32*mm" z="26020*mm" />
-      </layer>
-      <layer id="23
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="719.152*mm" y="32*mm" z="26020*mm" />
-      </layer>
-      <layer id="24
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="719.152*mm" y="-32*mm" z="26020*mm" />
-      </layer>
-      <layer id="25
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="751.152*mm" y="-32*mm" z="26020*mm" />
-      </layer>
-      <layer id="26
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="783.152*mm" y="-35.5*mm" z="26020*mm" />
-      </layer>
-      <layer id="27
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="815.152*mm" y="-35.5*mm" z="26020*mm" />
-      </layer>
-      <layer id="28
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="847.152*mm" y="-35.5*mm" z="26020*mm" />
-      </layer>
-      <layer id="29
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="879.152*mm" y="-35.5*mm" z="26020*mm" />
-      </layer>
-      <layer id="30
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="911.152*mm" y="-32*mm" z="26020*mm" />
-      </layer>
-      <layer id="31
-      vis="AnlBlue"
-      x="32.0*mm"
-      y="64.0*mm" >
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
-      <position x="943.152*mm" y="-32*mm" z="26020*mm" />
-      </layer>
+    <layer id="0" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="942.2*mm" y="32*mm" z="26000*mm" />
+    </layer>
+    <layer id="1" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="910.2*mm" y="32*mm" z="26000*mm" />
+    </layer>
+    <layer id="2" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="878.2*mm" y="35.5*mm" z="26000*mm" />
+    </layer>
+    <layer id="3" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="846.2*mm" y="35.5*mm" z="26000*mm" />
+    </layer>
+    <layer id="4" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="814.2*mm" y="35.5*mm" z="26000*mm" />
+    </layer>
+    <layer id="5" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="782.2*mm" y="35.5*mm" z="26000*mm" />
+    </layer>
+    <layer id="6" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="750.2*mm" y="32*mm" z="26000*mm" />
+    </layer>
+    <layer id="7" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="718.2*mm" y="32*mm" z="26000*mm" />
+    </layer>
+    <layer id="8" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="718.2*mm" y="-32*mm" z="26000*mm" />
+    </layer>
+    <layer id="9" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="750.2*mm" y="-32*mm" z="26000*mm" />
+    </layer>
+    <layer id="10" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="782.2*mm" y="-35.5*mm" z="26000*mm" />
+    </layer>
+    <layer id="11" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="814.2*mm" y="-35.5*mm" z="26000*mm" />
+    </layer>
+    <layer id="12" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="846.2*mm" y="-35.5*mm" z="26000*mm" />
+    </layer>
+    <layer id="13" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="878.2*mm" y="-35.5*mm" z="26000*mm" />
+    </layer>
+    <layer id="14" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="910.2*mm" y="-32*mm" z="26000*mm" />
+    </layer>
+    <layer id="15" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="942.2*mm" y="-32*mm" z="26000*mm" />
+    </layer>
+    <layer id="16" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="943.152*mm" y="32*mm" z="26020*mm" />
+    </layer>
+    <layer id="17" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="911.152*mm" y="32*mm" z="26020*mm" />
+    </layer>
+    <layer id="18" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="879.152*mm" y="35.5*mm" z="26020*mm" />
+    </layer>
+    <layer id="19" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="847.152*mm" y="35.5*mm" z="26020*mm" />
+    </layer>
+    <layer id="20" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="815.152*mm" y="35.5*mm" z="26020*mm" />
+    </layer>
+    <layer id="21" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="783.152*mm" y="35.5*mm" z="26020*mm" />
+    </layer>
+    <layer id="22" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="751.152*mm" y="32*mm" z="26020*mm" />
+    </layer>
+    <layer id="23" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="719.152*mm" y="32*mm" z="26020*mm" />
+    </layer>
+    <layer id="24" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="719.152*mm" y="-32*mm" z="26020*mm" />
+    </layer>
+    <layer id="25" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="751.152*mm" y="-32*mm" z="26020*mm" />
+    </layer>
+    <layer id="26" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="783.152*mm" y="-35.5*mm" z="26020*mm" />
+    </layer>
+    <layer id="27" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="815.152*mm" y="-35.5*mm" z="26020*mm" />
+    </layer>
+    <layer id="28" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="847.152*mm" y="-35.5*mm" z="26020*mm" />
+    </layer>
+    <layer id="29" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="879.152*mm" y="-35.5*mm" z="26020*mm" />
+    </layer>
+    <layer id="30" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="911.152*mm" y="-32*mm" z="26020*mm" />
+    </layer>
+    <layer id="31" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
+    <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
+    <position x="943.152*mm" y="-32*mm" z="26020*mm" />
+    </layer>
+
         
     </detector>
     <detector 
