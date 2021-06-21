@@ -25,6 +25,8 @@
       reflect="false"
       vis="AnlRed">
       
+    <position x="942.2*mm" y="0" z="26000*mm" />
+
     <layer id="0" vis="AnlBlue" x="32.0*mm" y="64.0*mm" >
      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
      <position x="942.2*mm" y="32*mm" z="26000*mm" />
