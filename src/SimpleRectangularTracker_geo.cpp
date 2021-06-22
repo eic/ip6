@@ -41,8 +41,6 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
     double     zmin       = 0;
     double     layerWidth = 0.;
     int        s_num      = 0;
-    xml::Component  pos_lay  = x_layer.position();
-
     for(xml_coll_t j(x_layer,_U(slice)); j; ++j)  {
       double thickness = xml_comp_t(j).thickness();
       layerWidth += thickness;
@@ -50,6 +48,8 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
     Box    l_box(x_lay/2.0, y_lay/2.0, layerWidth/2.0 );
     Volume l_vol(l_nam, l_box, air);
     l_vol.setVisAttributes(description, x_layer.visStr());
+    
+    
     for (xml_coll_t j(x_layer, _U(slice)); j; ++j, ++s_num) {
       xml_comp_t x_slice = j;
       double     thick   = x_slice.thickness();
@@ -61,17 +61,33 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
         s_vol.setSensitiveDetector(sens);
       }
       s_vol.setAttributes(description, x_slice.regionStr(), x_slice.limitsStr(), x_slice.visStr());
-      pv = l_vol.placeVolume(s_vol, Position(pos_lay.x(),pos_lay.y(),pos_lay.z()));
+      pv = l_vol.placeVolume(s_vol, Position(0, 0, z - zmin - layerWidth / 2 + thick / 2));
       pv.addPhysVolID("slice", s_num);
     }
 
+    for (xml_coll_t j(x_layer, _U(module)); j; ++j, ++m_num) {
+      xml_comp_t x_module = j;
+      double     thick   = x_module.thickness();
+      Material   mat     = description.material(x_module.materialStr());
+      string     m_nam   = l_nam + _toString(m_num, "_module%d");
+      Volume     m_vol(m_nam, Box(x_lay/2.0, y_lay/2.0, thick/2.0), mat);
+      xml::Component  m_pos  = x_module.position();
+
+
+      m_vol.setAttributes(description, x_module.regionStr(), x_module.limitsStr(), x_module.visStr());
+      pv = l_vol.placeVolume(m_vol, Position(m_pos.x(), m_pos.y(), m_pos.y()));
+      pv.addPhysVolID("module", m_num);
+    }
+
+
+
     DetElement layer(sdet,l_nam+"_pos",l_num);
-    pv = assembly.placeVolume(l_vol,Position(pos_lay.x(),pos_lay.y(),pos_lay.z()));
+    pv = assembly.placeVolume(l_vol,Position(0,0,zmin+layerWidth/2.));
     pv.addPhysVolID("layer",l_num);
     pv.addPhysVolID("barrel",1);
     layer.setPlacement(pv);
     if ( reflect )  {
-      pv = assembly.placeVolume(l_vol,Transform3D(RotationY(M_PI),Position(pos_lay.x(),pos_lay.y(),-pos_lay.z())));
+      pv = assembly.placeVolume(l_vol,Transform3D(RotationY(M_PI),Position(0,0,-zmin-layerWidth/2)));
       pv.addPhysVolID("layer",l_num);
       pv.addPhysVolID("barrel",2);
       DetElement layerR = layer.clone(l_nam+"_neg");
