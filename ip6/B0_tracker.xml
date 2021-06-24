@@ -18,7 +18,7 @@
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
-      <position x="800*mm" y="0" z="B0Tracker_zpos"/>
+      <position x="400*mm" y="0" z="B0Tracker_zpos"/>
       <layer id="1" 
         vis="AnlBlue"
         x="15.0*cm" 
