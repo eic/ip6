@@ -28,38 +28,15 @@
     <position x="942.2*mm" y="0" z="26000*mm" />
 
     <layer id="1" x="32.0*mm" y="64.0*mm">
-    <module name="Module1" vis="AnlYellow">
-      <position x="50*mm" y="0" z="0"/>
-      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
-    </module>
-
+      <module name="Module1" vis="AnlYellow">
+        <position x="50*mm" y="0" z="0"/>
+        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
+      </module>
     </layer>
 
-        
     </detector>
     
     
-    
-    
-    <detector 
-      id="ForwardRomanPotB_ID"
-      name="ForwardRomanPotB"
-      readout="ForwardRomanPotHits" 
-      type="ip6_RectangularTracker"
-      insideTrackingVolume="true"
-      reflect="false"
-      vis="AnlRed">
-      <position x="ForwardRomanPotB_xpos" y="0" z="ForwardRomanPotB_zpos"/>
-      <layer id="1" 
-        vis="AnlBlue"
-        x="20.0*cm" 
-        y="10.0*cm" >
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
-      </layer>
-    </detector>
   </detectors>
 
 
