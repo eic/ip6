@@ -32,6 +32,18 @@
         <position x="50*mm" y="0" z="0"/>
         <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
       </module>
+      <module name="Module2" vis="AnlYellow" x="32.0*mm" y="64.0*mm">
+        <position x="67*mm" y="0" z="0"/>
+        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
+      </module>
+      <module name="Module3" vis="AnlYellow" x="32.0*mm" y="64.0*mm">
+        <position x="-50*mm" y="0" z="0"/>
+        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
+      </module>
+      <module name="Module4" vis="AnlYellow" x="32.0*mm" y="64.0*mm">
+        <position x="-67*mm" y="0" z="0"/>
+        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
+      </module>
     </layer>
 
     </detector>
