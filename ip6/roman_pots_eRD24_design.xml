@@ -30,6 +30,7 @@
     <layer id="1", x="32.0*mm", y="64.0*mm">
     <module name="Module1" vis="AnlYellow">
       <position x="50*mm", y="0", z="0"/>
+      <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
     </module>
 
     </layer>
