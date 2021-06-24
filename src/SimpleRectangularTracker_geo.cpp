@@ -55,7 +55,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
       string     m_nam   = l_nam + _toString(m_num, "_module%d");
       double     x_mod      = x_module.x();
       double     y_mod      = x_module.y();
-      Volume     m_vol(m_nam, Box(x_mod/2.0, y_mod/2.0, thick/2.0), mat);
+      Volume     m_vol(m_nam, Box(x_mod/2.0, y_mod/2.0, layerWidth/2.0), mat);
       xml::Component  m_pos  = x_module.position();
       int         s_num      = 0;
 
