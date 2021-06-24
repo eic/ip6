@@ -69,12 +69,12 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
          s_vol.setSensitiveDetector(sens);
         }
         s_vol.setAttributes(description, x_slice.regionStr(), x_slice.limitsStr(), x_slice.visStr());
-        pv = s_vol.placeVolume(s_vol, Position(0, 0, z - zmin - layerWidth / 2 + thick / 2));
+        pv = m_vol.placeVolume(s_vol, Position(0, 0, z - zmin - layerWidth / 2 + thick / 2));
         pv.addPhysVolID("slice", s_num);
       }
 
       m_vol.setAttributes(description, x_module.regionStr(), x_module.limitsStr(), x_module.visStr());
-      pv = m_vol.placeVolume(m_vol, Position(m_pos.x(), m_pos.y(), m_pos.y()));
+      pv = l_vol.placeVolume(m_vol, Position(m_pos.x(), m_pos.y(), m_pos.y()));
       pv.addPhysVolID("module", m_num);
     }
     
