@@ -51,7 +51,6 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
     
     for (xml_coll_t j(x_layer, _U(module)); j; ++j, ++m_num) {
       xml_comp_t x_module = j;
-      Material   mat     = description.material(x_module.materialStr());
       string     m_nam   = l_nam + _toString(m_num, "_module%d");
       double     x_mod      = x_module.x();
       double     y_mod      = x_module.y();
