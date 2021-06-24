@@ -27,8 +27,8 @@
       
     <position x="942.2*mm" y="0" z="26000*mm" />
 
-    <layer id="1" x="32.0*mm" y="64.0*mm">
-      <module name="Module1" vis="AnlYellow">
+    <layer id="1" x="8*32.0*mm" y="2*64.0*mm">
+      <module name="Module1" vis="AnlYellow" x="32.0*mm" y="64.0*mm">
         <position x="50*mm" y="0" z="0"/>
         <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
       </module>
