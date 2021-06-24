@@ -30,19 +30,19 @@
     <layer id="1" x="250.0*mm" y="130.0*mm">
       <module name="Module1" vis="AnlYellow" x="32.0*mm" y="64.0*mm">
         <position x="958.2*mm" y="0" z="26000*mm"/>
-        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
+        <slice material="SiliconOxide" thickness="0.3*mm" sensitive="true" />
       </module>
       <module name="Module2" vis="AnlYellow" x="32.0*mm" y="64.0*mm">
         <position x="975.2*mm" y="0" z="26000*mm"/>
-        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
+        <slice material="SiliconOxide" thickness="0.3*mm" sensitive="true" />
       </module>
       <module name="Module3" vis="AnlYellow" x="32.0*mm" y="64.0*mm">
         <position x="925.2*mm" y="0" z="26000*mm"/>
-        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
+        <slice material="SiliconOxide" thickness="0.3*mm" sensitive="true" />
       </module>
       <module name="Module4" vis="AnlYellow" x="32.0*mm" y="64.0*mm">
         <position x="908.2*mm" y="0" z="26000*mm"/>
-        <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlBlue" sensitive="true" />
+        <slice material="SiliconOxide" thickness="0.3*mm" sensitive="true" />
       </module>
     </layer>
 
