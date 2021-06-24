@@ -21,20 +21,14 @@
       <position x="0" y="0" z="B0Tracker_zpos"/>
       <layer id="1" 
         vis="AnlBlue"
-        x="20.0*cm" 
-        y="10.0*cm" >
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+        x="15.0*cm" 
+        y="5.0*cm" >
         <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
       <layer id="2" 
         vis="AnlBlue"
-        x="20.0*cm" 
-        y="10.0*cm" >
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+        x="15.0*cm" 
+        y="5.0*cm" >
         <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
 
