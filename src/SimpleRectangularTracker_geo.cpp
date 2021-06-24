@@ -40,7 +40,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
     double     z          = 0;
     double     zmin       = 0;
     double     layerWidth = 0.;
-    int        s_num      = 0;
+    int        m_num      = 0;
     for(xml_coll_t j(x_layer,_U(slice)); j; ++j)  {
       double thickness = xml_comp_t(j).thickness();
       layerWidth += thickness;
@@ -56,6 +56,8 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
       string     m_nam   = l_nam + _toString(m_num, "_module%d");
       Volume     m_vol(m_nam, Box(x_lay/2.0, y_lay/2.0, thick/2.0), mat);
       xml::Component  m_pos  = x_module.position();
+      int        s_num      = 0;
+
 
       for (xml_coll_t j(x_module, _U(slice)); j; ++j, ++s_num) {
         xml_comp_t x_slice = j;
