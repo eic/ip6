@@ -15,7 +15,7 @@
       =====================================
   </comment>
   <detectors>
-    <detector id="170" name="B0PF_BeamlineMagnet" type="B0pFMag">
+    <detector id="170" name="B0PF_BeamlineMagnet" type="CylindricalDipoleMagnet">
       <placement x="B0PF_XPosition" y="0*m" z="B0PF_CenterPosition" theta="B0PF_RotationAngle" />
       <dimensions x="1.4*m" y="0.8*m" z="B0PF_Length" />
       <apperture x="0.5*m" y="0.2*m" />
