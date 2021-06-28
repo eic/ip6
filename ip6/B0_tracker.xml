@@ -18,18 +18,18 @@
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
-      <position x="100*mm" y="0" z="B0Tracker_zpos"/>
+      <position x="150*mm" y="0" z="5900*mm"/>
       <layer id="1" 
         vis="AnlBlue"
-        x="15.0*cm" 
-        y="5.0*cm" >
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+        x="10.0*cm" 
+        y="3.0*cm" >
+        <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
       <layer id="2" 
         vis="AnlBlue"
-        x="15.0*cm" 
-        y="5.0*cm" >
-        <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+        x="10.0*cm" 
+        y="3.0*cm" >
+        <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
 
     </detector>
