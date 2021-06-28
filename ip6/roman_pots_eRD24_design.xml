@@ -26,31 +26,31 @@
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
-    <position x="942.2*mm" y="0" z="26000*mm" />
+    <position x="842.2*mm" y="0" z="26000*mm" />
     <module name="Module1" vis="AnlYellow" nx="2" ny="2" width="32.0*mm" height="32.0*mm">
       <module_component material="SiliconOxide" thickness="301.0*um" sensitive="true"/>
       <module_component material="Copper"       thickness="20.0*um"  />
     </module>
     <module_assembly name="Station1Top">
       <array nx=2 ny=2 module="Module1" width="6.4*cm" height="6.4*cm">
-        <position x="12.8*cm/2.0 + 6.4*cm/2.0" y="6*cm"/>
+        <position x="12.8*cm/2.0 + 6.4*cm/2.0" y="4*cm"/>
       </array>
       <array nx=2 ny=2 module="Module1" width="6.4*cm" height="6.4*cm">
-        <position x="-(12.8*cm/2.0 + 6.4*cm/2.0)" y="6*cm"/>
+        <position x="-(12.8*cm/2.0 + 6.4*cm/2.0)" y="4*cm"/>
       </array>
       <array nx=4 ny=2 module="Module1" width="12.8*cm" height="6.4*cm"> 
-        <position x="0" y="10*cm"/>
+        <position x="0" y="6*cm"/>
       </array>
     </module_assembly>
     <module_assembly name="Station1Bottom">
       <array nx=2 ny=2 module="Module1" width="6.4*cm" height="6.4*cm"> 
-        <position x="12.8*cm/2.0 + 6.4*cm/2.0" y="-6*cm"/>
+        <position x="12.8*cm/2.0 + 6.4*cm/2.0" y="-4*cm"/>
       </array>
       <array nx=2 ny=2 module="Module1" width="6.4*cm" height="6.4*cm"> 
-        <position x="-(12.8*cm/2.0 + 6.4*cm/2.0)" y="-6*cm"/>
+        <position x="-(12.8*cm/2.0 + 6.4*cm/2.0)" y="-4*cm"/>
       </array>
       <array nx=4 ny=2 module="Module1" width="12.8*cm" height="6.4*cm"> 
-        <position x="0" y="-10*cm"/>
+        <position x="0" y="-6*cm"/>
       </array>
     </module_assembly>
 
