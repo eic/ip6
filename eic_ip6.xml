@@ -27,9 +27,12 @@
     <constant name="ForwardRomanPot_Station_2_ID"   value="156"/>
     <constant name="ForwardRomanPotB_ID"   value="157"/>
     <constant name="ForwardRomanPotC_ID"   value="158"/>
-    <constant name="ForwardOffMTracker_ID" value="159"/>
-    <constant name="ffi_ZDC_ECAL_ID"       value="160"/>
-    <constant name="ffi_ZDC_HCAL_ID"       value="161"/>
+    <constant name="ForwardOffMTracker_station_1_ID" value="159"/>
+    <constant name="ForwardOffMTracker_station_2_ID" value="160"/>
+	<constant name="ForwardOffMTracker_station_3_ID" value="161"/>
+	<constant name="ForwardOffMTracker_station_4_ID" value="162"/>
+	<constant name="ffi_ZDC_ECAL_ID"       value="163"/>
+    <constant name="ffi_ZDC_HCAL_ID"       value="164"/>
 
     <comment> 
       =====================================
