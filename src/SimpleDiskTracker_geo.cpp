@@ -33,6 +33,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   PlacedVolume   pv;
   int            l_num = 0;
   xml::Component pos   = x_det.position();
+  xml::Component rot   = x_det.rotation();
 
   Acts::ActsExtension* detWorldExt = new Acts::ActsExtension();
   detWorldExt->addType("endcap", "detector");
@@ -120,7 +121,9 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   if (x_det.hasAttr(_U(combineHits))) {
     sdet.setCombineHits(x_det.attr<bool>(_U(combineHits)), sens);
   }
-  pv = description.pickMotherVolume(sdet).placeVolume(assembly, Position(pos.x(), pos.y(), pos.z()));
+  Transform3D posAndRot(RotationZYX(rot.z(), -rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));
+  //pv = description.pickMotherVolume(sdet).placeVolume(assembly, Position(pos.x(), pos.y(), pos.z()));
+  pv = description.pickMotherVolume(sdet).placeVolume(assembly, posAndRot);
   pv.addPhysVolID("system", x_det.id()); // Set the subdetector system ID.
   sdet.setPlacement(pv);
   return sdet;

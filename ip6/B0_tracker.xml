@@ -19,6 +19,7 @@
       reflect="false"
       vis="AnlRed">
       <position x="150*mm" y="0" z="5400*mm"/>
+	  <rotation x="0*rad" y="0.025*rad" z="0*rad"/>
       <layer id="1" 
         vis="AnlBlue"
 		inner_z="1.0*cm"
@@ -39,6 +40,7 @@
       reflect="false"
       vis="AnlRed">
       <position x="150*mm" y="0" z="5700*mm"/>
+	  <rotation x="0*rad" y="0.025*rad" z="0*rad"/>
       <layer id="1"
         vis="AnlBlue"
         inner_z="1.0*cm"
@@ -59,6 +61,7 @@
       reflect="false"
       vis="AnlRed">
       <position x="150*mm" y="0" z="6000*mm"/>
+	  <rotation x="0*rad" y="0.025*rad" z="0*rad"/>
       <layer id="1"
         vis="AnlBlue"
         inner_z="1.0*cm"
@@ -80,6 +83,7 @@
       reflect="false"
       vis="AnlRed">
       <position x="150*mm" y="0" z="6200*mm"/>
+      <rotation x="0*rad" y="0.025*rad" z="0*rad"/>
       <layer id="1"
         vis="AnlBlue"
         inner_z="1.0*cm"
