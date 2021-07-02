@@ -22,7 +22,8 @@
       <layer id="1" 
         vis="AnlBlue"
         rmin="3.5*cm" 
-        rmax="10.0*cm" >
+        rmax="10.0*cm" 
+		zmin="1.0*cm>
         <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
       
