@@ -22,7 +22,7 @@
       Zero Degree Cal. Hcal ID: 161
 
     </comment>
-    <constant name="B0Tracker_ID"          value="150"/>
+    <constant name="B0Tracker_Station_1_ID"          value="150"/>
     <constant name="ForwardRomanPot_Station_1_ID"   value="155"/>
     <constant name="ForwardRomanPot_Station_2_ID"   value="156"/>
     <constant name="ForwardRomanPotB_ID"   value="157"/>
