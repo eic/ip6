@@ -53,10 +53,10 @@
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
-      <position x="1300.0*mm" y="0" z="34000*mm"/>
+      <position x="1400.0*mm" y="0" z="34000*mm"/>
       <layer id="1"
         vis="AnlViolet"
-        x="40.0*cm"
+        x="30.0*cm"
         y="20.0*cm" >
         <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
       </layer>
@@ -70,10 +70,10 @@
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed"> 
-      <position x="1350.0*mm" y="0" z="36000*mm"/>
+      <position x="1450.0*mm" y="0" z="36000*mm"/>
       <layer id="1"
         vis="AnlViolet"
-        x="40.0*cm"
+        x="30.0*cm"
         y="20.0*cm" >
         <slice material="SiliconOxide" thickness="0.3*mm" vis="AnlYellow" sensitive="true" />
       </layer>
