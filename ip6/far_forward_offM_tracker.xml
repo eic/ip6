@@ -53,7 +53,7 @@
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
-      <position x="1200.0*mm" y="0" z="34000*mm"/>
+      <position x="1300.0*mm" y="0" z="34000*mm"/>
       <layer id="1"
         vis="AnlViolet"
         x="40.0*cm"
@@ -70,7 +70,7 @@
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed"> 
-      <position x="1250.0*mm" y="0" z="36000*mm"/>
+      <position x="1350.0*mm" y="0" z="36000*mm"/>
       <layer id="1"
         vis="AnlViolet"
         x="40.0*cm"
