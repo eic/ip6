@@ -21,9 +21,9 @@
       <position x="150*mm" y="0" z="5300*mm"/>
       <layer id="1" 
         vis="AnlBlue"
-		zmin="1.0*cm"
-        rmin="3.5*cm" 
-        rmax="10.0*cm">
+		inner_z="1.0*cm"
+        inner_r="3.5*cm" 
+        outer_r="10.0*cm">
         <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
       
