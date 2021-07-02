@@ -18,17 +18,82 @@
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
-      <position x="150*mm" y="0" z="5300*mm"/>
+      <position x="150*mm" y="0" z="5400*mm"/>
       <layer id="1" 
         vis="AnlBlue"
 		inner_z="1.0*cm"
         inner_r="3.5*cm" 
-        outer_r="10.0*cm">
+        outer_r="15.0*cm">
         <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
       
 
     </detector>
+
+  <detector
+      id="B0Tracker_Station_2_ID"
+      name="B0Tracker_Station_2"
+      readout="B0TrackerHits"
+      type="ip6_SimpleDiskTracker"
+      insideTrackingVolume="true"
+      reflect="false"
+      vis="AnlRed">
+      <position x="150*mm" y="0" z="5700*mm"/>
+      <layer id="1"
+        vis="AnlBlue"
+        inner_z="1.0*cm"
+        inner_r="3.5*cm"
+        outer_r="15.0*cm">
+        <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+      </layer>
+
+
+    </detector>
+
+	<detector
+      id="B0Tracker_Station_3_ID"
+      name="B0Tracker_Station_3"
+      readout="B0TrackerHits"
+      type="ip6_SimpleDiskTracker"
+      insideTrackingVolume="true"
+      reflect="false"
+      vis="AnlRed">
+      <position x="150*mm" y="0" z="6000*mm"/>
+      <layer id="1"
+        vis="AnlBlue"
+        inner_z="1.0*cm"
+        inner_r="3.5*cm"
+        outer_r="15.0*cm">
+        <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+      </layer>
+
+
+    </detector>
+
+
+	<detector
+      id="B0Tracker_Station_4_ID"
+      name="B0Tracker_Station_4"
+      readout="B0TrackerHits"
+      type="ip6_SimpleDiskTracker"
+      insideTrackingVolume="true"
+      reflect="false"
+      vis="AnlRed">
+      <position x="150*mm" y="0" z="6200*mm"/>
+      <layer id="1"
+        vis="AnlBlue"
+        inner_z="1.0*cm"
+        inner_r="3.5*cm"
+        outer_r="15.0*cm">
+        <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+      </layer>
+
+
+    </detector>
+
+
+
+
   </detectors>
 
   <readouts>
