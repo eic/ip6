@@ -121,7 +121,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   if (x_det.hasAttr(_U(combineHits))) {
     sdet.setCombineHits(x_det.attr<bool>(_U(combineHits)), sens);
   }
-  Transform3D posAndRot(RotationZYX(rot.z(), -rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));
+  Transform3D posAndRot(RotationZYX(rot.z(), rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));
   //pv = description.pickMotherVolume(sdet).placeVolume(assembly, Position(pos.x(), pos.y(), pos.z()));
   pv = description.pickMotherVolume(sdet).placeVolume(assembly, posAndRot);
   pv.addPhysVolID("system", x_det.id()); // Set the subdetector system ID.

@@ -27,6 +27,7 @@
       reflect="false"
       vis="AnlRed">
     <position x="842.2*mm" y="0" z="26000*mm" />
+	<rotation x="0" y="0.047*rad" z="0" />
     <module name="Module1" vis="AnlYellow" nx="2" ny="2" width="32.0*mm" height="32.0*mm">
       <module_component material="SiliconOxide" thickness="301.0*um" sensitive="true"/>
       <module_component material="Copper"       thickness="20.0*um"  />
@@ -84,6 +85,7 @@
       reflect="false"
       vis="AnlRed">
     <position x="900.2*mm" y="0" z="28000*mm" />
+	<rotation x="0" y="0.047*rad" z="0" />
     <module name="Module1" vis="AnlYellow" nx="2" ny="2" width="32.0*mm" height="32.0*mm">
       <module_component material="SiliconOxide" thickness="301.0*um" sensitive="true"/>
       <module_component material="Copper"       thickness="20.0*um"  />
