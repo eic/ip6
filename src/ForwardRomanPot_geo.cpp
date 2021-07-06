@@ -13,7 +13,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   Material       vacuum   = description.vacuum();
   string         det_name = x_det.nameStr();
   xml::Component pos      = x_det.position();
-  xml::Componetn rot      = x_det.rotation();
+  xml::Component rot      = x_det.rotation();
   DetElement     sdet(det_name, x_det.id());
   Assembly       assembly(det_name);
 
