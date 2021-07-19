@@ -56,7 +56,7 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
     
   Tube b0_hadron_tube(b0_hadron_tube_inner_r, b0_hadron_tube_outer_r, b0_hadron_tube_length/2.0);
   
-  Volume v_b0_hadron_tube("b0_hadron_tube", b0_hadron_tube, m_Be);
+  Volume v_b0_hadron_tube("v_b0_hadron_tube", b0_hadron_tube, m_Be);
 
   //v_upstream_IP_tube.setVisAttributes(det,"GrayVis");
   //v_downstream_IP_tube.setVisAttributes(det,"RedVis");
