@@ -45,8 +45,8 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
     double     zmin       = x_layer.inner_z();
     double     rmin       = x_layer.inner_r();
     double     rmax       = x_layer.outer_r();
-	double	   phiStart   = x_layer.phi_start();
-	double     phiEnd     = x_layer.phi_end();
+	double	   phiStart   = x_layer.phi1();
+	double     phiEnd     = x_layer.phi2();
     double     z          = zmin;
     double     layerWidth = 0.;
     int        s_num      = 0;

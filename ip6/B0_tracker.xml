@@ -25,8 +25,8 @@
 		inner_z="1.0*cm"
         inner_r="3.5*cm" 
         outer_r="15.0*cm"
-		phi_start="0.0*rad"
-		phi_end="3.14*rad">
+		phi1="0.0*rad"
+		phi2="3.14*rad">
         <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
       
@@ -48,8 +48,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm"
         outer_r="15.0*cm"
-		phi_start="0.0*rad"
-        phi_end="3.14*rad">
+		phi1="0.0*rad"
+        phi2="3.14*rad">
         <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
 
@@ -71,8 +71,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm"
         outer_r="15.0*cm"
-		phi_start="0.0*rad"
-        phi_end="3.14*rad">
+		phi1="0.0*rad"
+        phi2="3.14*rad">
         <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
 
@@ -95,8 +95,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm"
         outer_r="15.0*cm"
-		phi_start="0.0*rad"
-        phi_end="3.14*rad">
+		phi1="0.0*rad"
+        phi2="3.14*rad">
         <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
 
