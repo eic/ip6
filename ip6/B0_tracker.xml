@@ -63,6 +63,15 @@
         <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
 
+	  <layer id="2"
+        vis="AnlBlue"
+        inner_z="1.0*cm"
+        inner_r="3.5*cm"
+        outer_r="8.0*cm"
+        phi1="0.8*Pi*rad"
+        phi2="-0.8*Pi*rad">
+        <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+      </layer>
 
     </detector>
 
@@ -83,6 +92,16 @@
         outer_r="15.0*cm"
 		phi1="-0.8*Pi*rad"
         phi2="0.8*Pi*rad">
+        <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+      </layer>
+
+	  <layer id="2"
+        vis="AnlBlue"
+        inner_z="1.0*cm"
+        inner_r="3.5*cm"
+        outer_r="8.0*cm"
+        phi1="0.8*Pi*rad"
+        phi2="-0.8*Pi*rad">
         <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
 
@@ -107,6 +126,16 @@
         outer_r="15.0*cm"
 		phi1="-0.8*Pi*rad"
         phi2="0.8*Pi*rad">
+        <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
+      </layer>
+
+	  <layer id="2"
+        vis="AnlBlue"
+        inner_z="1.0*cm"
+        inner_r="3.5*cm"
+        outer_r="8.0*cm"
+        phi1="0.8*Pi*rad"
+        phi2="-0.8*Pi*rad">
         <slice material="SiliconOxide" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
 
