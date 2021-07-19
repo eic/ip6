@@ -73,7 +73,7 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
   Transform3D posAndRot(RotationZYX(rot.z(), rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));
   
   auto pv_assembly = det.pickMotherVolume(sdet).placeVolume(assembly, posAndRot);
-  pv_assembly.addPhysVolID("system",sdet.id()).addPhysVolID("barrel",1);
+  pv_assembly.addPhysVolID("system",sdet.id());
   sdet.setPlacement(pv_assembly);
   assembly->GetShape()->ComputeBBox() ;
   return sdet;
