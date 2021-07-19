@@ -99,7 +99,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
       double     thick   = x_slice.thickness();
       Material   mat     = description.material(x_slice.materialStr());
       string     s_nam   = l_nam + _toString(s_num, "_slice%d");
-      Volume     s_vol(s_nam, Tube(rmin, rmax, thick/2.0), mat);
+      Volume     s_vol(s_nam, Tube(rmin, rmax, thick/2.0, phiStart, phiEnd), mat);
       if(!reflect){
         s_nam += "_pos";
       } else {
