@@ -45,6 +45,8 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
     double     zmin       = x_layer.inner_z();
     double     rmin       = x_layer.inner_r();
     double     rmax       = x_layer.outer_r();
+	double	   phiStart   = x_layer.phi_start();
+	double     phiEnd     = x_layer.phi_end();
     double     z          = zmin;
     double     layerWidth = 0.;
     int        s_num      = 0;
@@ -53,8 +55,9 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
       double thickness = xml_comp_t(j).thickness();
       layerWidth += thickness;
     }
-    Tube   l_tub(rmin, rmax, layerWidth/2.0, 2 * M_PI);
-    Volume l_vol(l_nam, l_tub, air);
+    //Tube   l_tub(rmin, rmax, layerWidth/2.0, 2 * M_PI);
+    Tube l_tub(rmin, rmax, layerWidth/2.0, phiStart, phiEnd);
+	Volume l_vol(l_nam, l_tub, air);
     l_vol.setVisAttributes(description, x_layer.visStr());
     DetElement layer;
     PlacedVolume layer_pv;
