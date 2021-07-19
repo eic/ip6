@@ -42,6 +42,8 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
   Material   m_SS    = det.material("StainlessSteel");
   string     vis_name  = x_det.visStr();
 
+  PlacedVolume pv_assembly;
+
   xml::Component pos   = x_det.position();
   xml::Component rot   = x_det.rotation();
     
@@ -72,8 +74,8 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
 
   Transform3D posAndRot(RotationZYX(rot.z(), rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));
   
-  auto pv_assembly = det.pickMotherVolume(sdet).placeVolume(assembly, posAndRot);
-  pv_assembly.addPhysVolID("system",sdet.id());
+  pv_assembly = det.pickMotherVolume(sdet).placeVolume(assembly, posAndRot);
+  pv_assembly.addPhysVolID("system",x_det.id());
   sdet.setPlacement(pv_assembly);
   assembly->GetShape()->ComputeBBox() ;
   return sdet;
