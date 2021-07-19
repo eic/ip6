@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lccdd>
+  <define>
+  </define>
+
+  <display>
+  </display>
+
+  <detectors>
+
+    <detector id="BeamPipeB0_ID" name="BeamPipeB0" type="handronDownstreamBeamPipe" vis="BeamPipeVis"> 
+      <position x="148.0*mm" y="0*mm" z="5900.0*mm" />
+    </detector>
+
+  </detectors>
+
+
+</lccdd>
