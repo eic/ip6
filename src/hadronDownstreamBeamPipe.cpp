@@ -69,8 +69,10 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
   //                            IP_beampipe_ID / 2.0 + upstream_delta_r,
   //                            IP_beampipe_OD / 2.0+ upstream_delta_r  + IP_beampipe_thickness);
   
+
+  Transform3D posAndRot(RotationZYX(rot.z(), rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));
   
-  auto pv_assembly = det.pickMotherVolume(sdet).placeVolume(assembly);
+  auto pv_assembly = det.pickMotherVolume(sdet).placeVolume(assembly, posAndRot);
   pv_assembly.addPhysVolID("system",sdet.id()).addPhysVolID("barrel",1);
   sdet.setPlacement(pv_assembly);
   assembly->GetShape()->ComputeBBox() ;
