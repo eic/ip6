@@ -19,8 +19,11 @@
 	<constant name="B0Tracker_Station_4_xpos" value="-0.15249974*m" />
     <constant name="B0Tracker_Station_4_zpos" value="6.0*m" />
 
-	<constant name="B0Tracker_disc_phi1" value="0.2*Pi*rad" />
-    <constant name="B0Tracker_disc_phi2" value="0.2*Pi*rad" />
+	<constant name="B0Tracker_big_disc_phi1" value="0.2*Pi*rad" />
+    <constant name="B0Tracker_big_disc_phi2" value="-0.2*Pi*rad" />
+
+	<constant name="B0Tracker_small_disc_phi1" value="-0.2*Pi*rad" />
+    <constant name="B0Tracker_small_disc_phi2" value="0.2*Pi*rad" />
 
   </define>
 
@@ -38,8 +41,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm" 
         outer_r="15.0*cm"
-        phi1="-B0Tracker_disc_phi1"
-        phi2="B0Tracker_disc_phi2">
+        phi1="B0Tracker_big_disc_phi1"
+        phi2="B0Tracker_big_disc_phi2">
         <slice material="SiliconOxide" thickness="0.3*mm" vis="OrangeVis" sensitive="true" />
       </layer>
 		
@@ -48,8 +51,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm"
         outer_r="10.0*cm"
-        phi1="B0Tracker_disc_phi1"
-        phi2="-B0Tracker_disc_phi2">
+        phi1="B0Tracker_small_disc_phi1"
+        phi2="B0Tracker_small_disc_phi2">
         <slice material="SiliconOxide" thickness="0.3*mm" vis="OrangeVis" sensitive="true" />
       </layer>      
     </detector>
@@ -69,8 +72,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm"
         outer_r="15.0*cm"
-		phi1="-B0Tracker_disc_phi1"
-        phi2="B0Tracker_disc_phi2">
+		phi1="B0Tracker_big_disc_phi1"
+        phi2="B0Tracker_big_disc_phi2">
         <slice material="SiliconOxide" thickness="0.3*mm" vis="OrangeVis" sensitive="true" />
       </layer>
 
@@ -79,8 +82,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm"
         outer_r="11.0*cm"
-        phi1="B0Tracker_disc_phi1"
-        phi2="-B0Tracker_disc_phi2">
+        phi1="B0Tracker_small_disc_phi1"
+        phi2="B0Tracker_small_disc_phi2">
         <slice material="SiliconOxide" thickness="0.3*mm" vis="OrangeVis" sensitive="true" />
       </layer>
 
@@ -101,8 +104,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm"
         outer_r="15.0*cm"
-		phi1="-B0Tracker_disc_phi1"
-        phi2="B0Tracker_disc_phi2">
+		phi1="B0Tracker_big_disc_phi1"
+        phi2="B0Tracker_big_disc_phi2">
         <slice material="SiliconOxide" thickness="0.3*mm" vis="OrangeVis" sensitive="true" />
       </layer>
 
@@ -111,8 +114,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm"
         outer_r="11.0*cm"
-        phi1="B0Tracker_disc_phi1"
-        phi2="-B0Tracker_disc_phi2">
+        phi1="B0Tracker_small_disc_phi1"
+        phi2="B0Tracker_small_disc_phi2">
         <slice material="SiliconOxide" thickness="0.3*mm" vis="OrangeVis" sensitive="true" />
       </layer>
 
@@ -135,8 +138,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm"
         outer_r="15.0*cm"
-		phi1="-B0Tracker_disc_phi1"
-        phi2="B0Tracker_disc_phi2">
+		phi1="B0Tracker_big_disc_phi1"
+        phi2="B0Tracker_big_disc_phi2">
         <slice material="SiliconOxide" thickness="0.3*mm" vis="OrangeVis" sensitive="true" />
       </layer>
 
@@ -145,8 +148,8 @@
         inner_z="1.0*cm"
         inner_r="3.5*cm"
         outer_r="12.0*cm"
-        phi1="B0Tracker_disc_phi1"
-        phi2="-B0Tracker_disc_phi2">
+        phi1="B0Tracker_small_disc_phi1"
+        phi2="B0Tracker_small_disc_phi2">
         <slice material="SiliconOxide" thickness="0.3*mm" vis="OrangeVis" sensitive="true" />
       </layer>
 
