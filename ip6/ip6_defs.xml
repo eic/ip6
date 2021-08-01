@@ -68,16 +68,16 @@
     <constant name="Q0EF_InnerRadius" value="2*cm"/>
     <constant name="Q1EF_InnerRadius"  value="2*cm"/>
 
-	<constant name="B0PF_RotationAngle"  value="0.0*0.001*rad"/>
-    <constant name="B0APF_RotationAngle" value="25.0*0.001*rad"/>
-    <constant name="Q1APF_RotationAngle" value="19.5*0.001*rad"/>
-    <constant name="Q1BPF_RotationAngle" value="15.0*0.001*rad"/>
-    <constant name="Q2PF_RotationAngle"  value="14.8*0.001*rad"/>
-    <constant name="B1PF_RotationAngle"  value="34.0*0.001*rad"/>
-    <constant name="B1APF_RotationAngle" value="25.0*0.001*rad"/>
-    <constant name="B2PF_RotationAngle" value="25.0*0.001*rad"/>
-	<constant name="Q0EF_RotationAngle" value="0.0*rad"/>
-    <constant name="Q1EF_RotationAngle"  value="0.0*rad"/>
+	<constant name="B0PF_RotationAngle"  value="-0.0*0.001*rad"/>
+    <constant name="B0APF_RotationAngle" value="-25.0*0.001*rad"/>
+    <constant name="Q1APF_RotationAngle" value="-19.5*0.001*rad"/>
+    <constant name="Q1BPF_RotationAngle" value="-15.0*0.001*rad"/>
+    <constant name="Q2PF_RotationAngle"  value="-14.8*0.001*rad"/>
+    <constant name="B1PF_RotationAngle"  value="-34.0*0.001*rad"/>
+    <constant name="B1APF_RotationAngle" value="-25.0*0.001*rad"/>
+    <constant name="B2PF_RotationAngle" value="-25.0*0.001*rad"/>
+	<constant name="Q0EF_RotationAngle" value="-0.0*rad"/>
+    <constant name="Q1EF_RotationAngle"  value="-0.0*rad"/>
 
 	<constant name="B0PF_CenterPosition"  value="5.89913*m"/>
     <constant name="B0APF_CenterPosition" value="7.69866*m"/>
@@ -90,16 +90,16 @@
 	<constant name="Q0EF_CenterPosition" value="5.2995*m"/>
     <constant name="Q1EF_CenterPosition"  value="10.259*m"/>
 
-    <constant name="B0PF_XPosition"  value="0.132497*m"/>
-    <constant name="B0APF_XPosition" value="0.197995*m"/>
-    <constant name="Q1APF_XPosition" value="0.244734*m"/>
-    <constant name="Q1BPF_XPosition" value="0.300512*m"/>
-    <constant name="Q2PF_XPosition"  value="0.39495*m"/>
-    <constant name="B1PF_XPosition"  value="0.490747*m"/>
-    <constant name="B1APF_XPosition" value="0.600444*m"/>
-    <constant name="B2PF_XPosition"  value="1.522232*m"/>
-	<constant name="Q0EF_XPosition" value="0.0*m"/>
-    <constant name="Q1EF_XPosition"  value="0.0*m"/>
+    <constant name="B0PF_XPosition"  value="-0.132497*m"/>
+    <constant name="B0APF_XPosition" value="-0.197995*m"/>
+    <constant name="Q1APF_XPosition" value="-0.244734*m"/>
+    <constant name="Q1BPF_XPosition" value="-0.300512*m"/>
+    <constant name="Q2PF_XPosition"  value="-0.39495*m"/>
+    <constant name="B1PF_XPosition"  value="-0.490747*m"/>
+    <constant name="B1APF_XPosition" value="-0.600444*m"/>
+    <constant name="B2PF_XPosition"  value="-1.522232*m"/>
+	<constant name="Q0EF_XPosition" value="-0.0*m"/>
+    <constant name="Q1EF_XPosition"  value="-0.0*m"/>
 
 	<constant name="B0PF_Length"  value="1.2*m"/>
     <constant name="B0APF_Length" value="0.6*m"/>
