@@ -9,9 +9,11 @@
   <detectors>
 
     <detector id="BeamPipe_ID" name="BeamPipe" type="DD4hep_GdmlDetector" vis="BeamPipeVis">
-      <gdmlFile ref="beampipe.gdml"/>
-      <parent name="/world"/>
+      <gdmlFile ref="beampipe.gdml" name="P-Beampipe"/>
+      <rotation x="90*deg" y="0" z="90*deg"/>
+      <parent name="/"/>
     </detector>
+
     <!--
     <detector id="BeamPipe_ID" name="BeamPipe" type="IP6BeamPipe" vis="BeamPipeVis"> 
       <IP_pipe OD="BeampipeOD" wall_thickness="4*mm" crossing_angle="CrossingAngle" />
