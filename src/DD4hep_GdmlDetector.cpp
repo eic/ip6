@@ -47,7 +47,7 @@ static Ref_t create_detector(Detector& description, xml_h e, Ref_t /* sens_det *
   string      name    = x_det.nameStr();
   string      par_nam = x_par.nameStr();
   string      gdml    = x_gdml.attr<string>(_U(ref));
-  string      gdml_name = x_gdml.attr<string>(_U(name));
+  string      gdml_physvol = dd4hep::getAttrOrDefault<string>(x_gdml, _Unicode(physvol), "");
   DetElement  det_parent = description.detector(par_nam);
   TGDMLParse parser;
   if ( !gdml.empty() && gdml[0] == '/' )  {
@@ -72,12 +72,14 @@ static Ref_t create_detector(Detector& description, xml_h e, Ref_t /* sens_det *
   Volume mother = det_parent.volume();
   PlacedVolume pv;
 
-  if ( !gdml_name.empty() ) {
-    PlacedVolume node = volume->FindNode(gdml_name.c_str());
+  if ( !gdml_physvol.empty() ) {
+    PlacedVolume node = volume->FindNode(gdml_physvol.c_str());
     if ( !node.isValid() ) {
+      printout(ERROR,"ROOTGDMLParse","+++ Invalid gdml placed volume %s", gdml_physvol.c_str());
+      printout(ERROR,"ROOTGDMLParse","+++ Valid top-level nodes are:");
       volume->PrintNodes();
       except("ROOTGDMLParse","+++ Failed to parse GDML file:%s for node:%s",
-        gdml.c_str(), gdml_name.c_str());
+        gdml.c_str(), gdml_physvol.c_str());
     }
     volume = node.volume();
   }
