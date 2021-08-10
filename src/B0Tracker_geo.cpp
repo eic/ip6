@@ -135,10 +135,10 @@ static Ref_t create_B0Tracker(Detector& description, xml_h e, SensitiveDetector 
     //printout(INFO,"ROOTGDMLParse","+++ Read geometry from GDML file file:%s",input.c_str());
     //std::cout << "SiTracker Endcap layer " << l_id << " zstart = " << layer_zstart/dd4hep::mm << "mm ( " << layer_length/dd4hep::mm << " mm thick )\n";
 
-    Assembly    layer_vol(layer_name);
+    //Assembly    layer_vol(layer_name);
     //assembly.placeVolume(layer_assembly);
-    //Tube       layer_tub(layer_rmin, layer_rmax, layer_length / 2);
-    //Volume     layer_vol(layer_name, layer_tub, air); // Create the layer envelope volume.
+    Tube       layer_tub(layer_rmin, layer_rmax, layer_length / 2);
+    Volume     layer_vol(layer_name, layer_tub, air); // Create the layer envelope volume.
     layer_vol.setVisAttributes(description.visAttributes(layer_vis));
 
     PlacedVolume layer_pv;
