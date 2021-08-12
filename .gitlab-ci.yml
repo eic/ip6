@@ -135,7 +135,7 @@ detectors:athena:
   needs: ["overlap_check"]
   variables:
     JUGGLER_DETECTOR: "athena"
-    JUGGLER_DETECTOR_VERSION: "master"
+    JUGGLER_DETECTOR_VERSION: "$BEAMLINE_CONFIG_VERSION"
     BEAMLINE_CONFIG: "$BEAMLINE_CONFIG"
     BEAMLINE_CONFIG_VERSION: "$BEAMLINE_CONFIG_VERSION"
   trigger:
