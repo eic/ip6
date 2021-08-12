@@ -90,7 +90,7 @@
       readout="B0TrackerHits"
       vis="AnlRed"
       reflect="false">
-      <position x="0*B0TrackerCenter_xpos" y="0" z="B0TrackerCenter_zpos"/>
+      <position x="B0TrackerCenter_xpos" y="0" z="B0TrackerCenter_zpos"/>
       <rotation x="0*rad" y="B0Tracker_rotation" z="0*rad"/>
       <module name="Module1" vis="AnlProcess_Blue">
         <trd x1="B0TrackerMod1_x1/2.0" x2="B0TrackerMod1_x2/2.0" z="B0TrackerMod1_y/2"/>
