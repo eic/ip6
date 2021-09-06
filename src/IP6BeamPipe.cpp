@@ -46,44 +46,38 @@ static Ref_t create_beampipe_central(Detector& det, xml_h e, SensitiveDetector /
   //
   // This needs to be placed directly, not as part of the assembly, for ACTS reasons
 
-  xml::Component IP_pipe_c = x_det.child(_Unicode(IP_pipe));
+  xml::Component beampipe_c = x_det.child(_Unicode(beampipe));
 
-  double IP_beampipe_OD             = IP_pipe_c.attr<double>(_Unicode(OD));
-  double IP_beampipe_wall_thickness = IP_pipe_c.attr<double>(_Unicode(wall_thickness));
-  double IP_beampipe_gold_thickness = IP_pipe_c.attr<double>(_Unicode(gold_thickness));
-  double IP_beampipe_ID             = IP_beampipe_OD - 2.0 * IP_beampipe_gold_thickness - 2.0 * IP_beampipe_wall_thickness;
-
-  double upstream_straight_length   = IP_pipe_c.attr<double>(_Unicode(upstream_straight_length));
-  double downstream_straight_length = IP_pipe_c.attr<double>(_Unicode(downstream_straight_length));
+  double beampipe_OD                = beampipe_c.attr<double>(_Unicode(OD));
+  double upstream_straight_length   = beampipe_c.attr<double>(_Unicode(upstream_straight_length));
+  double downstream_straight_length = beampipe_c.attr<double>(_Unicode(downstream_straight_length));
   double straight_dz = (upstream_straight_length + downstream_straight_length) / 2.0;
   double straight_z0 = (upstream_straight_length - downstream_straight_length) / 2.0;
 
-  Tube IP_vacu(0.0, IP_beampipe_ID/2.0, straight_dz);
-  Tube IP_gold(IP_beampipe_ID/2.0, IP_beampipe_ID/2.0 + IP_beampipe_gold_thickness, straight_dz);
-  Tube IP_tube(IP_beampipe_ID/2.0 + IP_beampipe_gold_thickness, IP_beampipe_OD/2.0, straight_dz);
-  Tube IP_envelope(0.0, IP_beampipe_OD/2.0, straight_dz);
+  double rmax = beampipe_OD/2.0;
 
-  Volume v_IP_envelope(det_name + "_envelope", IP_envelope, m_Vacuum);
-  Volume v_IP_vacu("v_IP_vacu", IP_vacu, m_Vacuum);
-  Volume v_IP_gold("v_IP_gold", IP_gold, m_Au);
-  Volume v_IP_tube("v_IP_tube", IP_tube, m_Be);
+  Tube     envelope(0.0, rmax, straight_dz);
+  Volume v_envelope(det_name + "_envelope", envelope, m_Vacuum);
 
-  sdet.setAttributes(det, v_IP_vacu, x_det.regionStr(), x_det.limitsStr(), vis_name);
-  sdet.setAttributes(det, v_IP_gold, x_det.regionStr(), x_det.limitsStr(), vis_name);
-  sdet.setAttributes(det, v_IP_tube, x_det.regionStr(), x_det.limitsStr(), vis_name);
- 
-  PlacedVolume pv;
-  pv = v_IP_envelope.placeVolume(v_IP_vacu);
-  pv = v_IP_envelope.placeVolume(v_IP_gold);
-  pv = v_IP_envelope.placeVolume(v_IP_tube);
+  size_t i_layer = 0;
+  for (xml_coll_t x_layer_i(beampipe_c, _Unicode(layer)); x_layer_i; ++x_layer_i) {
+    xml_comp_t x_layer = x_layer_i;
+    double thickness = x_layer.attr<double>(_Unicode(thickness));
+    Material material = x_layer.attr<string>(_Unicode(material));
+    Tube     layer(rmax-thickness, rmax, straight_dz);
+    Volume v_layer(det_name + i_layer, layer, material);
+    sdet.setAttributes(det, v_layer, x_det.regionStr(), x_det.limitsStr(), vis_name);
+    v_envelope.placeVolume(v_layer);
+  }
+  
+  auto pv_envelope = det.pickMotherVolume(sdet).placeVolume(v_envelope, Position(0, 0, straight_z0));
+  pv_envelope.addPhysVolID("system",sdet.id()).addPhysVolID("barrel",1);
+  sdet.setPlacement(pv_envelope);
 
   Acts::ActsExtension* beamPipeExtension = new Acts::ActsExtension();
   beamPipeExtension->addType("beampipe", "layer");
   sdet.addExtension<Acts::ActsExtension>(beamPipeExtension);
-  
-  auto pv_envelope = det.pickMotherVolume(sdet).placeVolume(v_IP_envelope, Position(0, 0, straight_z0));
-  pv_envelope.addPhysVolID("system",sdet.id()).addPhysVolID("barrel",1);
-  sdet.setPlacement(pv_envelope);
+
   return sdet;
 }
 

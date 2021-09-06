@@ -13,14 +13,14 @@
   <detectors>
 
     <detector id="BeamPipeCentral_ID" name="BeamPipeCentral" type="IP6BeamPipeCentral" vis="BeamPipeVis"> 
-      <IP_pipe
-        OD="BeampipeOD"
-        wall_thickness="0.757*mm"
-        gold_thickness="5*um"
-        crossing_angle="CrossingAngle"
-        upstream_straight_length="BeampipeUpstreamStraightLength"
-        downstream_straight_length="BeampipeDownstreamStraightLength"
-      />
+      <beampipe name="central"
+                OD="BeampipeOD"
+                upstream_straight_length="BeampipeUpstreamStraightLength"
+                downstream_straight_length="BeampipeDownstreamStraightLength">
+        <comment>Layers listed from outside to inside</comment>
+        <layer thickness="0.757*mm" material="Be"/>
+        <layer thickness="5*um" material="Au"/>
+      </beampipe>
     </detector>
 
     <detector id="BeamPipeUpstream_ID" name="BeamPipeUpstream" type="IP6BeamPipeAssembly" vis="BeamPipeVis">
