@@ -72,9 +72,10 @@ static Ref_t create_beampipe_central(Detector& det, xml_h e, SensitiveDetector s
   sdet.setAttributes(det, v_IP_gold, x_det.regionStr(), x_det.limitsStr(), vis_name);
   sdet.setAttributes(det, v_IP_tube, x_det.regionStr(), x_det.limitsStr(), vis_name);
  
-  auto pv_vacu = v_IP_envelope.placeVolume(v_IP_vacu);
-  auto pv_gold = v_IP_envelope.placeVolume(v_IP_gold);
-  auto pv_tube = v_IP_envelope.placeVolume(v_IP_tube);
+  PlacedVolume pv;
+  pv = v_IP_envelope.placeVolume(v_IP_vacu);
+  pv = v_IP_envelope.placeVolume(v_IP_gold);
+  pv = v_IP_envelope.placeVolume(v_IP_tube);
 
   Acts::ActsExtension* beamPipeExtension = new Acts::ActsExtension();
   beamPipeExtension->addType("beampipe", "layer");
