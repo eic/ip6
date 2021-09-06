@@ -72,15 +72,15 @@ static Ref_t create_beampipe_central(Detector& det, xml_h e, SensitiveDetector s
   sdet.setAttributes(det, v_IP_gold, x_det.regionStr(), x_det.limitsStr(), vis_name);
   sdet.setAttributes(det, v_IP_tube, x_det.regionStr(), x_det.limitsStr(), vis_name);
  
-  auto pv_vacu = v_IP_envelope.placeVolume(pv_vacu);
-  auto pv_gold = v_IP_envelope.placeVolume(pv_gold);
-  auto pv_tube = v_IP_envelope.placeVolume(pv_tube);
+  auto pv_vacu = v_IP_envelope.placeVolume(v_IP_vacu);
+  auto pv_gold = v_IP_envelope.placeVolume(v_IP_gold);
+  auto pv_tube = v_IP_envelope.placeVolume(v_IP_tube);
 
   Acts::ActsExtension* beamPipeExtension = new Acts::ActsExtension();
   beamPipeExtension->addType("beampipe", "layer");
   sdet.addExtension<Acts::ActsExtension>(beamPipeExtension);
   
-  auto pv_envelope = det.pickMotherVolume(sdet).placeVolume(v_IP_envelope Position(0, 0, straight_z0));
+  auto pv_envelope = det.pickMotherVolume(sdet).placeVolume(v_IP_envelope, Position(0, 0, straight_z0));
   pv_assembly.addPhysVolID("system",sdet.id()).addPhysVolID("barrel",1);
   sdet.setPlacement(pv_assembly);
   return sdet;
