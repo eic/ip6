@@ -30,7 +30,7 @@ using namespace dd4hep;
  * \endcode
  *
  */
-static Ref_t create_detector_central(Detector& det, xml_h e, SensitiveDetector sens)  {
+static Ref_t create_beampipe_central(Detector& det, xml_h e, SensitiveDetector sens)  {
 
   using namespace ROOT::Math;
   xml_det_t  x_det     = e;
@@ -86,7 +86,7 @@ static Ref_t create_detector_central(Detector& det, xml_h e, SensitiveDetector s
   return sdet;
 }
 
-static Ref_t create_detector_assembly(Detector& det, xml_h e, SensitiveDetector sens)  {
+static Ref_t create_beampipe_assembly(Detector& det, xml_h e, SensitiveDetector sens)  {
 
   using namespace ROOT::Math;
   xml_det_t  x_det     = e;
