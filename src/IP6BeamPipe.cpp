@@ -192,7 +192,7 @@ static Ref_t create_beampipe_assembly(Detector& det, xml_h e, SensitiveDetector 
   xml_coll_t additional_subtractions(beampipe_c, _Unicode(additional_subtraction));
   bool subtract_vacuum = getAttrOrDefault<bool>(beampipe_c, _Unicode(subtract_vacuum), true);
   bool subtract_matter = getAttrOrDefault<bool>(beampipe_c, _Unicode(subtract_matter), true);
-  auto volumes = create_volumes(beampipe_c.name(),
+  auto volumes = create_volumes(beampipe_c.nameStr(),
                                 incoming_c,
                                 outgoing_c,
                                 additional_subtractions,
