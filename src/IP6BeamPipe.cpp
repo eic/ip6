@@ -30,34 +30,24 @@ using namespace dd4hep;
  * \endcode
  *
  */
-static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
+static Ref_t create_detector_central(Detector& det, xml_h e, SensitiveDetector sens)  {
 
   using namespace ROOT::Math;
   xml_det_t  x_det     = e;
   string     det_name  = x_det.nameStr();
-  Material   air       = det.air();
   DetElement sdet        (det_name,x_det.id());
-  Assembly   assembly    (det_name+"_assembly");
-  Material   m_Cu      = det.material("Copper");
-  Material   m_Al      = det.material("Aluminum");
   Material   m_Be      = det.material("Beryllium");
   Material   m_Au      = det.material("Gold");
   Material   m_Vacuum  = det.material("Vacuum");
   string     vis_name  = x_det.visStr();
 
-  // Add extension for the beampipe
-  // TODO this does not work as ACTS assumes beampipes to be cylinders, not assemblies.
-  //      can probably manually add this as a volume with an envelope for just the center
-  //      beampipe
-  //{
-  //  Acts::ActsExtension* beamPipeExtension = new Acts::ActsExtension();
-  //  beamPipeExtension->addType("beampipe", "layer");
-  //  sdet.addExtension<Acts::ActsExtension>(beamPipeExtension);
-  //}
+  // -----------------------------
+  // IP beampipe:
+  //
+  // This needs to be placed directly, not as part of the assembly, for ACTS reasons
 
   xml::Component IP_pipe_c = x_det.child(_Unicode(IP_pipe));
 
-  // IP
   double IP_beampipe_OD             = IP_pipe_c.attr<double>(_Unicode(OD));
   double IP_beampipe_wall_thickness = IP_pipe_c.attr<double>(_Unicode(wall_thickness));
   double IP_beampipe_gold_thickness = IP_pipe_c.attr<double>(_Unicode(gold_thickness));
@@ -65,37 +55,50 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
 
   double upstream_straight_length   = IP_pipe_c.attr<double>(_Unicode(upstream_straight_length));
   double downstream_straight_length = IP_pipe_c.attr<double>(_Unicode(downstream_straight_length));
+  double straight_dz = (upstream_straight_length + downstream_straight_length) / 2.0;
+  double straight_z0 = (upstream_straight_length - downstream_straight_length) / 2.0;
 
-  // -----------------------------
-  // IP beampipe
-  Tube downstream_IP_vacuum(0.0, IP_beampipe_ID/2.0, downstream_straight_length/2.0);
-  Tube downstream_IP_gold(IP_beampipe_ID/2.0, IP_beampipe_ID/2.0 + IP_beampipe_gold_thickness, downstream_straight_length/2.0);
-  Tube downstream_IP_tube(IP_beampipe_ID/2.0 + IP_beampipe_gold_thickness, IP_beampipe_OD/2.0, downstream_straight_length/2.0);
-  Tube upstream_IP_vacuum(0.0, IP_beampipe_ID/2.0, upstream_straight_length/2.0);
-  Tube upstream_IP_gold(IP_beampipe_ID/2.0, IP_beampipe_ID/2.0 + IP_beampipe_gold_thickness, upstream_straight_length/2.0);
-  Tube upstream_IP_tube(IP_beampipe_ID/2.0 + IP_beampipe_gold_thickness, IP_beampipe_OD/2.0, upstream_straight_length/2.0);
+  Tube IP_vacu(0.0, IP_beampipe_ID/2.0, straight_dz);
+  Tube IP_gold(IP_beampipe_ID/2.0, IP_beampipe_ID/2.0 + IP_beampipe_gold_thickness, straight_dz);
+  Tube IP_tube(IP_beampipe_ID/2.0 + IP_beampipe_gold_thickness, IP_beampipe_OD/2.0, straight_dz);
+  Tube IP_envelope(0.0, IP_beampipe_OD/2.0, straight_dz);
 
-  Volume v_downstream_IP_vacuum("v_downstream_IP_vacuum", downstream_IP_vacuum, m_Vacuum);
-  Volume v_downstream_IP_gold("v_downstream_IP_gold", downstream_IP_gold, m_Au);
-  Volume v_downstream_IP_tube("v_downstream_IP_tube", downstream_IP_tube, m_Be);
-  Volume v_upstream_IP_vacuum("v_upstream_IP_vacuum", upstream_IP_vacuum, m_Vacuum);
-  Volume v_upstream_IP_gold("v_upstream_IP_gold", upstream_IP_gold, m_Au);
-  Volume v_upstream_IP_tube("v_upstream_IP_tube", upstream_IP_tube, m_Be);
+  Volume v_IP_envelope("v_IP_envelope", IP_envelope, m_Vacuum);
+  Volume v_IP_vacu("v_IP_vacu", IP_vacu, m_Vacuum);
+  Volume v_IP_gold("v_IP_gold", IP_gold, m_Au);
+  Volume v_IP_tube("v_IP_tube", IP_tube, m_Be);
 
-  sdet.setAttributes(det, v_upstream_IP_gold  , x_det.regionStr(), x_det.limitsStr(), vis_name);
-  sdet.setAttributes(det, v_upstream_IP_tube  , x_det.regionStr(), x_det.limitsStr(), vis_name);
-  sdet.setAttributes(det, v_downstream_IP_gold, x_det.regionStr(), x_det.limitsStr(), vis_name);
-  sdet.setAttributes(det, v_downstream_IP_tube, x_det.regionStr(), x_det.limitsStr(), vis_name);
+  sdet.setAttributes(det, v_IP_vacu, x_det.regionStr(), x_det.limitsStr(), vis_name);
+  sdet.setAttributes(det, v_IP_gold, x_det.regionStr(), x_det.limitsStr(), vis_name);
+  sdet.setAttributes(det, v_IP_tube, x_det.regionStr(), x_det.limitsStr(), vis_name);
+ 
+  auto pv_vacu = v_IP_envelope.placeVolume(pv_vacu);
+  auto pv_gold = v_IP_envelope.placeVolume(pv_gold);
+  auto pv_tube = v_IP_envelope.placeVolume(pv_tube);
 
-  assembly.placeVolume(v_upstream_IP_vacuum, Position(0, 0, -upstream_straight_length / 2.0));
-  assembly.placeVolume(v_upstream_IP_gold, Position(0, 0, -upstream_straight_length / 2.0));
-  assembly.placeVolume(v_upstream_IP_tube, Position(0, 0, -upstream_straight_length / 2.0));
+  Acts::ActsExtension* beamPipeExtension = new Acts::ActsExtension();
+  beamPipeExtension->addType("beampipe", "layer");
+  sdet.addExtension<Acts::ActsExtension>(beamPipeExtension);
+  
+  auto pv_envelope = det.pickMotherVolume(sdet).placeVolume(v_IP_envelope Position(0, 0, straight_z0));
+  pv_assembly.addPhysVolID("system",sdet.id()).addPhysVolID("barrel",1);
+  sdet.setPlacement(pv_assembly);
+  return sdet;
+}
 
-  assembly.placeVolume(v_downstream_IP_vacuum, Position(0, 0, downstream_straight_length / 2.0));
-  assembly.placeVolume(v_downstream_IP_gold, Position(0, 0, downstream_straight_length / 2.0));
-  assembly.placeVolume(v_downstream_IP_tube, Position(0, 0, downstream_straight_length / 2.0));
+static Ref_t create_detector_assembly(Detector& det, xml_h e, SensitiveDetector sens)  {
 
+  using namespace ROOT::Math;
+  xml_det_t  x_det     = e;
+  string     det_name  = x_det.nameStr();
+  DetElement sdet        (det_name,x_det.id());
+  Material   m_Al      = det.material("Aluminum");
+  Material   m_Vacuum  = det.material("Vacuum");
+  string     vis_name  = x_det.visStr();
 
+  // ---------------------------------
+  // Upstream and downstream beampipes
+  //
   // Helper function to create polycone pairs (shell and vacuum)
   auto zplane_to_polycones = [](xml::Component& x_pipe) {
     std::vector<double> zero, rmax, rmin, z;
@@ -175,66 +178,45 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
   // Upstream:
   // - incoming hadron tube: straight section, tapered section, straight section
   // - outgoing electron tube: tapered section, straight section
-
-  xml::Component upstream_c = x_det.child(_Unicode(upstream));
-  xml::Component incoming_hadron_c = upstream_c.child(_Unicode(incoming_hadron));
-  xml::Component outgoing_lepton_c = upstream_c.child(_Unicode(outgoing_lepton));
-  xml_coll_t additional_subtractions_upstream(upstream_c, _Unicode(additional_subtraction));
-  bool subtract_vacuum_upstream = getAttrOrDefault<bool>(upstream_c, _Unicode(subtract_vacuum), true);
-  bool subtract_matter_upstream = getAttrOrDefault<bool>(upstream_c, _Unicode(subtract_matter), true);
-  auto volumes_upstream = create_volumes("upstream",
-                                         outgoing_lepton_c,
-                                         incoming_hadron_c,
-                                         additional_subtractions_upstream,
-                                         subtract_vacuum_upstream,
-                                         subtract_matter_upstream
-                                         );
-
-  auto tf_upstream = Transform3D(RotationZYX(0, 0, 0));
-  if (getAttrOrDefault<bool>(upstream_c, _Unicode(reflect), true)) {
-    tf_upstream = Transform3D(RotationZYX(0, M_PI, 0));
-  }
-  assembly.placeVolume(volumes_upstream.first, tf_upstream);
-  if (getAttrOrDefault<bool>(upstream_c, _Unicode(place_vacuum), true)) {
-    assembly.placeVolume(volumes_upstream.second, tf_upstream);
-  }
-
   // -----------------------------
-  // downstream:
+  // Downstream:
   // - incoming electron tube: tube with tube cut out
   // - outgoing hadron tube: cone centered at scattering angle
   // (incoming electron tube internal touching to outgoing hadron tube)
 
-  xml::Component downstream_c = x_det.child(_Unicode(downstream));
-  xml::Component incoming_lepton_c = downstream_c.child(_Unicode(incoming_lepton));
-  xml::Component outgoing_hadron_c = downstream_c.child(_Unicode(outgoing_hadron));
-  xml_coll_t additional_subtractions_downstream(downstream_c, _Unicode(additional_subtraction));
-  bool subtract_vacuum_downstream = getAttrOrDefault<bool>(downstream_c, _Unicode(subtract_vacuum), true);
-  bool subtract_matter_downstream = getAttrOrDefault<bool>(downstream_c, _Unicode(subtract_matter), true);
-  auto volumes_downstream = create_volumes("downstream",
-                                           incoming_lepton_c,
-                                           outgoing_hadron_c,
-                                           additional_subtractions_downstream,
-                                           subtract_vacuum_downstream,
-                                           subtract_matter_downstream
-                                           );
+  Assembly assembly(det_name + "_assembly");
 
-  auto tf_downstream = Transform3D(RotationZYX(0, 0, 0));
-  if (getAttrOrDefault<bool>(downstream_c, _Unicode(reflect), true)) {
-    tf_downstream = Transform3D(RotationZYX(0, M_PI, 0));
+  xml::Component beampipe_c = x_det.child(_Unicode(beampipe));
+  xml::Component incoming_c = beampipe_c.child(_Unicode(incoming));
+  xml::Component outgoing_c = beampipe_c.child(_Unicode(outgoing));
+  xml_coll_t additional_subtractions(beampipe_c, _Unicode(additional_subtraction));
+  bool subtract_vacuum = getAttrOrDefault<bool>(beampipe_c, _Unicode(subtract_vacuum), true);
+  bool subtract_matter = getAttrOrDefault<bool>(beampipe_c, _Unicode(subtract_matter), true);
+  auto volumes = create_volumes(beampipe_c.name(),
+                                incoming_c,
+                                outgoing_c,
+                                additional_subtractions,
+                                subtract_vacuum,
+                                subtract_matter
+                                );
+
+  auto tf = Transform3D(RotationZYX(0, 0, 0));
+  if (getAttrOrDefault<bool>(beampipe_c, _Unicode(reflect), true)) {
+    tf = Transform3D(RotationZYX(0, M_PI, 0));
   }
-  assembly.placeVolume(volumes_downstream.first, tf_downstream);
-  if (getAttrOrDefault<bool>(downstream_c, _Unicode(place_vacuum), true)) {
-    assembly.placeVolume(volumes_downstream.second, tf_downstream);
+  assembly.placeVolume(volumes.first, tf);
+  if (getAttrOrDefault<bool>(beampipe_c, _Unicode(place_vacuum), true)) {
+    assembly.placeVolume(volumes.second, tf);
   }
+  assembly->GetShape()->ComputeBBox() ;
 
   // -----------------------------
-  // final placement
+  // Final assembly placement
   auto pv_assembly = det.pickMotherVolume(sdet).placeVolume(assembly);
   pv_assembly.addPhysVolID("system",sdet.id()).addPhysVolID("barrel",1);
   sdet.setPlacement(pv_assembly);
-  assembly->GetShape()->ComputeBBox() ;
   return sdet;
 }
 
-DECLARE_DETELEMENT(IP6BeamPipe,create_detector)
+DECLARE_DETELEMENT(IP6BeamPipeCentral,create_beampipe_central)
+DECLARE_DETELEMENT(IP6BeamPipeAssembly,create_beampipe_assembly)

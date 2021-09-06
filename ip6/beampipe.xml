@@ -12,7 +12,7 @@
 
   <detectors>
 
-    <detector id="BeamPipe_ID" name="BeamPipe" type="IP6BeamPipe" vis="BeamPipeVis"> 
+    <detector id="BeamPipeCentral_ID" name="BeamPipeCentral" type="IP6BeamPipeCentral" vis="BeamPipeVis"> 
       <IP_pipe
         OD="BeampipeOD"
         wall_thickness="0.757*mm"
@@ -21,9 +21,14 @@
         upstream_straight_length="BeampipeUpstreamStraightLength"
         downstream_straight_length="BeampipeDownstreamStraightLength"
       />
+    </detector>
 
-      <comment> For upstream beampipe, we subtract the vacuum from the matter </comment>
-      <upstream reflect="true"
+    <detector id="BeamPipeUpstream_ID" name="BeamPipeUpstream" type="IP6BeamPipeAssembly" vis="BeamPipeVis">
+      <comment>
+        For upstream beampipe, we subtract the vacuum from the matter
+      </comment>
+      <beampipe name="upstream"
+                reflect="true"
                 place_vacuum="true"
                 subtract_vacuum="true"
                 subtract_matter="false">
@@ -42,13 +47,20 @@
           <zplane z="2940.35 * mm" OD="44.45 * mm"/>
           <zplane z="4490.35 * mm" OD="44.45 * mm"/>
         </incoming_hadron>
-      </upstream>
+      </beampipe>
+    </detector>
 
-      <comment> For downstream beampipe (where on is inside the vacuum of the other), we subtract the matter from the vacuum, and subtract an additional pipe to create the angled cutout</comment>
-      <downstream reflect="false"
-                  place_vacuum="true"
-                  subtract_vacuum="false"
-                  subtract_matter="true">
+    <detector id="BeamPipeDownstream_ID" name="BeamPipeDownstream" type="IP6BeamPipeAssembly" vis="BeamPipeVis">
+      <comment>
+        For downstream beampipe (where on is inside the vacuum of the other),
+        we subtract the matter from the vacuum, and subtract an additional pipe
+        to create the angled cutout.
+      </comment>
+      <beampipe name="downstream"
+                reflect="false"
+                place_vacuum="true"
+                subtract_vacuum="false"
+                subtract_matter="true">
         <incoming_lepton thickness="1.0*mm">
           <zplane z="BeampipeDownstreamStraightLength" OD="BeampipeOD"/>
           <zplane z="4484.25 * mm" OD="BeampipeOD"/>
@@ -78,10 +90,8 @@
           <zplane z="BeampipeDownstreamStraightLength" OD="32. * mm"/>
           <zplane z="4484.25 * mm" OD="120. * mm"/>
         </additional_subtraction>
-      </downstream>
+      </beampipe>
     </detector>
-
   </detectors>
-
 
 </lccdd>
