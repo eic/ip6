@@ -73,7 +73,7 @@
                axis_intersection="670.0 * mm"
                crossing_angle="CrossingAngle">
           <!-- avoid overlap with IP beampipe by starting slightly displaced -->
-          <zplane z="BeampipeDownstreamStraightLength + 1.0 * BeampipeOD * tan(abs(CrossingAngle))" OD="BeampipeOD"/>
+          <zplane z="BeampipeDownstreamStraightLength + 0.5 * BeampipeOD * tan(abs(CrossingAngle))" OD="BeampipeOD"/>
           <!-- FIXME avoid overlap with TrackerEndcapP_Outer_layer3 by moving flange 40 mm in z -->
           <!-- FIXME avoid overlap with TrackerEndcapP_Outer_layer3 by changing OD -->
           <zplane z="1240.00 * mm" OD=" 92.06 * mm - 1.0 * mm"/>
@@ -91,7 +91,7 @@
         <additional_subtraction thickness="4.0*mm"
                                 crossing_angle="CrossingAngle">
           <!-- these are somewhat arbitrary to get the right hole shape -->
-          <zplane z="BeampipeDownstreamStraightLength" OD="32. * mm"/>
+          <zplane z="BeampipeDownstreamStraightLength + 0.5 * 32. * mm * tan(abs(CrossingAngle))" OD="32. * mm"/>
           <zplane z="4484.25 * mm" OD="120. * mm"/>
         </additional_subtraction>
       </beampipe>
