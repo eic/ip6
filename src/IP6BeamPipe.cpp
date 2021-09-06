@@ -61,7 +61,7 @@ static Ref_t create_beampipe_central(Detector& det, xml_h e, SensitiveDetector /
     double thickness = x_layer.attr<double>(_Unicode(thickness));
     Material material = det.material(x_layer.materialStr());
     Tube     layer(rmax - thickness, rmax, straight_dz);
-    Volume v_layer(det_name + i_layer, layer, material);
+    Volume v_layer(det_name + std::to_string(i_layer), layer, material);
     sdet.setAttributes(det, v_layer, x_det.regionStr(), x_det.limitsStr(), vis_name);
     v_envelope.placeVolume(v_layer);
     rmax -= thickness;
