@@ -36,8 +36,6 @@ static Ref_t create_beampipe_central(Detector& det, xml_h e, SensitiveDetector /
   xml_det_t  x_det     = e;
   string     det_name  = x_det.nameStr();
   DetElement sdet        (det_name,x_det.id());
-  Material   m_Be      = det.material("Beryllium");
-  Material   m_Au      = det.material("Gold");
   Material   m_Vacuum  = det.material("Vacuum");
   string     vis_name  = x_det.visStr();
 
@@ -48,13 +46,11 @@ static Ref_t create_beampipe_central(Detector& det, xml_h e, SensitiveDetector /
 
   xml::Component beampipe_c = x_det.child(_Unicode(beampipe));
 
-  double beampipe_OD                = beampipe_c.attr<double>(_Unicode(OD));
   double upstream_straight_length   = beampipe_c.attr<double>(_Unicode(upstream_straight_length));
   double downstream_straight_length = beampipe_c.attr<double>(_Unicode(downstream_straight_length));
   double straight_dz = (upstream_straight_length + downstream_straight_length) / 2.0;
   double straight_z0 = (upstream_straight_length - downstream_straight_length) / 2.0;
-
-  double rmax = beampipe_OD/2.0;
+  double rmax = beampipe_c.attr<double>(_Unicode(OD)) / 2.0;
 
   Tube     envelope(0.0, rmax, straight_dz);
   Volume v_envelope(det_name + "_envelope", envelope, m_Vacuum);
@@ -63,11 +59,13 @@ static Ref_t create_beampipe_central(Detector& det, xml_h e, SensitiveDetector /
   for (xml_coll_t x_layer_i(beampipe_c, _Unicode(layer)); x_layer_i; ++x_layer_i) {
     xml_comp_t x_layer = x_layer_i;
     double thickness = x_layer.attr<double>(_Unicode(thickness));
-    Material material = x_layer.attr<string>(_Unicode(material));
-    Tube     layer(rmax-thickness, rmax, straight_dz);
+    Material material = det.material(x_layer.materialStr());
+    Tube     layer(rmax - thickness, rmax, straight_dz);
     Volume v_layer(det_name + i_layer, layer, material);
     sdet.setAttributes(det, v_layer, x_det.regionStr(), x_det.limitsStr(), vis_name);
     v_envelope.placeVolume(v_layer);
+    rmax -= thickness;
+    i_layer++;
   }
   
   auto pv_envelope = det.pickMotherVolume(sdet).placeVolume(v_envelope, Position(0, 0, straight_z0));

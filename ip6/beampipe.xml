@@ -18,8 +18,8 @@
                 upstream_straight_length="BeampipeUpstreamStraightLength"
                 downstream_straight_length="BeampipeDownstreamStraightLength">
         <comment>Layers listed from outside to inside</comment>
-        <layer thickness="0.757*mm" material="Be"/>
-        <layer thickness="5*um" material="Au"/>
+        <layer thickness="0.757*mm" material="Beryllium"/>
+        <layer thickness="5*um" material="Gold"/>
       </beampipe>
     </detector>
 
