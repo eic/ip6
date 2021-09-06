@@ -63,7 +63,7 @@ static Ref_t create_beampipe_central(Detector& det, xml_h e, SensitiveDetector /
   Tube IP_tube(IP_beampipe_ID/2.0 + IP_beampipe_gold_thickness, IP_beampipe_OD/2.0, straight_dz);
   Tube IP_envelope(0.0, IP_beampipe_OD/2.0, straight_dz);
 
-  Volume v_IP_envelope("v_IP_envelope", IP_envelope, m_Vacuum);
+  Volume v_IP_envelope(det_name + "_envelope", IP_envelope, m_Vacuum);
   Volume v_IP_vacu("v_IP_vacu", IP_vacu, m_Vacuum);
   Volume v_IP_gold("v_IP_gold", IP_gold, m_Au);
   Volume v_IP_tube("v_IP_tube", IP_tube, m_Be);
