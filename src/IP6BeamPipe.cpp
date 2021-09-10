@@ -140,30 +140,30 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
 
     // subtract vacuum from matter
     BooleanSolid matter;
-    if (subtract_vacuum_from_matter) {
-      matter = SubtractionSolid(matter_union, vacuum_union);
-    } else {
+    //if (subtract_vacuum_from_matter) {
+    //  matter = SubtractionSolid(matter_union, vacuum_union);
+    //} else {
       matter = matter_union;
-    }
+   //}
     // subtract matter from vacuum
-    BooleanSolid vacuum;
-    if (subtract_matter_from_vacuum) {
-      vacuum = SubtractionSolid(vacuum_union, matter_union);
-    } else {
-      vacuum = vacuum_union;
-    }
+    //BooleanSolid vacuum;
+    //if (subtract_matter_from_vacuum) {
+    //  vacuum = SubtractionSolid(vacuum_union, matter_union);
+    //} else {
+    //  vacuum = vacuum_union;
+    //}
 
     // subtract additional vacuum from matter
-    for (; x_additional_subtraction_i; ++x_additional_subtraction_i) {
-      xml_comp_t x_additional_subtraction = x_additional_subtraction_i;
-      auto additional_polycones = zplane_to_polycones(x_additional_subtraction);
-      auto additional_crossing_angle = getAttrOrDefault(x_additional_subtraction, _Unicode(crossing_angle), 0.0);
-      auto additional_axis_intersection = getAttrOrDefault(x_additional_subtraction, _Unicode(axis_intersection), 0.0);
-      auto additional_tf = Transform3D(Position(0,0,additional_axis_intersection)) *
-                           Transform3D(RotationY(additional_crossing_angle)) *
-                           Transform3D(Position(0,0,-additional_axis_intersection));
-      matter = SubtractionSolid(matter, additional_polycones.second, additional_tf);
-    }
+    //for (; x_additional_subtraction_i; ++x_additional_subtraction_i) {
+    //  xml_comp_t x_additional_subtraction = x_additional_subtraction_i;
+    //  auto additional_polycones = zplane_to_polycones(x_additional_subtraction);
+    // auto additional_crossing_angle = getAttrOrDefault(x_additional_subtraction, _Unicode(crossing_angle), 0.0);
+    // auto additional_axis_intersection = getAttrOrDefault(x_additional_subtraction, _Unicode(axis_intersection), 0.0);
+    //  auto additional_tf = Transform3D(Position(0,0,additional_axis_intersection)) *
+    //                       Transform3D(RotationY(additional_crossing_angle)) *
+    //                       Transform3D(Position(0,0,-additional_axis_intersection));
+    //  matter = SubtractionSolid(matter, additional_polycones.second, additional_tf);
+    //}
 
     return std::make_pair<Volume,Volume>(
       {"v_" + name + "_matter", matter, m_Al},
@@ -224,9 +224,9 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
     tf_downstream = Transform3D(RotationZYX(0, M_PI, 0));
   }
   assembly.placeVolume(volumes_downstream.first, tf_downstream);
-  if (getAttrOrDefault<bool>(downstream_c, _Unicode(place_vacuum), true)) {
-    assembly.placeVolume(volumes_downstream.second, tf_downstream);
-  }
+  //if (getAttrOrDefault<bool>(downstream_c, _Unicode(place_vacuum), true)) {
+  //  assembly.placeVolume(volumes_downstream.second, tf_downstream);
+  //}
 
   // -----------------------------
   // final placement
