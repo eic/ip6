@@ -146,11 +146,11 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector sens)  {
       matter = matter_union;
    //}
     // subtract matter from vacuum
-    //BooleanSolid vacuum;
+    BooleanSolid vacuum;
     //if (subtract_matter_from_vacuum) {
     //  vacuum = SubtractionSolid(vacuum_union, matter_union);
     //} else {
-    //  vacuum = vacuum_union;
+      vacuum = vacuum_union;
     //}
 
     // subtract additional vacuum from matter
