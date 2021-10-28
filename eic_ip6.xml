@@ -69,6 +69,7 @@
   </includes>
 
   <display>
+  <include ref="ip6/ip6_colors.xml" />
   <include ref="ip6/ip6_display.xml" />
   </display>
 
