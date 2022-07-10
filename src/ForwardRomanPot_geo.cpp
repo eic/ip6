@@ -60,7 +60,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
       c_vol.setVisAttributes(description.visAttributes(c.visStr()));
 
       Position c_position(0, 0.0, comp_z_pos + c_thick / 2.0);
-      if (c.hasChild("position")) {
+      if (c.hasChild(_U(position))) {
         xml_comp_t c_pos = c.child(_U(position));
         c_position       = Position(c_pos.x(), c_pos.y(), c_pos.z());
       }
