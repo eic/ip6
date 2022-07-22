@@ -95,3 +95,6 @@ configure_file(templates/setup.sh.in ${CMAKE_CURRENT_BINARY_DIR}/setup.sh @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/setup.sh
     DESTINATION ${CMAKE_INSTALL_PREFIX}/share/ip6/ip6
 )
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/setup.sh
+    DESTINATION ${CMAKE_INSTALL_PREFIX}
+)
