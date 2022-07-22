@@ -78,7 +78,7 @@ install(DIRECTORY ip6/
     DESTINATION share/${PROJECT_NAME}/ip6
     FILES_MATCHING PATTERN "*.xml"
     )
-install(FILES eic_ip6.xml
+install(FILES ip6.xml
     DESTINATION share/${PROJECT_NAME}/
     )
 
