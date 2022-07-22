@@ -17,16 +17,6 @@ jobs:
     needs: xmllint
     steps:
     - uses: actions/checkout@v2
-    - run: |
-        sudo apt-get update
-        sudo apt-get install -y libxml2-utils
-        xmllint *.xml ip6/*.xml > /dev/null
-
-  build-test:
-    runs-on: ubuntu-latest
-    needs: xmllint
-    steps:
-    - uses: actions/checkout@v2
     - uses: cvmfs-contrib/github-action-cvmfs@v2
     - uses: eic/run-cvmfs-osg-eic-shell@main
       with:
@@ -39,29 +29,6 @@ jobs:
       with:
         name: install
         path: install/
-        if-no-files-found: error
-
-  convert-to-gdml:
-    runs-on: ubuntu-latest
-    needs: build-test
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/download-artifact@v3
-      with:
-        name: install
-        path: install/
-    - uses: cvmfs-contrib/github-action-cvmfs@v2
-    - uses: eic/run-cvmfs-osg-eic-shell@main
-      with:
-        platform-release: "jug_xl:nightly"
-        setup: install/setup.sh
-        run: |
-          mkdir -p geo
-          python scripts/convert_to_gdml.py --compact ${BEAMLINE_PATH}/${BEAMLINE}.xml --output geo/${BEAMLINE}.gdml
-    - uses: actions/upload-artifact@v3
-      with:
-        name: ip6.gdml
-        path: geo/
         if-no-files-found: error
 
   convert-to-tgeo:
