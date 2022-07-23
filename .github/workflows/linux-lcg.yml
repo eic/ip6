@@ -21,6 +21,8 @@ jobs:
         run: |
           cmake -B build -S .
           cmake --build build -- install
+          source install/setup.sh
+          checkOverlaps -c ${BEAMLINE_PATH}/${BEAMLINE}.xml
 
   ubuntu-2204:
     runs-on: ubuntu-22.04
@@ -40,3 +42,5 @@ jobs:
         run: |
           cmake -B build -S .
           cmake --build build -- install
+          source install/setup.sh
+          checkOverlaps -c ${BEAMLINE_PATH}/${BEAMLINE}.xml
