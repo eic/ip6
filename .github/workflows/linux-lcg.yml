@@ -19,9 +19,10 @@ jobs:
       with:
         release-platform: ${{ matrix.LCG }}
         run: |
-          cmake -B build -S .
+          PREFIX=install
+          cmake -B build -S . -DCMAKE_INSTALL_PREFIX=${PREFIX}
           cmake --build build -- install
-          source install/setup.sh
+          source ${PREFIX}/setup.sh
           checkOverlaps -c ${BEAMLINE_PATH}/${BEAMLINE}.xml
 
   ubuntu-2204:
@@ -40,7 +41,8 @@ jobs:
       with:
         release-platform: ${{ matrix.LCG }}
         run: |
-          cmake -B build -S .
+          PREFIX=install
+          cmake -B build -S . -DCMAKE_INSTALL_PREFIX=${PREFIX}
           cmake --build build -- install
-          source install/setup.sh
+          source ${PREFIX}/setup.sh
           checkOverlaps -c ${BEAMLINE_PATH}/${BEAMLINE}.xml
