@@ -142,14 +142,14 @@ jobs:
   trigger-detector-early:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/github-script@v6
+    - uses: actions/github-script@v5
       with:
         script: |
           await github.rest.actions.createWorkflowDispatch({
             'eic',
             'ecce',
             'workflows/linux-eic-shell.yml',
-            'main'
+            'main',
           });
 
   generate-prim-file:
