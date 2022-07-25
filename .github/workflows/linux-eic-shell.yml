@@ -145,12 +145,18 @@ jobs:
     - uses: actions/github-script@v5
       with:
         script: |
-          await github.rest.actions.createWorkflowDispatch({
-            'eic',
-            'ecce',
-            'workflows/linux-eic-shell.yml',
-            'main',
-          });
+          try {
+            const result = await github.rest.actions.createWorkflowDispatch({
+              owner: 'eic',
+              repo: 'ecce',
+              workflow_id: 'linux-eic-shell.yml',
+              ref: 'main',
+            })
+            console.log(result);
+          } catch(error) {
+            console.error(error);
+            core.setFailed(error);
+          }
 
   generate-prim-file:
     runs-on: ubuntu-latest
