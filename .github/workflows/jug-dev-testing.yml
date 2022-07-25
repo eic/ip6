@@ -1,0 +1,32 @@
+name: jug-dev-testing
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-jug-dev-testing:
+    runs-on: ubuntu-latest
+    container: ghcr.io/eic/jug_dev:testing
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        PREFIX=install
+        cmake -B build -S . -DCMAKE_INSTALL_PREFIX=${PREFIX}
+        cmake --build build -- install
+        # check geometry
+        source ${PREFIX}/setup.sh
+        checkGeometry -c ${BEAMLINE_PATH}/${BEAMLINE}.xml
+    - uses: actions/upload-artifact@v3
+      with:
+        name: build-jug-dev-testing
+        path: install/
+        if-no-files-found: error
