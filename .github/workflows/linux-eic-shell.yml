@@ -144,6 +144,7 @@ jobs:
     steps:
     - uses: actions/github-script@v5
       with:
+        github-token: ${{ secrets.WORKFLOW_DISPATCH_TOKEN_EIC_ECCE }}
         script: |
           try {
             const result = await github.rest.actions.createWorkflowDispatch({
