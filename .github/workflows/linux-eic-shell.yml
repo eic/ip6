@@ -127,6 +127,32 @@ jobs:
           noverlaps="$(grep -c GeomVol1002 doc/overlap_check_geant4.out || true)"
           if [[ "${noverlaps}" -gt "0" ]] ; then echo "${noverlaps} overlaps found!" && false ; fi
 
+  trigger-detector:
+    runs-on: ubuntu-latest
+    needs: [check-overlap-tgeo, check-overlap-geant4]
+    steps:
+    - run: |
+        curl \
+          -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: token ${{ secrets.WORKFLOW_DISPATCH_TOKEN_EIC_ECCE }}" \
+          https://api.github.com/repos/eic/ecce/actions/workflows/linux-eic-shell/dispatches \
+          -d '{"ref":"topic-branch","inputs":{"name":"Mona the Octocat","home":"San Francisco, CA"}}'
+
+  trigger-detector-2:
+    runs-on: ubuntu-latest
+    needs: [check-overlap-tgeo, check-overlap-geant4]
+    steps:
+    - uses: actions/github-script@v6
+      with:
+        script: |
+          await github.rest.actions.createWorkflowDispatch({
+            'eic',
+            'ecce',
+            'workflows/linux-eic-shell.yml',
+            'main',
+          });
+
   generate-prim-file:
     runs-on: ubuntu-latest
     needs: build-test
