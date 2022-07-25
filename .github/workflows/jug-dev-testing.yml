@@ -23,8 +23,9 @@ jobs:
         cmake -B build -S . -DCMAKE_INSTALL_PREFIX=${PREFIX}
         cmake --build build -- install
         # check geometry
-        . ${PREFIX}/setup.sh
+        source ${PREFIX}/setup.sh
         checkGeometry -c ${BEAMLINE_PATH}/${BEAMLINE}.xml
+      shell: bash
     - uses: actions/upload-artifact@v3
       with:
         name: build-jug-dev-testing
