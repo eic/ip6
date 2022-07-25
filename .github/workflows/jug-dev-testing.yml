@@ -23,7 +23,7 @@ jobs:
         cmake -B build -S . -DCMAKE_INSTALL_PREFIX=${PREFIX}
         cmake --build build -- install
         # check geometry
-        source ${PREFIX}/setup.sh
+        . ${PREFIX}/setup.sh
         checkGeometry -c ${BEAMLINE_PATH}/${BEAMLINE}.xml
     - uses: actions/upload-artifact@v3
       with:
