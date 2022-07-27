@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/tcsh
 
 setenv BEAMLINE @PROJECT_NAME@
 setenv BEAMLINE_PATH @CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@
