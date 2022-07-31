@@ -9,12 +9,12 @@
     <constant name="BeamPipeB0_ID" value="1"/>
     <constant name="BeamPipe_ID" value="2"/>
 
-    <include ref="ip6/definitions.xml"/>
+    <include ref="${BEAMLINE_PATH}/compact/definitions.xml"/>
 
     <comment>
       Change this to 275/100/41 to change the field setup
     </comment>
-    <include ref="ip6/far_forward/fields_275.xml"/>
+    <include ref="${BEAMLINE_PATH}/compact/far_forward/fields_275.xml"/>
 
     <constant name="tracker_region_zmax" value="10*m"/>
     <constant name="tracker_region_rmax" value="1*m"/>
@@ -96,28 +96,28 @@
   </define>
 
   <includes>
-    <gdmlFile ref="ip6/elements.xml"/>
-    <gdmlFile ref="ip6/materials.xml"/>
+    <gdmlFile ref="${BEAMLINE_PATH}/compact/elements.xml"/>
+    <gdmlFile ref="${BEAMLINE_PATH}/compact/materials.xml"/>
   </includes>
 
   <display>
-    <include ref="ip6/ip6_colors.xml"/>
-    <include ref="ip6/ip6_display.xml"/>
+    <include ref="${BEAMLINE_PATH}/compact/ip6_colors.xml"/>
+    <include ref="${BEAMLINE_PATH}/compact/ip6_display.xml"/>
   </display>
 
   <comment>
     Central beamline
   </comment>
-  <include ref="ip6/central_beampipe.xml"/>
+  <include ref="${BEAMLINE_PATH}/compact/central_beampipe.xml"/>
 
   <comment>
     Far Forward
   </comment>
-  <include ref="ip6/far_forward.xml"/>
+  <include ref="${BEAMLINE_PATH}/compact/far_forward.xml"/>
 
   <comment>
     Far Backward
   </comment>
-  <include ref="ip6/far_backward.xml"/>
+  <include ref="${BEAMLINE_PATH}/compact/far_backward.xml"/>
 
 </lccdd>
