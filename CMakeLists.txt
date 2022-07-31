@@ -85,6 +85,8 @@ install(FILES ip6.xml
 #-----------------------------------------------------------------------------------
 # Configure and install beamline setup script
 #
+dd4hep_configure_scripts(${PROJECT_NAME} DEFAULT_SETUP)
+
 execute_process(
   COMMAND git rev-parse --abbrev-ref HEAD
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
