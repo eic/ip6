@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later -->
+<!-- Copyright (C) 2022 Whitney Armstrong, Alex Jentsch -->
+
 <lccdd>
   <define>
     <comment>
@@ -41,7 +43,7 @@
         <module_component material="Aluminum"     vis="FFTrackerShieldingVis" thickness="ForwardOffMTracker_RFShieldThickness"/>
       </module>
       <layer id="1" module="Module1">
-        <envelope vis="FFTrackerLayerVis" x="10.0*cm" y="20.0*cm" length="1.0*cm" 
+        <envelope vis="FFTrackerLayerVis" x="10.0*cm" y="20.0*cm" length="1.0*cm"
           zstart="0.0/2.0" />
       </layer>
     </detector>
@@ -65,10 +67,10 @@
         <module_component material="Aluminum"     vis="FFTrackerShieldingVis" thickness="ForwardOffMTracker_RFShieldThickness"/>
       </module>
       <layer id="1" module="Module1">
-         <envelope vis="FFTrackerLayerVis" x="10.0*cm" y="20.0*cm" length="3.2*mm" 
+         <envelope vis="FFTrackerLayerVis" x="10.0*cm" y="20.0*cm" length="3.2*mm"
            zstart="0.0/2.0" />
       </layer>
-      
+
     </detector>
 
     <detector
@@ -90,10 +92,10 @@
         <module_component material="Aluminum"     vis="FFTrackerShieldingVis" thickness="ForwardOffMTracker_RFShieldThickness"/>
       </module>
       <layer id="1" module="Module1">
-         <envelope vis="FFTrackerLayerVis" x="10.0*cm" y="20.0*cm" length="3.2*mm" 
+         <envelope vis="FFTrackerLayerVis" x="10.0*cm" y="20.0*cm" length="3.2*mm"
           zstart="0.0/2.0" />
       </layer>
-      
+
     </detector>
 
     <detector
@@ -115,10 +117,10 @@
         <module_component material="Aluminum"     vis="FFTrackerShieldingVis" thickness="ForwardOffMTracker_RFShieldThickness"/>
       </module>
       <layer id="1" module="Module1">
-         <envelope vis="FFTrackerLayerVis" x="10.0*cm" y="20.0*cm" length="3.2*mm" 
+         <envelope vis="FFTrackerLayerVis" x="10.0*cm" y="20.0*cm" length="3.2*mm"
           zstart="0.0/2.0" />
       </layer>
-      
+
     </detector>
 
 
@@ -127,19 +129,19 @@
   <readouts>
     <readout name="ForwardOffMTrackerHits1">
       <segmentation type="CartesianGridXY" grid_size_x="0.5*mm" grid_size_y="0.5*mm" />
-      <id>system:8,layer:5,module:5,slice:4,x:32:-16,y:-16</id>  
+      <id>system:8,layer:5,module:5,slice:4,x:32:-16,y:-16</id>
     </readout>
     <readout name="ForwardOffMTrackerHits2">
       <segmentation type="CartesianGridXY" grid_size_x="0.5*mm" grid_size_y="0.5*mm" />
-      <id>system:8,layer:5,module:5,slice:4,x:32:-16,y:-16</id>  
+      <id>system:8,layer:5,module:5,slice:4,x:32:-16,y:-16</id>
     </readout>
     <readout name="ForwardOffMTrackerHits3">
       <segmentation type="CartesianGridXY" grid_size_x="0.5*mm" grid_size_y="0.5*mm" />
-      <id>system:8,layer:5,module:5,slice:4,x:32:-16,y:-16</id>  
+      <id>system:8,layer:5,module:5,slice:4,x:32:-16,y:-16</id>
     </readout>
     <readout name="ForwardOffMTrackerHits4">
       <segmentation type="CartesianGridXY" grid_size_x="0.5*mm" grid_size_y="0.5*mm" />
-      <id>system:8,layer:5,module:5,slice:4,x:32:-16,y:-16</id>  
+      <id>system:8,layer:5,module:5,slice:4,x:32:-16,y:-16</id>
     </readout>
   </readouts>
 
