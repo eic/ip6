@@ -1,3 +1,6 @@
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later -->
+<!-- Copyright (C) 2022 Wouter Deconinck, Whitney Armstrong -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <lccdd>
   <define>
@@ -12,7 +15,7 @@
 
   <detectors>
 
-    <detector id="BeamPipe_ID" name="BeamPipe" type="IP6BeamPipe" vis="BeamPipeVis"> 
+    <detector id="BeamPipe_ID" name="BeamPipe" type="IP6BeamPipe" vis="BeamPipeVis">
       <beampipe/>
       <IP_pipe
         OD="BeampipeOD"

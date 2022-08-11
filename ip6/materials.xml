@@ -1,3 +1,6 @@
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later -->
+<!-- Copyright (C) 2022 Whitney Armstrong, Jihee Kim -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <materials>
   <!--
@@ -218,5 +221,5 @@
     <D type="density" value="12.4" unit="g / cm3"/>
     <fraction n="0.96" ref="W"/>
     <fraction n="0.04" ref="Polystyrene"/>
-  </material>  
+  </material>
 </materials>
