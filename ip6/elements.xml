@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later -->
+<!-- Copyright (C) 2022 Whitney Armstrong -->
+
 <materials>
   <element Z="89" formula="Ac" name="Ac">
     <atom type="A" unit="g/mol" value="227.028"/>

@@ -1,6 +1,9 @@
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later -->
+<!-- Copyright (C) 2022 Alex Jentsch, Jihee Kim -->
+
 <display>
 
-  <comment> 
+  <comment>
     Colors tweaked to be displayable by geoViewer
   </comment>
   <vis name="AnlGreen"        alpha="1" r="100/256" g="200/256" b="0/256"/>
