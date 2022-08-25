@@ -3,8 +3,6 @@
   <define>
     <constant name="BeampipeUpstreamStraightLength" value="800.0 * mm"/>
     <constant name="BeampipeDownstreamStraightLength" value="670.0 * mm"/>
-    <constant name="BeampipeDownstreamFlange1Thickness" value="30.0 * mm"/>
-    <constant name="BeampipeDownstreamFlange2Thickness" value="39.0 * mm"/>
   </define>
 
   <display>
@@ -59,8 +57,7 @@
                          crossing_angle="CrossingAngle">
           <!-- avoid overlap with IP beampipe by starting slightly displaced -->
           <zplane z="BeampipeDownstreamStraightLength + 0.5 * BeampipeOD * tan(abs(CrossingAngle))" OD="BeampipeOD"/>
-          <zplane z="1750.00 * mm" OD=" 92.06 * mm - 1.0 * mm"/>
-          <zplane z="1790.01 * mm" OD=" 92.06 * mm"/>
+          <zplane z="1750.00 * mm" OD=" 92.06 * mm"/>
           <zplane z="4455.80 * mm" OD="257.92 * mm"/>
         </outgoing_hadron>
         <additional_subtraction thickness="4.0*mm"
