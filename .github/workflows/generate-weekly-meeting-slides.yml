@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: eic/generate-meeting-slides@v2
       with:
-        since: "1 week ago"
+        since: ${{ inputs.since || '1 week ago' }}
         config: |
           repos:  
             - name: ${{ github.repository }}
