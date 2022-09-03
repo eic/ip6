@@ -141,6 +141,10 @@ jobs:
               repo: 'epic',
               workflow_id: 'linux-eic-shell.yml',
               ref: 'main',
+              inputs: {
+                beamline_repositoryurl: ${{ github.server_url }}/${{ github.repository }},
+                beamline_version: ${{ github.ref_name }},
+              },
             })
             console.log(result);
           } catch(error) {
