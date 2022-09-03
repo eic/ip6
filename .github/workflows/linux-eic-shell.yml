@@ -143,7 +143,7 @@ jobs:
               ref: 'main',
               inputs: {
                 beamline_repositoryurl: '${{ github.server_url }}/${{ github.repository }}',
-                beamline_version: '${{ github.ref_name }}',
+                beamline_version: '${{ github.head_ref || github.ref_name }}',
               },
             })
             console.log(result);
