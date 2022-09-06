@@ -144,6 +144,8 @@ jobs:
               inputs: {
                 beamline_repositoryurl: '${{ github.server_url }}/${{ github.repository }}',
                 beamline_version: '${{ github.head_ref || github.ref_name }}',
+                github_repository: '${{ github.repository }}',
+                github_sha: '${{ github.event.pull_request.head.sha || github.sha }}',
               },
             })
             console.log(result);
