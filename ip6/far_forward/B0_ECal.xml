@@ -1,0 +1,52 @@
+<lccdd>
+  <define>
+    <constant name="B0ECal_CrystalModule_width" value="20.00*mm"/>
+    <constant name="B0ECal_CrystalModule_length" value="200.00*mm"/>
+    <constant name="B0ECal_CrystalModule_wrap" value="0.50*mm"/>
+  </define>
+
+  <detectors>
+
+    <documentation>
+      #### B0 Electromagnetic Calorimeter
+    </documentation>
+    <detector
+        id="B0ECal_ID"
+        name="B0ECal"
+        type="B0_ECAL"
+        readout="B0ECalHits">
+      <position x="0" y="0" z="-(B0ECal_zmin + B0ECal_length/2.)"/>
+      <rotation x="0" y="180.*degree" z="0"/>
+      <placements>
+        <disk
+            rmin="B0ECal_rmin"
+            rmax="B0ECal_rmax"
+            envelope="true"
+            sector="1">
+          <module
+            sizex="B0ECal_CrystalModule_width"
+            sizey="B0ECal_CrystalModule_width"
+            sizez="B0ECal_CrystalModule_length"
+            vis="B0ECalModuleVis"
+            material="PbWO4"/>
+          <wrapper
+            thickness="B0ECal_CrystalModule_wrap"
+            material="Epoxy"
+            vis="WhiteVis"/>
+        </disk>
+      </placements>
+
+    </detector>
+
+  </detectors>
+
+  <readouts>
+    <comment>
+      No segmentation since module is the smallest readout segmentation
+    </comment>
+    <readout name="B0ECalHits">
+      <segmentation type="NoSegmentation" key="sector"/>
+      <id>system:8,sector:4,module:20</id>
+    </readout>
+  </readouts>
+</lccdd>
