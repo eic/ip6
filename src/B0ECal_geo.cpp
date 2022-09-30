@@ -1,4 +1,3 @@
-#pragma once
 #include "Math/Point2D.h"
 #include <vector>
 #include "DD4hep/DetFactoryHelper.h"
