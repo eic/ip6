@@ -4,6 +4,7 @@
 #include "DDRec/DetectorData.h"
 #include "DDRec/Surface.h"
 #include <XML/Helper.h>
+#include "GeometryHelpers.h"
 //////////////////////////////////////////////////
 // Far Forward B0 Electromagnetic Calorimeter
 //////////////////////////////////////////////////
