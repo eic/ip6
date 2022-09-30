@@ -23,7 +23,7 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   sens.setType("calorimeter");
   
   // assembly
-  Assembly assembly(detName);
+  Assembly detVol(detName);
 
   xml_dim_t dim       = x_det.dimensions();
   double    Width     = dim.x();
@@ -41,11 +41,6 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   double     mWidth     = mod.attr<double>(_Unicode(width));
   double     mGap       = mod.attr<double>(_Unicode(gap));
   int        mNTowers   = mod.attr<double>(_Unicode(ntower));
-
-  // Create Global Volume
-  Box    ffi_ZDC_GVol_Solid(Width * 0.5, Width * 0.5, Thickness * 0.5);
-  Volume detVol("ffi_ZDC_GVol_Logic", ffi_ZDC_GVol_Solid, Vacuum);
-  detVol.setVisAttributes(desc.visAttributes(x_det.visStr()));
 
   // Construct Tower
   // Single Module
@@ -84,8 +79,9 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
     }
   }
 
+  // position and rotation of parent volume 
   Volume       motherVol = desc.pickMotherVolume(det);
-  Transform3D  tr(RotationZYX(rot.z(), -rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));
+  Transform3D  tr(RotationZYX(rot.z(), rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));
   PlacedVolume detPV = motherVol.placeVolume(detVol, tr);
   detPV.addPhysVolID("system", detID);
   det.setPlacement(detPV);
