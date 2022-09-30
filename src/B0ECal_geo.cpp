@@ -27,6 +27,25 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
 
   xml_dim_t pos = x_det.position();
   xml_dim_t rot = x_det.rotation();
+  
+  // module placement
+  xml::Component     plm = detElem.child(_Unicode(placements));
+  std::map<int, int> sectorModuleNumbers;
+  auto               addModuleNumbers = [&sectorModuleNumbers](int sector, int nmod) {
+    auto it = sectorModuleNumbers.find(sector);
+    if (it != sectorModuleNumbers.end()) {
+      it->second += nmod;
+    } else {
+      sectorModuleNumbers[sector] = nmod;
+    }
+  };
+  
+  int sector_id = 1;
+  
+  for (xml::Collection_t disk(plm, _Unicode(disk)); disk; ++disk) {
+    auto [sector, nmod] = add_disk(desc, assembly, disk, sens, sector_id++);
+    addModuleNumbers(sector, nmod);
+  }
  
   // position and rotation of parent volume 
   Volume       motherVol = desc.pickMotherVolume(det);
