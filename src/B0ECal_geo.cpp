@@ -11,6 +11,9 @@
 using namespace std;
 using namespace dd4hep;
 
+static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t& plm, SensitiveDetector& sens,
+                                     int id);
+
 static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
 {
   xml_det_t x_det   = e;
@@ -141,4 +144,42 @@ static std::tuple<int, int> add_individuals(Detector& desc, Assembly& env, xml::
 
   return {sector_id, nmodules};
 }
+
+// place disk of modules
+static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t& plm, SensitiveDetector& sens,
+                                     int sid)
+{
+  auto [modVol, modSize] = build_module(desc, plm, sens);
+  int    sector_id       = dd4hep::getAttrOrDefault<int>(plm, _Unicode(sector), sid);
+  int    id_begin        = dd4hep::getAttrOrDefault<int>(plm, _Unicode(id_begin), 1);
+  double rmin            = plm.attr<double>(_Unicode(rmin));
+  double rmax            = plm.attr<double>(_Unicode(rmax));
+  double phimin          = dd4hep::getAttrOrDefault<double>(plm, _Unicode(phimin), 0.);
+  double phimax          = dd4hep::getAttrOrDefault<double>(plm, _Unicode(phimax), 2. * M_PI);
+
+  // placement inside mother
+  auto pos = get_xml_xyz(plm, _Unicode(position));
+  auto rot = get_xml_xyz(plm, _Unicode(rotation));
+
+  // optional envelope volume
+  bool        has_envelope = dd4hep::getAttrOrDefault<bool>(plm, _Unicode(envelope), false);
+  Material    material     = desc.material(getAttrOrDefault<std::string>(plm, _U(material), "Air"));
+  Tube        solid(rmin, rmax, modSize.z() / 2.0, phimin, phimax);
+  Volume      env_vol(std::string(env.name()) + "_envelope", solid, material);
+  Transform3D tr_global = RotationZYX(rot.z(), rot.y(), rot.x()) * Translation3D(pos.x(), pos.y(), pos.z());
+  if (has_envelope) {
+    env.placeVolume(env_vol, tr_global);
+  }
+
+  // local placement of modules
+  int  mid    = 0;
+  auto points = epic::geo::fillRectangles({0., 0.}, modSize.x(), modSize.y(), rmin, rmax, phimin, phimax);
+  for (auto& p : points) {
+    Transform3D tr_local = RotationZYX(0.0, 0.0, 0.0) * Translation3D(p.x(), p.y(), 0.0);
+    auto modPV = (has_envelope ? env_vol.placeVolume(modVol, tr_local) : env.placeVolume(modVol, tr_global * tr_local));
+    modPV.addPhysVolID("sector", sector_id).addPhysVolID("module", id_begin + mid++);
+  }
+  return {sector_id, mid};
+}
+
 DECLARE_DETELEMENT(B0_ECAL, createDetector)
