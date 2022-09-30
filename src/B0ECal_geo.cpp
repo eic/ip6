@@ -4,7 +4,7 @@
 #include "DDRec/DetectorData.h"
 #include "DDRec/Surface.h"
 #include <XML/Helper.h>
-#include "GeometryHelpers.h"
+
 //////////////////////////////////////////////////
 // Far Forward B0 Electromagnetic Calorimeter
 //////////////////////////////////////////////////
@@ -14,6 +14,9 @@ using namespace dd4hep;
 
 static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t& plm, SensitiveDetector& sens,
                                      int id);
+typedef ROOT::Math::XYPoint Point;
+std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rmax, double phmin = -M_PI,
+                                    double phmax = M_PI);
 
 static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
 {
@@ -146,13 +149,88 @@ static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collect
 
   // local placement of modules
   int  mid    = 0;
-  auto points = epic::geo::fillRectangles({0., 0.}, modSize.x(), modSize.y(), rmin, rmax, phimin, phimax);
+  auto points = fillRectangles({0., 0.}, modSize.x(), modSize.y(), rmin, rmax, phimin, phimax);
   for (auto& p : points) {
     Transform3D tr_local = RotationZYX(0.0, 0.0, 0.0) * Translation3D(p.x(), p.y(), 0.0);
     auto modPV = (has_envelope ? env_vol.placeVolume(modVol, tr_local) : env.placeVolume(modVol, tr_global * tr_local));
     modPV.addPhysVolID("sector", sector_id).addPhysVolID("module", id_begin + mid++);
   }
   return {sector_id, mid};
+}
+
+// check if a 2d point is already in the container
+bool already_placed(const Point& p, const std::vector<Point>& vec, double xs = 1.0, double ys = 1.0,
+                    double tol = 1e-6)
+{
+  for (auto& pt : vec) {
+    if ((std::abs(pt.x() - p.x()) / xs < tol) && std::abs(pt.y() - p.y()) / ys < tol) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// check if a point is in a ring
+inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, double rmax, double phmin, double phmax)
+{
+  if (pt.r() > rmax || pt.r() < rmin) {
+    return false;
+  }
+
+  // check four corners
+  std::vector<Point> pts{
+                           Point(pt.x() - sx / 2., pt.y() - sy / 2.),
+                           Point(pt.x() - sx / 2., pt.y() + sy / 2.),
+                           Point(pt.x() + sx / 2., pt.y() - sy / 2.),
+                           Point(pt.x() + sx / 2., pt.y() + sy / 2.),
+                        };
+  for (auto& p : pts) {
+    if (p.r() > rmax || p.r() < rmin || p.phi() > phmax || p.phi() < phmin) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// a helper function to recursively fill square in a ring
+void add_rectangle(Point p, std::vector<Point>& res, double sx, double sy, double rmin, double rmax, double phmin,
+                   double phmax, int max_depth = 20, int depth = 0)
+{
+  // std::cout << depth << "/" << max_depth << std::endl;
+  // exceeds the maximum depth in searching or already placed
+  if ((depth > max_depth) || (already_placed(p, res, sx, sy))) {
+    return;
+  }
+
+  bool in_ring = rec_in_ring(p, sx, sy, rmin, rmax, phmin, phmax);
+  if (in_ring) {
+    res.emplace_back(p);
+  }
+  // continue search for a good placement or if no placement found yet
+  if (in_ring || res.empty()) {
+    // check adjacent squares
+    add_rectangle(Point(p.x() + sx, p.y()), res, sx, sy, rmin, rmax, phmin, phmax, max_depth, depth + 1);
+    add_rectangle(Point(p.x() - sx, p.y()), res, sx, sy, rmin, rmax, phmin, phmax, max_depth, depth + 1);
+    add_rectangle(Point(p.x(), p.y() + sy), res, sx, sy, rmin, rmax, phmin, phmax, max_depth, depth + 1);
+    add_rectangle(Point(p.x(), p.y() - sy), res, sx, sy, rmin, rmax, phmin, phmax, max_depth, depth + 1);
+  }
+}
+
+// fill squares
+std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rmax, double phmin,
+                                  double phmax)
+{
+  // convert (0, 2pi) to (-pi, pi)
+  if (phmax > M_PI) {
+    phmin -= M_PI;
+    phmax -= M_PI;
+  }
+  // start with a seed square and find one in the ring
+  // move to center
+  ref = ref - Point(int(ref.x() / sx) * sx, int(ref.y() / sy) * sy);
+  std::vector<Point> res;
+  add_rectangle(ref, res, sx, sy, rmin, rmax, phmin, phmax, (int(rmax / sx) + 1) * (int(rmax / sy) + 1) * 2);
+  return res;
 }
 
 DECLARE_DETELEMENT(B0_ECAL, createDetector)
