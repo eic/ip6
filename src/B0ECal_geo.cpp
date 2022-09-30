@@ -29,9 +29,9 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   xml_dim_t rot = x_det.rotation();
   
   // module placement
-  xml::Component     plm = detElem.child(_Unicode(placements));
+  xml_comp_t plm = x_det.child(_Unicode(placements));
   std::map<int, int> sectorModuleNumbers;
-  auto               addModuleNumbers = [&sectorModuleNumbers](int sector, int nmod) {
+  auto addModuleNumbers = [&sectorModuleNumbers](int sector, int nmod) {
     auto it = sectorModuleNumbers.find(sector);
     if (it != sectorModuleNumbers.end()) {
       it->second += nmod;
