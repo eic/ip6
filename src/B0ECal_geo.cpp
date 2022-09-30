@@ -1,3 +1,6 @@
+#pragma once
+#include "Math/Point2D.h"
+#include <vector>
 #include "DD4hep/DetFactoryHelper.h"
 #include "DD4hep/OpticalSurfaces.h"
 #include "DD4hep/Printout.h"
