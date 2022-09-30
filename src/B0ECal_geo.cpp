@@ -21,6 +21,9 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   int       detID   = x_det.id();
   DetElement   det(detName, detID);
   sens.setType("calorimeter");
+  
+  // assembly
+  Assembly assembly(detName);
 
   xml_dim_t dim       = x_det.dimensions();
   double    Width     = dim.x();
