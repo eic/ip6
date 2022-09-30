@@ -19,6 +19,8 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   xml_det_t x_det   = e;
   string    detName = x_det.nameStr();
   int       detID   = x_det.id();
+  DetElement   det(detName, detID);
+  sens.setType("calorimeter");
 
   xml_dim_t dim       = x_det.dimensions();
   double    Width     = dim.x();
@@ -47,7 +49,6 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   Box    ffi_ZDC_ECAL_Solid_Tower(mWidth * 0.5, mWidth * 0.5, mThickness * 0.5);
   Volume modVol("ffi_ZDC_ECAL_Logic_Tower", ffi_ZDC_ECAL_Solid_Tower, mPbWO4);
   modVol.setVisAttributes(desc.visAttributes(mod.visStr()));
-  sens.setType("calorimeter");
   modVol.setSensitiveDetector(sens);
 
   // Module Position
@@ -80,7 +81,6 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
     }
   }
 
-  DetElement   det(detName, detID);
   Volume       motherVol = desc.pickMotherVolume(det);
   Transform3D  tr(RotationZYX(rot.z(), -rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));
   PlacedVolume detPV = motherVol.placeVolume(detVol, tr);
