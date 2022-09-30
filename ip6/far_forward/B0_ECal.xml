@@ -1,8 +1,12 @@
 <lccdd>
   <define>
+    <constant name="B0ECal_rotation" value="ionCrossingAngle"/>
+    <constant name="B0ECal_zcenter" value="683*cm"/>
+    <constant name="B0ECal_length" value="10*cm"/>
     <constant name="B0ECal_CrystalModule_width" value="20.00*mm"/>
-    <constant name="B0ECal_CrystalModule_length" value="200.00*mm"/>
+    <constant name="B0ECal_CrystalModule_length" value="B0ECal_length"/>
     <constant name="B0ECal_CrystalModule_wrap" value="0.50*mm"/>
+    
   </define>
 
   <detectors>
@@ -15,8 +19,8 @@
         name="B0ECal"
         type="B0_ECAL"
         readout="B0ECalHits">
-      <position x="0" y="0" z="-(B0ECal_zmin + B0ECal_length/2.)"/>
-      <rotation x="0" y="180.*degree" z="0"/>
+      <position x="0" y="0" z="B0ECal_zcenter"/>
+      <rotation x="B0ECal_rotation" y="0" z="0"/>
       <placements>
         <disk
             rmin="B0ECal_rmin"
