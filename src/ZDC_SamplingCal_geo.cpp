@@ -83,8 +83,8 @@ static Ref_t create_detector(Detector& desc, xml::Handle_t handle, SensitiveDete
 	zpos_0 += sl_thickness[sl_name];
       }
       
-      zpos_0 += boxgap;
     }
+    zpos_0 += boxgap;
 
   }
 
