@@ -49,12 +49,12 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   int sector_id = 1;
   
   for (xml::Collection_t mod(plm, _Unicode(individuals)); mod; ++mod) {
-    auto [sector, nmod] = add_individuals(desc, assembly, mod, sens, sector_id++);
+    auto [sector, nmod] = add_individuals(desc, detVol, mod, sens, sector_id++);
     addModuleNumbers(sector, nmod);
   }
   
   for (xml::Collection_t disk(plm, _Unicode(disk)); disk; ++disk) {
-    auto [sector, nmod] = add_disk(desc, assembly, disk, sens, sector_id++);
+    auto [sector, nmod] = add_disk(desc, detVol, disk, sens, sector_id++);
     addModuleNumbers(sector, nmod);
   }
  
