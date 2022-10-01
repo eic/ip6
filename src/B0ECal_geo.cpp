@@ -22,6 +22,20 @@ typedef ROOT::Math::XYPoint Point;
 std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rmax, double phmin = -M_PI,
                                     double phmax = M_PI);
 
+// helper function to get x, y, z if defined in a xml component
+template <class XmlComp>
+Position get_xml_xyz(XmlComp& comp, dd4hep::xml::Strng_t name)
+{
+  Position pos(0., 0., 0.);
+  if (comp.hasChild(name)) {
+    auto child = comp.child(name);
+    pos.SetX(dd4hep::getAttrOrDefault<double>(child, _Unicode(x), 0.));
+    pos.SetY(dd4hep::getAttrOrDefault<double>(child, _Unicode(y), 0.));
+    pos.SetZ(dd4hep::getAttrOrDefault<double>(child, _Unicode(z), 0.));
+  }
+  return pos;
+}
+
 static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
 {
   xml_det_t x_det   = e;
