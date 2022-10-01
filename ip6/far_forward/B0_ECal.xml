@@ -1,12 +1,18 @@
 <lccdd>
   <define>
     <constant name="B0ECal_rotation" value="ionCrossingAngle"/>
-    <constant name="B0ECal_zcenter" value="683*cm"/>
+    <constant name="B0ECal_IP_distance" value="683*cm"/>
+    <constant name="B0ECal_xcenter" value="B0ECal_IP_distance*sin(ionCrossingAngle)"/>
+    <constant name="B0ECal_zcenter" value="B0ECal_IP_distance*cos(ionCrossingAngle)"/>  
     <constant name="B0ECal_length" value="10*cm"/>
-    <constant name="B0ECal_CrystalModule_width" value="20.00*mm"/>
+    <constant name="B0ECal_CrystalModule_width" value="2*cm"/>
     <constant name="B0ECal_CrystalModule_length" value="B0ECal_length"/>
     <constant name="B0ECal_CrystalModule_wrap" value="0.50*mm"/>
-    
+    <constant name="B0ECal_packman_rmin" value="3.5*cm"/>
+    <constant name="B0ECal_packman_small_rmax" value="8*cm"/>
+    <constant name="B0ECal_packman_large_rmax" value="15*cm"/>
+    <constant name="B0ECal_packman_large_phimin" value="-120*deg"/>
+    <constant name="B0ECal_packman_large_phimax" value="120*deg"/>
   </define>
 
   <detectors>
@@ -19,14 +25,33 @@
         name="B0ECal"
         type="B0_ECAL"
         readout="B0ECalHits">
-      <position x="0" y="0" z="B0ECal_zcenter"/>
+      <position x="B0ECal_xcenter" y="0" z="B0ECal_zcenter"/>
       <rotation x="B0ECal_rotation" y="0" z="0"/>
       <placements>
         <disk
-            rmin="B0ECal_rmin"
-            rmax="B0ECal_rmax"
+            rmin="B0ECal_packman_rmin"
+            rmax="B0ECal_packman_small_rmax"
             envelope="true"
             sector="1">
+          <module
+            sizex="B0ECal_CrystalModule_width"
+            sizey="B0ECal_CrystalModule_width"
+            sizez="B0ECal_CrystalModule_length"
+            vis="B0ECalModuleVis"
+            material="PbWO4"/>
+          <wrapper
+            thickness="B0ECal_CrystalModule_wrap"
+            material="Epoxy"
+            vis="WhiteVis"/>
+        </disk>
+        
+        <disk
+            rmin="B0ECal_packman_small_rmax"
+            rmax="B0ECal_packman_large_rmax"
+            phimin="B0ECal_packman_large_phimin"
+            phimax="B0ECal_packman_large_phimax"
+            envelope="true"
+            sector="2">
           <module
             sizex="B0ECal_CrystalModule_width"
             sizey="B0ECal_CrystalModule_width"
