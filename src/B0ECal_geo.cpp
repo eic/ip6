@@ -14,6 +14,8 @@
 using namespace std;
 using namespace dd4hep;
 
+static std::tuple<int, int> add_individuals(Detector& desc, Assembly& env, xml::Collection_t& plm,
+                                            SensitiveDetector& sens, int id);
 static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t& plm, SensitiveDetector& sens,
                                      int id);
 typedef ROOT::Math::XYPoint Point;
