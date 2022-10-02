@@ -198,7 +198,7 @@ inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, doub
   if (pt.r() > rmax_pacman || pt.r() < rmin) {
     return false;
   }
-  
+
   // check four corners
   std::vector<Point> pts{
                            Point(pt.x() - sx / 2., pt.y() - sy / 2.),
@@ -206,13 +206,12 @@ inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, doub
                            Point(pt.x() + sx / 2., pt.y() - sy / 2.),
                            Point(pt.x() + sx / 2., pt.y() + sy / 2.),
                         };
+  bool inside = false;
   for (auto& p : pts) {
     rmax_pacman = (p.phi() < phmin || p.phi() > phmax) ? rintermediate : rmax;
-    if (p.r() > rmax_pacman || p.r() < rmin) {
-      return false;
-    }
+    inside += (p.r() <= rmax_pacman && p.r() >= rmin);
   }
-  return true;
+  return inside;
 }
 
 // a helper function to recursively fill square in a ring
