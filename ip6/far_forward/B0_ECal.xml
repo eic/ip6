@@ -27,31 +27,16 @@
         readout="B0ECalHits">
       <position x="B0ECal_xcenter" y="0" z="B0ECal_zcenter"/>
       <rotation x="B0ECal_rotation" y="180*deg" z="0"/>
-      <placements>
+      <placements>        
         <disk
-            rmin="B0ECal_packman_rmin"
-            rmax="B0ECal_packman_small_rmax"
-            envelope="true"
-            sector="1">
-          <module
-            sizex="B0ECal_CrystalModule_width"
-            sizey="B0ECal_CrystalModule_width"
-            sizez="B0ECal_CrystalModule_length"
-            vis="GreenVis"
-            material="PbWO4"/>
-          <wrapper
-            thickness="B0ECal_CrystalModule_wrap"
-            material="Epoxy"
-            vis="GrayVis"/>
-        </disk>
-        
-        <disk
-            rmin="B0ECal_packman_small_rmax"
+            rmin="B0ECal_packman_rmin" 
+            rintermediate="B0ECal_packman_small_rmax"
             rmax="B0ECal_packman_large_rmax"
             phimin="B0ECal_packman_large_phimin"
             phimax="B0ECal_packman_large_phimax"
             envelope="true"
-            sector="2">
+            material="Vacuum"
+            sector="1">
           <module
             sizex="B0ECal_CrystalModule_width"
             sizey="B0ECal_CrystalModule_width"
