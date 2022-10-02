@@ -43,6 +43,7 @@
     <constant name="ZDCEcal_ID"              value="163"/>
     <constant name="ZDCHcal_ID"              value="164"/>
     <constant name="VacuumMagnetElement_1_ID"        value="165"/>
+    <constant name="B0ECal_ID" value="166"/>
 
     <documentation>
       #### (170-189) Far Forward Beamline Magnets
