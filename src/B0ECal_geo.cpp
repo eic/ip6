@@ -19,7 +19,7 @@ static std::tuple<int, int> add_individuals(Detector& desc, Assembly& env, xml::
 static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t& plm, SensitiveDetector& sens,
                                      int id);
 typedef ROOT::Math::XYPoint Point;
-std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rmax, double phmin = -M_PI,
+std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin = -M_PI,
                                     double phmax = M_PI);
 
 // helper function to get x, y, z if defined in a xml component
@@ -147,6 +147,7 @@ static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collect
   int    sector_id       = dd4hep::getAttrOrDefault<int>(plm, _Unicode(sector), sid);
   int    id_begin        = dd4hep::getAttrOrDefault<int>(plm, _Unicode(id_begin), 1);
   double rmin            = plm.attr<double>(_Unicode(rmin));
+  double rintermediate   = plm.attr<double>(_Unicode(rintermediate));
   double rmax            = plm.attr<double>(_Unicode(rmax));
   double phimin          = dd4hep::getAttrOrDefault<double>(plm, _Unicode(phimin), 0.);
   double phimax          = dd4hep::getAttrOrDefault<double>(plm, _Unicode(phimax), 2. * M_PI);
@@ -158,7 +159,9 @@ static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collect
   // optional envelope volume
   bool        has_envelope = dd4hep::getAttrOrDefault<bool>(plm, _Unicode(envelope), false);
   Material    material     = desc.material(getAttrOrDefault<std::string>(plm, _U(material), "Air"));
-  Tube        solid(rmin, rmax, modSize.z() / 2.0, phimin, phimax);
+  Tube        inner_solid(rmin, rintermediate, modSize.z() / 2.0, 0, 2. * M_PI);
+  Tube        outer_solid(rintermediate, rmax, modSize.z() / 2.0, phimin, phimax);
+  UnionSolid  solid(inner_solid, outer_solid);
   Volume      env_vol(std::string(env.name()) + "_envelope", solid, material);
   Transform3D tr_global = RotationZYX(rot.z(), rot.y(), rot.x()) * Translation3D(pos.x(), pos.y(), pos.z());
   if (has_envelope) {
@@ -167,7 +170,7 @@ static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collect
 
   // local placement of modules
   int  mid    = 0;
-  auto points = fillRectangles({0., 0.}, modSize.x(), modSize.y(), rmin, rmax, phimin, phimax);
+  auto points = fillRectangles({0., 0.}, modSize.x(), modSize.y(), rmin, rintermediate, rmax, phimin, phimax);
   for (auto& p : points) {
     Transform3D tr_local = RotationZYX(0.0, 0.0, 0.0) * Translation3D(p.x(), p.y(), 0.0);
     auto modPV = (has_envelope ? env_vol.placeVolume(modVol, tr_local) : env.placeVolume(modVol, tr_global * tr_local));
@@ -189,12 +192,13 @@ bool already_placed(const Point& p, const std::vector<Point>& vec, double xs = 1
 }
 
 // check if a point is in a ring
-inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, double rmax, double phmin, double phmax)
+inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin, double phmax)
 {
-  if (pt.r() > rmax || pt.r() < rmin) {
+  double rmax_pacman = (pt.phi() < phmin || pt.phi() > phmax) ? rintermediate : rmax;
+  if (pt.r() > rmax_pacman || pt.r() < rmin) {
     return false;
   }
-
+  
   // check four corners
   std::vector<Point> pts{
                            Point(pt.x() - sx / 2., pt.y() - sy / 2.),
@@ -203,7 +207,8 @@ inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, doub
                            Point(pt.x() + sx / 2., pt.y() + sy / 2.),
                         };
   for (auto& p : pts) {
-    if (p.r() > rmax || p.r() < rmin || p.phi() > phmax || p.phi() < phmin) {
+    rmax_pacman = (p.phi() < phmin || p.phi() > phmax) ? rintermediate : rmax;
+    if (p.r() > rmax_pacman || p.r() < rmin) {
       return false;
     }
   }
@@ -211,7 +216,7 @@ inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, doub
 }
 
 // a helper function to recursively fill square in a ring
-void add_rectangle(Point p, std::vector<Point>& res, double sx, double sy, double rmin, double rmax, double phmin,
+void add_rectangle(Point p, std::vector<Point>& res, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin,
                    double phmax, int max_depth = 20, int depth = 0)
 {
   // std::cout << depth << "/" << max_depth << std::endl;
@@ -220,22 +225,22 @@ void add_rectangle(Point p, std::vector<Point>& res, double sx, double sy, doubl
     return;
   }
 
-  bool in_ring = rec_in_ring(p, sx, sy, rmin, rmax, phmin, phmax);
+  bool in_ring = rec_in_ring(p, sx, sy, rmin, rintermediate, rmax, phmin, phmax);
   if (in_ring) {
     res.emplace_back(p);
   }
   // continue search for a good placement or if no placement found yet
   if (in_ring || res.empty()) {
     // check adjacent squares
-    add_rectangle(Point(p.x() + sx, p.y()), res, sx, sy, rmin, rmax, phmin, phmax, max_depth, depth + 1);
-    add_rectangle(Point(p.x() - sx, p.y()), res, sx, sy, rmin, rmax, phmin, phmax, max_depth, depth + 1);
-    add_rectangle(Point(p.x(), p.y() + sy), res, sx, sy, rmin, rmax, phmin, phmax, max_depth, depth + 1);
-    add_rectangle(Point(p.x(), p.y() - sy), res, sx, sy, rmin, rmax, phmin, phmax, max_depth, depth + 1);
+    add_rectangle(Point(p.x() + sx, p.y()), res, sx, sy, rmin, rintermediate, rmax, phmin, phmax, max_depth, depth + 1);
+    add_rectangle(Point(p.x() - sx, p.y()), res, sx, sy, rmin, rintermediate, rmax, phmin, phmax, max_depth, depth + 1);
+    add_rectangle(Point(p.x(), p.y() + sy), res, sx, sy, rmin, rintermediate, rmax, phmin, phmax, max_depth, depth + 1);
+    add_rectangle(Point(p.x(), p.y() - sy), res, sx, sy, rmin, rintermediate, rmax, phmin, phmax, max_depth, depth + 1);
   }
 }
 
 // fill squares
-std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rmax, double phmin,
+std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin,
                                   double phmax)
 {
   // convert (0, 2pi) to (-pi, pi)
@@ -247,7 +252,7 @@ std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, 
   // move to center
   ref = ref - Point(int(ref.x() / sx) * sx, int(ref.y() / sy) * sy);
   std::vector<Point> res;
-  add_rectangle(ref, res, sx, sy, rmin, rmax, phmin, phmax, (int(rmax / sx) + 1) * (int(rmax / sy) + 1) * 2);
+  add_rectangle(ref, res, sx, sy, rmin, rintermediate, rmax, phmin, phmax, (int(rmax / sx) + 1) * (int(rmax / sy) + 1) * 2);
   return res;
 }
 
