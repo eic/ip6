@@ -18,7 +18,7 @@ static std::tuple<int, int> add_individuals(Detector& desc, Assembly& env, xml::
                                             SensitiveDetector& sens, int id);
 static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t& plm, SensitiveDetector& sens,
                                      int id);
-typedef ROOT::Math::XYPoint Point;
+using Point = ROOT::Math::XYPoint;
 std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin = -M_PI,
                                     double phmax = M_PI);
 
