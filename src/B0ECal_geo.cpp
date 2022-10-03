@@ -165,7 +165,7 @@ static tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t
   bool        has_envelope = dd4hep::getAttrOrDefault<bool>(plm, _Unicode(envelope), false);
   Material    material     = desc.material(getAttrOrDefault<string>(plm, _U(material), "Air"));
   Tube        inner_solid(rmin, rintermediate+envelopeclearance, modSize.z() / 2.0, 0, 2. * M_PI);
-  Tube        outer_solid(rintermediate, rmax+envelopeclearance, modSize.z() / 2.0, phimin, phimax);
+  Tube        outer_solid(rintermediate, rmax+envelopeclearance, modSize.z() / 2.0, phimin-(envelopeclearance/rintermediate), phimax+(envelopeclearance/rintermediate));
   UnionSolid  solid(inner_solid, outer_solid);
   Volume      env_vol(string(env.name()) + "_envelope", solid, material);
   Transform3D tr_global = RotationZYX(rot.z(), rot.y(), rot.x()) * Translation3D(pos.x(), pos.y(), pos.z());
