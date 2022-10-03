@@ -11,15 +11,19 @@
 // Far Forward B0 Electromagnetic Calorimeter
 //////////////////////////////////////////////////
 
-using namespace std;
+using std::string;
+using std::tuple;
+using std::make_tuple;
+using std::vector;
+using std::map;
 using namespace dd4hep;
 
-static std::tuple<int, int> add_individuals(Detector& desc, Assembly& env, xml::Collection_t& plm,
+static tuple<int, int> add_individuals(Detector& desc, Assembly& env, xml::Collection_t& plm,
                                             SensitiveDetector& sens, int id);
-static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t& plm, SensitiveDetector& sens,
+static tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t& plm, SensitiveDetector& sens,
                                      int id);
 using Point = ROOT::Math::XYPoint;
-std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin = -M_PI,
+vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin = -M_PI,
                                     double phmax = M_PI);
 
 // helper function to get x, y, z if defined in a xml component
@@ -52,7 +56,7 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   
   // module placement
   xml_comp_t plm = x_det.child(_Unicode(placements));
-  std::map<int, int> sectorModuleNumbers;
+  map<int, int> sectorModuleNumbers;
   auto addModuleNumbers = [&sectorModuleNumbers](int sector, int nmod) {
     auto it = sectorModuleNumbers.find(sector);
     if (it != sectorModuleNumbers.end()) {
@@ -84,39 +88,39 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
 }
 
 // helper function to build module with or w/o wrapper
-std::tuple<Volume, Position> build_module(Detector& desc, xml::Collection_t& plm, SensitiveDetector& sens)
+tuple<Volume, Position> build_module(Detector& desc, xml::Collection_t& plm, SensitiveDetector& sens)
 {
   auto   mod = plm.child(_Unicode(module));
   auto   sx  = mod.attr<double>(_Unicode(sizex));
   auto   sy  = mod.attr<double>(_Unicode(sizey));
   auto   sz  = mod.attr<double>(_Unicode(sizez));
   Box    modShape(sx / 2., sy / 2., sz / 2.);
-  auto   modMat = desc.material(mod.attr<std::string>(_Unicode(material)));
+  auto   modMat = desc.material(mod.attr<string>(_Unicode(material)));
   Volume modVol("module_vol", modShape, modMat);
   modVol.setSensitiveDetector(sens);
-  modVol.setVisAttributes(desc.visAttributes(mod.attr<std::string>(_Unicode(vis))));
+  modVol.setVisAttributes(desc.visAttributes(mod.attr<string>(_Unicode(vis))));
 
   // no wrapper
   if (!plm.hasChild(_Unicode(wrapper))) {
-    return std::make_tuple(modVol, Position{sx, sy, sz});
+    return make_tuple(modVol, Position{sx, sy, sz});
     // build wrapper
   } else {
     auto wrp       = plm.child(_Unicode(wrapper));
     auto thickness = wrp.attr<double>(_Unicode(thickness));
     if (thickness < 1e-12 * mm) {
-      return std::make_tuple(modVol, Position{sx, sy, sz});
+      return make_tuple(modVol, Position{sx, sy, sz});
     }
-    auto   wrpMat = desc.material(wrp.attr<std::string>(_Unicode(material)));
+    auto   wrpMat = desc.material(wrp.attr<string>(_Unicode(material)));
     Box    wrpShape((sx + thickness) / 2., (sy + thickness) / 2., sz / 2.);
     Volume wrpVol("wrapper_vol", wrpShape, wrpMat);
     wrpVol.placeVolume(modVol, Position(0., 0., 0.));
-    wrpVol.setVisAttributes(desc.visAttributes(wrp.attr<std::string>(_Unicode(vis))));
-    return std::make_tuple(wrpVol, Position{sx + thickness, sy + thickness, sz});
+    wrpVol.setVisAttributes(desc.visAttributes(wrp.attr<string>(_Unicode(vis))));
+    return make_tuple(wrpVol, Position{sx + thickness, sy + thickness, sz});
   }
 }
 
 // place modules, id must be provided
-static std::tuple<int, int> add_individuals(Detector& desc, Assembly& env, xml::Collection_t& plm,
+static tuple<int, int> add_individuals(Detector& desc, Assembly& env, xml::Collection_t& plm,
                                             SensitiveDetector& sens, int sid)
 {
   auto [modVol, modSize] = build_module(desc, plm, sens);
@@ -140,7 +144,7 @@ static std::tuple<int, int> add_individuals(Detector& desc, Assembly& env, xml::
 }
 
 // place disk of modules
-static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t& plm, SensitiveDetector& sens,
+static tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t& plm, SensitiveDetector& sens,
                                      int sid)
 {
   auto [modVol, modSize] = build_module(desc, plm, sens);
@@ -159,11 +163,11 @@ static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collect
 
   // optional envelope volume
   bool        has_envelope = dd4hep::getAttrOrDefault<bool>(plm, _Unicode(envelope), false);
-  Material    material     = desc.material(getAttrOrDefault<std::string>(plm, _U(material), "Air"));
+  Material    material     = desc.material(getAttrOrDefault<string>(plm, _U(material), "Air"));
   Tube        inner_solid(rmin-envelopeclearance, rintermediate+envelopeclearance, modSize.z() / 2.0, 0, 2. * M_PI);
   Tube        outer_solid(rintermediate, rmax+envelopeclearance, modSize.z() / 2.0, phimin, phimax);
   UnionSolid  solid(inner_solid, outer_solid);
-  Volume      env_vol(std::string(env.name()) + "_envelope", solid, material);
+  Volume      env_vol(string(env.name()) + "_envelope", solid, material);
   Transform3D tr_global = RotationZYX(rot.z(), rot.y(), rot.x()) * Translation3D(pos.x(), pos.y(), pos.z());
   if (has_envelope) {
     env.placeVolume(env_vol, tr_global);
@@ -181,7 +185,7 @@ static std::tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collect
 }
 
 // check if a 2d point is already in the container
-bool already_placed(const Point& p, const std::vector<Point>& vec, double xs = 1.0, double ys = 1.0,
+bool already_placed(const Point& p, const vector<Point>& vec, double xs = 1.0, double ys = 1.0,
                     double tol = 1e-6)
 {
   for (auto& pt : vec) {
@@ -201,7 +205,7 @@ inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, doub
   }
 
   // check four corners
-  std::vector<Point> pts{
+  vector<Point> pts{
                            Point(pt.x() - sx / 2., pt.y() - sy / 2.),
                            Point(pt.x() - sx / 2., pt.y() + sy / 2.),
                            Point(pt.x() + sx / 2., pt.y() - sy / 2.),
@@ -216,10 +220,9 @@ inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, doub
 }
 
 // a helper function to recursively fill square in a ring
-void add_rectangle(Point p, std::vector<Point>& res, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin,
+void add_rectangle(Point p, vector<Point>& res, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin,
                    double phmax, int max_depth = 20, int depth = 0)
 {
-  // std::cout << depth << "/" << max_depth << std::endl;
   // exceeds the maximum depth in searching or already placed
   if ((depth > max_depth) || (already_placed(p, res, sx, sy))) {
     return;
@@ -240,7 +243,7 @@ void add_rectangle(Point p, std::vector<Point>& res, double sx, double sy, doubl
 }
 
 // fill squares
-std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin,
+vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin,
                                   double phmax)
 {
   // convert (0, 2pi) to (-pi, pi)
@@ -251,7 +254,7 @@ std::vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, 
   // start with a seed square and find one in the ring
   // move to center
   ref = ref - Point(int(ref.x() / sx) * sx, int(ref.y() / sy) * sy);
-  std::vector<Point> res;
+  vector<Point> res;
   add_rectangle(ref, res, sx, sy, rmin, rintermediate, rmax, phmin, phmax, (int(rmax / sx) + 1) * (int(rmax / sy) + 1) * 2);
   return res;
 }
