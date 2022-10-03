@@ -152,7 +152,8 @@ static tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t
   int    id_begin        = dd4hep::getAttrOrDefault<int>(plm, _Unicode(id_begin), 1);
   double rmin            = plm.attr<double>(_Unicode(rmin));
   double rintermediate   = plm.attr<double>(_Unicode(rintermediate));
-  double envelopeclearance = dd4hep::getAttrOrDefault<int>(plm, _Unicode(envelopeclearance), 0);
+  double r_envelopeclearance = dd4hep::getAttrOrDefault<int>(plm, _Unicode(r_envelopeclearance), 0);
+  double phi_envelopeclearance = dd4hep::getAttrOrDefault<int>(plm, _Unicode(phi_envelopeclearance), 0);
   double rmax            = plm.attr<double>(_Unicode(rmax));
   double phimin          = dd4hep::getAttrOrDefault<double>(plm, _Unicode(phimin), 0.);
   double phimax          = dd4hep::getAttrOrDefault<double>(plm, _Unicode(phimax), 2. * M_PI);
@@ -164,8 +165,8 @@ static tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t
   // optional envelope volume
   bool        has_envelope = dd4hep::getAttrOrDefault<bool>(plm, _Unicode(envelope), false);
   Material    material     = desc.material(getAttrOrDefault<string>(plm, _U(material), "Air"));
-  Tube        inner_solid(rmin, rintermediate+envelopeclearance, modSize.z() / 2.0, 0, 2. * M_PI);
-  Tube        outer_solid(rintermediate, rmax+envelopeclearance, modSize.z() / 2.0, phimin-(envelopeclearance/rintermediate), phimax+(envelopeclearance/rintermediate));
+  Tube        inner_solid(rmin, rintermediate+r_envelopeclearance, modSize.z() / 2.0, 0, 2. * M_PI);
+  Tube        outer_solid(rintermediate, rmax+r_envelopeclearance, modSize.z() / 2.0, phimin-phi_envelopeclearance, phimax+phi_envelopeclearance);
   UnionSolid  solid(inner_solid, outer_solid);
   Volume      env_vol(string(env.name()) + "_envelope", solid, material);
   Transform3D tr_global = RotationZYX(rot.z(), rot.y(), rot.x()) * Translation3D(pos.x(), pos.y(), pos.z());
