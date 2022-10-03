@@ -164,7 +164,7 @@ static tuple<int, int> add_disk(Detector& desc, Assembly& env, xml::Collection_t
   // optional envelope volume
   bool        has_envelope = dd4hep::getAttrOrDefault<bool>(plm, _Unicode(envelope), false);
   Material    material     = desc.material(getAttrOrDefault<string>(plm, _U(material), "Air"));
-  Tube        inner_solid(rmin-envelopeclearance, rintermediate+envelopeclearance, modSize.z() / 2.0, 0, 2. * M_PI);
+  Tube        inner_solid(rmin, rintermediate+envelopeclearance, modSize.z() / 2.0, 0, 2. * M_PI);
   Tube        outer_solid(rintermediate, rmax+envelopeclearance, modSize.z() / 2.0, phimin, phimax);
   UnionSolid  solid(inner_solid, outer_solid);
   Volume      env_vol(string(env.name()) + "_envelope", solid, material);
@@ -199,10 +199,6 @@ bool already_placed(const Point& p, const vector<Point>& vec, double xs = 1.0, d
 // check if a point is in a ring
 inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, double rintermediate, double rmax, double phmin, double phmax)
 {
-  double rmax_pacman = (pt.phi() < phmin || pt.phi() > phmax) ? rintermediate : rmax;
-  if (pt.r() > rmax_pacman || pt.r() < rmin) {
-    return false;
-  }
 
   // check four corners
   vector<Point> pts{
@@ -211,11 +207,19 @@ inline bool rec_in_ring(const Point& pt, double sx, double sy, double rmin, doub
                            Point(pt.x() + sx / 2., pt.y() - sy / 2.),
                            Point(pt.x() + sx / 2., pt.y() + sy / 2.),
                         };
+  
   bool inside = false;
+  int minindex = 0;
+  int i=0;
+ 
   for (auto& p : pts) {
-    rmax_pacman = (p.phi() < phmin || p.phi() > phmax) ? rintermediate : rmax;
-    inside += (p.r() <= rmax_pacman && p.r() >= rmin);
+    minindex = ( p.r() < pts[minindex].r() ) ?  i : minindex;
+    i++;
   }
+
+  double rmax_pacman = (pts[minindex].phi() < phmin || pts[minindex].phi() > phmax) ? rintermediate : rmax;
+  inside = pts[minindex].r() <= rmax_pacman && pts[minindex].r() >= rmin;
+  
   return inside;
 }
 
