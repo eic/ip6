@@ -13,7 +13,7 @@
     <constant name="B0ECal_packman_large_rmax" value="15*cm"/>
     <constant name="B0ECal_packman_large_phimin" value="-120*deg"/>
     <constant name="B0ECal_packman_large_phimax" value="120*deg"/>
-    <constant name="B0ECal_envelope_clearance" value="B0ECal_CrystalModule_width*sqrt(2)"/>
+    <constant name="B0ECal_envelope_clearance" value="(B0ECal_CrystalModule_width+2*B0ECal_CrystalModule_wrap)*sqrt(2)"/>
   </define>
 
   <detectors>
