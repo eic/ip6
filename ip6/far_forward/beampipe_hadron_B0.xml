@@ -8,8 +8,11 @@
 
   <detectors>
 
+    <constant name="BeamPipeB0_zpos"  value="6.4*m"/>
+    <constant name="BeamPipeB0_xpos" value="BeamPipeB0_zpos*sin(ionCrossingAngle)"/>
+
     <detector id="BeamPipeB0_ID" name="BeamPipeB0" type="hadronDownstreamBeamPipe" vis="BeamPipeVis"> 
-      <position x="-0.165*m" y="0*m" z="6.4*m" />
+      <position x="BeamPipeB0_xpos" y="0*m" z="BeamPipeB0_zpos" />
       <rotation x="0*rad" y="0*rad" z="0*rad" />
     </detector>
 
