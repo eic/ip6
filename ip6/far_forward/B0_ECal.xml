@@ -8,7 +8,7 @@
     <constant name="B0ECal_CrystalModule_width" value="2*cm"/>
     <constant name="B0ECal_CrystalModule_length" value="B0ECal_length"/>
     <constant name="B0ECal_CrystalModule_wrap" value="0.50*mm"/>
-    <constant name="B0ECal_packman_rmin" value="3.5*cm"/>
+    <constant name="B0ECal_packman_rmin" value="3.7*cm"/>
     <constant name="B0ECal_packman_small_rmax" value="8*cm"/>
     <constant name="B0ECal_packman_large_rmax" value="15*cm"/>
     <constant name="B0ECal_packman_large_phimin" value="-120*deg"/>
