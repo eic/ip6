@@ -36,7 +36,7 @@
             rmax="B0ECal_packman_large_rmax"
             phimin="B0ECal_packman_large_phimin"
             phimax="B0ECal_packman_large_phimax"
-            envelope="true"
+            envelope="false"
             r_envelopeclearance="B0ECal_r_envelopeclearance"
             phi_envelopeclearance="B0ECal_phi_envelopeclearance"
             material="Vacuum"
