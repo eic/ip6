@@ -1,9 +1,9 @@
 //==========================================================================
 //
 //      <detector id="Pipe_in" name ="DetName" type="BackwardsBeamPipe" >
-//      <layer id="#(int)" inner_r="#(double)" outer_z="#(double)" >
-//      <slice material="string" thickness="#(double)" >
-//      </layer>
+//      <Pipe wall_thickness="pipe_thickness" outerD1="start_radius" outerD2="end_radius"
+//        end1="start_z" end2="end_z" xoff="x_start_shift"/>
+//      <rotation x="0*rad"  y="0*rad"   z="0*rad"/>
 //      </detector>
 //
 //==========================================================================
