@@ -111,12 +111,12 @@
   <comment>
     Central beamline
   </comment>
-  <!include ref="ip6/central_beampipe.xml"/>
+  <include ref="ip6/central_beampipe.xml"/>
 
   <comment>
     Far Forward
   </comment>
-  <!include ref="ip6/far_forward.xml"/>
+  <include ref="ip6/far_forward.xml"/>
 
   <comment>
     Far Backward

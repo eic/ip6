@@ -5,6 +5,7 @@
 //      <slice material="string" thickness="#(double)" >
 //      </layer>
 //      </detector>
+//
 //==========================================================================
 
 #include "DD4hep/DetFactoryHelper.h"
@@ -39,8 +40,9 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector /* sens *
   double xoff      = dd4hep::getAttrOrDefault(IP_pipe_c, _Unicode(xoff), 0.0 );
   double end1      = IP_pipe_c.attr<double>(_Unicode(end1));
   double end2      = IP_pipe_c.attr<double>(_Unicode(end2));
-
-  double length = abs(end2 - end1);
+  
+  //Changed class so it can accomodate tubes not along the z axis so some small non-ideal adjustments are being made
+  double length = abs(end2 - end1)*(1+sin(rot.y())*sin(rot.y()));
 
   // -----------------------------
   // IP beampipe
