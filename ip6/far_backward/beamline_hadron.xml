@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lccdd>
+
+  <comment>
+     Incident hadron beamline
+     Implemented to allow overlap checks with the far backwards systems   
+  </comment>  
+  
+  <define>
+    <constant name="Central" value="800.0 * mm"/>
+    <constant name="BeampipeDownstreamStraightLength" value="670.0 * mm"/>
+  </define>
+
+
+  <detectors>
+
+    <detector id="10000" name="IncidentHadronVac" type="BackwardsBeamPipe">
+      <Pipe wall_thickness="Hadron_Beampipe_Thickness" outerD1="Hadron_Beampipe_Rad" outerD2="Hadron_Beampipe_Rad"
+        end1="Hadron_Beampipe_End" end2="Q3eR_StartZ" xoff="Hadron_Beampipe_End*sin(CrossingAngle)"/>
+      <rotation x="0*rad"  y="CrossingAngle"   z="0*rad"/>
+    </detector>
+
+  </detectors>
+</lccdd>

@@ -1,11 +1,12 @@
 //==========================================================================
 //
-//      <detector name ="DetName" type="Beampipe" >
+//      <detector id="Pipe_in" name ="DetName" type="BackwardsBeamPipe" >
 //      <layer id="#(int)" inner_r="#(double)" outer_z="#(double)" >
 //      <slice material="string" thickness="#(double)" >
 //      </layer>
 //      </detector>
 //==========================================================================
+
 #include "DD4hep/DetFactoryHelper.h"
 #include "DD4hep/Printout.h"
 #include "TMath.h"
@@ -14,31 +15,18 @@
 using namespace std;
 using namespace dd4hep;
 
-/** \addtogroup beamline Beamline Instrumentation
- */
-
-/** \addtogroup IRChamber Interaction Region Vacuum Chamber.
- * \brief Type: **IRChamber**.
- * \ingroup beamline
- *
- *
- * \code
- *   <detector>
- *   </detector>
- * \endcode
- *
- */
 static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector /* sens */)
 {
 
   using namespace ROOT::Math;
   xml_det_t  x_det    = e;
   string     det_name = x_det.nameStr();
+  xml_dim_t  rot      = x_det.rotation();
   DetElement sdet(det_name, x_det.id());
   Assembly   assembly(det_name + "_assembly");
   Material   m_Al     = det.material("Aluminum");
   Material   m_Vacuum = det.material("Vacuum");
-  string     vis_name = x_det.visStr();
+  string     vis_name = dd4hep::getAttrOrDefault(x_det, _Unicode(vis), "GrayVis");
 
   xml::Component IP_pipe_c = x_det.child(_Unicode(Pipe));
 
@@ -48,6 +36,7 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector /* sens *
                                                           : IP_pipe_c.attr<double>(_Unicode(outerD1)) - 2 * thickness;
   double innerD2   = IP_pipe_c.hasAttr(_Unicode(innerD2)) ? IP_pipe_c.attr<double>(_Unicode(innerD2))
                                                           : IP_pipe_c.attr<double>(_Unicode(outerD2)) - 2 * thickness;
+  double xoff      = dd4hep::getAttrOrDefault(IP_pipe_c, _Unicode(xoff), 0.0 );
   double end1      = IP_pipe_c.attr<double>(_Unicode(end1));
   double end2      = IP_pipe_c.attr<double>(_Unicode(end2));
 
@@ -69,7 +58,7 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector /* sens *
 
   // -----------------------------
   // final placement
-  auto pv_assembly = det.pickMotherVolume(sdet).placeVolume(assembly, Position(0.0, 0.0, end1));
+  auto pv_assembly = det.pickMotherVolume(sdet).placeVolume(assembly, Transform3D(RotationZYX(rot.x(),rot.y(),rot.z()),Position(xoff, 0.0, end1)));
   pv_assembly.addPhysVolID("system", sdet.id()).addPhysVolID("barrel", 1);
   sdet.setPlacement(pv_assembly);
   assembly->GetShape()->ComputeBBox();
