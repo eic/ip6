@@ -123,6 +123,10 @@ jobs:
   check-overlap-geant4:
     runs-on: ubuntu-latest
     needs: [check-overlap-tgeo]
+    strategy:
+      matrix:
+        view: [_arches, _brycecanyon, ]
+      fail-fast: false
     steps:
     - uses: actions/checkout@v2
     - uses: actions/download-artifact@v3
@@ -136,8 +140,8 @@ jobs:
         setup: install/setup.sh
         run: |
           mkdir -p doc
-          python scripts/checkOverlaps.py -c ${BEAMLINE_PATH}/${BEAMLINE_CONFIG}.xml | tee doc/overlap_check_geant4.out
-          noverlaps="$(grep -c GeomVol1002 doc/overlap_check_geant4.out || true)"
+          python scripts/checkOverlaps.py -c ${BEAMLINE_PATH}/${BEAMLINE_CONFIG}${{ matrix.view }}.xml | tee doc/overlap_check_geant4${{ matrix.view }}.out
+          noverlaps="$(grep -c GeomVol1002 doc/overlap_check_geant4${{ matrix.view }}.out || true)"
           if [[ "${noverlaps}" -gt "0" ]] ; then echo "${noverlaps} overlaps found!" && false ; fi
 
   trigger-detector:
