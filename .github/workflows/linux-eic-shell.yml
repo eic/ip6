@@ -47,7 +47,7 @@ jobs:
     needs: build-test
     strategy:
       matrix:
-        view: [_arches, _brycecanyon, ]
+        geo: [_arches, _brycecanyon, ]
       fail-fast: false
     steps:
     - uses: actions/checkout@v2
@@ -62,10 +62,10 @@ jobs:
         setup: install/setup.sh
         run: |
           mkdir -p geo
-          dd_web_display --output geo/${BEAMLINE}${{ matrix.view }}.root ${BEAMLINE_PATH}/${BEAMLINE}${{ matrix.view }}.xml
+          dd_web_display --output geo/${BEAMLINE}${{ matrix.geo }}.root ${BEAMLINE_PATH}/${BEAMLINE}${{ matrix.geo }}.xml
     - uses: actions/upload-artifact@v3
       with:
-        name: ip6${{ matrix.view }}.root
+        name: ip6${{ matrix.geo }}.root
         path: geo/
         if-no-files-found: error
 
@@ -74,7 +74,7 @@ jobs:
     needs: build-test
     strategy:
       matrix:
-        view: [_arches, _brycecanyon, ]
+        geo: [_arches, _brycecanyon, ]
       fail-fast: false
     steps:
     - uses: actions/checkout@v2
@@ -89,11 +89,11 @@ jobs:
         setup: install/setup.sh
         run: |
           mkdir -p doc
-          npdet_info dump ${BEAMLINE_PATH}/${BEAMLINE}${{ matrix.view }}.xml | tee doc/constants${{ matrix.view }}.out
+          npdet_info dump ${BEAMLINE_PATH}/${BEAMLINE}${{ matrix.geo }}.xml | tee doc/constants${{ matrix.geo }}.out
     - uses: actions/upload-artifact@v3
       with:
-        name: constants${{ matrix.view }}.out
-        path: doc/constants${{ matrix.view }}.out
+        name: constants${{ matrix.geo }}.out
+        path: doc/constants${{ matrix.geo }}.out
         if-no-files-found: error
 
   check-overlap-tgeo:
@@ -101,7 +101,7 @@ jobs:
     needs: build-test
     strategy:
       matrix:
-        view: [_arches, _brycecanyon, ]
+        geo: [_arches, _brycecanyon, ]
       fail-fast: false
     steps:
     - uses: actions/checkout@v2
@@ -116,8 +116,8 @@ jobs:
         setup: install/setup.sh
         run: |
           mkdir -p doc
-          checkOverlaps -c ${BEAMLINE_PATH}/${BEAMLINE_CONFIG}${{ matrix.view }}.xml | tee doc/overlap_check_tgeo${{ matrix.view }}.out
-          noverlaps="$(grep -c ovlp doc/overlap_check_tgeo${{ matrix.view }}.out || true)"
+          checkOverlaps -c ${BEAMLINE_PATH}/${BEAMLINE_CONFIG}${{ matrix.geo }}.xml | tee doc/overlap_check_tgeo${{ matrix.geo }}.out
+          noverlaps="$(grep -c ovlp doc/overlap_check_tgeo${{ matrix.geo }}.out || true)"
           if [[ "${noverlaps}" -gt "0" ]] ; then echo "${noverlaps} overlaps found!" && false ; fi
 
   check-overlap-geant4:
@@ -125,7 +125,7 @@ jobs:
     needs: [check-overlap-tgeo]
     strategy:
       matrix:
-        view: [_arches, _brycecanyon, ]
+        geo: [_arches, _brycecanyon, ]
       fail-fast: false
     steps:
     - uses: actions/checkout@v2
@@ -140,8 +140,8 @@ jobs:
         setup: install/setup.sh
         run: |
           mkdir -p doc
-          python scripts/checkOverlaps.py -c ${BEAMLINE_PATH}/${BEAMLINE_CONFIG}${{ matrix.view }}.xml | tee doc/overlap_check_geant4${{ matrix.view }}.out
-          noverlaps="$(grep -c GeomVol1002 doc/overlap_check_geant4${{ matrix.view }}.out || true)"
+          python scripts/checkOverlaps.py -c ${BEAMLINE_PATH}/${BEAMLINE_CONFIG}${{ matrix.geo }}.xml | tee doc/overlap_check_geant4${{ matrix.geo }}.out
+          noverlaps="$(grep -c GeomVol1002 doc/overlap_check_geant4${{ matrix.geo }}.out || true)"
           if [[ "${noverlaps}" -gt "0" ]] ; then echo "${noverlaps} overlaps found!" && false ; fi
 
   trigger-detector:
