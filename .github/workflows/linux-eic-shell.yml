@@ -45,6 +45,10 @@ jobs:
   convert-to-tgeo:
     runs-on: ubuntu-latest
     needs: build-test
+    strategy:
+      matrix:
+        view: [_arches, _brycecanyon, ]
+      fail-fast: false
     steps:
     - uses: actions/checkout@v2
     - uses: actions/download-artifact@v3
@@ -58,10 +62,10 @@ jobs:
         setup: install/setup.sh
         run: |
           mkdir -p geo
-          dd_web_display --output geo/${BEAMLINE}.root ${BEAMLINE_PATH}/${BEAMLINE}.xml
+          dd_web_display --output geo/${BEAMLINE}${{ matrix.view }}.root ${BEAMLINE_PATH}/${BEAMLINE}${{ matrix.view }}.xml
     - uses: actions/upload-artifact@v3
       with:
-        name: ip6.root
+        name: ip6${{ matrix.view }}.root
         path: geo/
         if-no-files-found: error
 
