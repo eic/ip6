@@ -219,7 +219,7 @@ jobs:
         platform-release: "jug_xl:nightly"
         run: |
           mkdir -p images
-          bin/make_dawn_views -i prim/detector_view${{ matrix.geo }}.prim -t ${{ matrix.view }}${{ matrix.geo }} -d views/${{ matrix.view }}${{ matrix.geo }} -D
+          bin/make_dawn_views -i prim/detector_view${{ matrix.geo }}.prim -t ${{ matrix.view }}${{ matrix.geo }} -d views/${{ matrix.view }} -D
     - uses: actions/upload-artifact@v3
       with:
         name: ${{ matrix.view }}${{ matrix.geo }}
