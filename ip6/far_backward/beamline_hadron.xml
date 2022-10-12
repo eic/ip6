@@ -15,7 +15,6 @@
     <detector name="Pipe_to_Q1APR" type="BackwardsBeamPipe">
       <Pipe wall_thickness="Hadron_Beampipe_Thickness" outerD1="Hadron_Beampipe_Rad" outerD2="Hadron_Beampipe_Rad"
         end1z="Hadron_Beampipe_End" end2z="Q1APR_StartZ" end1x="Hadron_Beampipe_End*sin(CrossingAngle)" end2x="Q1APR_StartX"/>
-      <rotation x="0*rad"  y="CrossingAngle"   z="0*rad"/>
     </detector>
 
   <comment>
@@ -30,7 +29,6 @@
     <detector name="Pipe_in_Q1APR" type="BackwardsBeamPipe">
       <Pipe wall_thickness="Hadron_Beampipe_Thickness" outerD1="Hadron_Beampipe_Rad" outerD2="Hadron_Beampipe_Rad"
         end1z="Q1APR_StartZ" end2z="Q1APR_EndZ" end1x="Q1APR_StartX" end2x="Q1APR_EndX"/>
-      <rotation x="0*rad"  y="CrossingAngle"   z="0*rad"/>
     </detector>
 
 
@@ -38,7 +36,6 @@
     <detector name="Pipe_Q1APR_to_Q1BPR" type="BackwardsBeamPipe">
       <Pipe wall_thickness="Hadron_Beampipe_Thickness" outerD1="Hadron_Beampipe_Rad" outerD2="Hadron_Beampipe_Rad"
         end1z="Q1APR_EndZ" end2z="Q1BPR_StartZ" end1x="Q1APR_EndX" end2x="Q1BPR_StartX"/>
-      <rotation x="0*rad"  y="CrossingAngle"   z="0*rad"/>
     </detector>
 
   <comment>
@@ -53,7 +50,6 @@
     <detector name="Pipe_in_Q1BPR" type="BackwardsBeamPipe">
       <Pipe wall_thickness="Hadron_Beampipe_Thickness" outerD1="Hadron_Beampipe_Rad" outerD2="Hadron_Beampipe_Rad"
         end1z="Q1BPR_StartZ" end2z="Q1BPR_EndZ" end1x="Q1BPR_StartX" end2x="Q1BPR_EndX"/>
-      <rotation x="0*rad"  y="CrossingAngle"   z="0*rad"/>
     </detector>
 
 
@@ -61,7 +57,6 @@
     <detector name="Pipe_Q1BPR_to_Q2PR" type="BackwardsBeamPipe">
       <Pipe wall_thickness="Hadron_Beampipe_Thickness" outerD1="Hadron_Beampipe_Rad" outerD2="Hadron_Beampipe_Rad"
         end1z="Q1BPR_EndZ" end2z="Q2PR_StartZ" end1x="Q1BPR_EndX" end2x="Q2PR_StartX"/>
-      <rotation x="0*rad"  y="CrossingAngle"   z="0*rad"/>
     </detector>
 
     <detector name="Magnet_Q2PR" type="ip6_CylindricalDipoleMagnet" vis="RedVis">
@@ -74,7 +69,6 @@
     <detector name="Pipe_in_Q2PR" type="BackwardsBeamPipe">
       <Pipe wall_thickness="Hadron_Beampipe_Thickness" outerD1="Hadron_Beampipe_Rad" outerD2="Hadron_Beampipe_Rad"
         end1z="Q2PR_StartZ" end2z="Q2PR_EndZ" end1x="Q2PR_StartX" end2x="Q2PR_EndX"/>
-      <rotation x="0*rad"  y="CrossingAngle"   z="0*rad"/>
     </detector>
 
 
@@ -82,7 +76,6 @@
     <detector name="Pipe_Q2PR_to_Q3PR" type="BackwardsBeamPipe">
       <Pipe wall_thickness="Hadron_Beampipe_Thickness" outerD1="Hadron_Beampipe_Rad" outerD2="Hadron_Beampipe_Rad"
         end1z="Q2PR_EndZ" end2z="Q3PR_StartZ" end1x="Q2PR_EndX" end2x="Q3PR_StartX"/>
-      <rotation x="0*rad"  y="CrossingAngle"   z="0*rad"/>
     </detector>
 
     <detector name="Magnet_Q3PR" type="ip6_CylindricalDipoleMagnet" vis="RedVis">
@@ -95,7 +88,6 @@
     <detector name="Pipe_in_Q3PR" type="BackwardsBeamPipe">
       <Pipe wall_thickness="Hadron_Beampipe_Thickness" outerD1="Hadron_Beampipe_Rad" outerD2="Hadron_Beampipe_Rad"
         end1z="Q3PR_StartZ" end2z="Q3PR_EndZ" end1x="Q3PR_StartX" end2x="Q3PR_EndX"/>
-      <rotation x="0*rad"  y="CrossingAngle"   z="0*rad"/>
     </detector>
 
   </detectors>
