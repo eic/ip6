@@ -22,7 +22,6 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector /* sens *
   using namespace ROOT::Math;
   xml_det_t  x_det    = e;
   string     det_name = x_det.nameStr();
-  xml_dim_t  rot      = x_det.rotation();
   DetElement sdet(det_name, x_det.id());
   Assembly   assembly(det_name + "_assembly");
   Material   m_Al     = det.material("Aluminum");
@@ -37,12 +36,14 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector /* sens *
                                                           : IP_pipe_c.attr<double>(_Unicode(outerD1)) - 2 * thickness;
   double innerD2   = IP_pipe_c.hasAttr(_Unicode(innerD2)) ? IP_pipe_c.attr<double>(_Unicode(innerD2))
                                                           : IP_pipe_c.attr<double>(_Unicode(outerD2)) - 2 * thickness;
-  double xoff      = dd4hep::getAttrOrDefault(IP_pipe_c, _Unicode(xoff), 0.0 );
-  double end1      = IP_pipe_c.attr<double>(_Unicode(end1));
-  double end2      = IP_pipe_c.attr<double>(_Unicode(end2));
+  double end1z     = IP_pipe_c.attr<double>(_Unicode(end1z));
+  double end2z     = IP_pipe_c.attr<double>(_Unicode(end2z));
+  double end1x     = dd4hep::getAttrOrDefault(IP_pipe_c, _Unicode(end1x), 0.0 );
+  double end2x     = dd4hep::getAttrOrDefault(IP_pipe_c, _Unicode(end2x), 0.0 );
   
   //Changed class so it can accomodate tubes not along the z axis so some small non-ideal adjustments are being made
-  double length = abs(end2 - end1)*(1+sin(rot.y())*sin(rot.y()));
+  double length = sqrt((end1z-end2z)*(end1z-end2z)+(end1x-end2x)*(end1x-end2x));
+  double yrot   = atan((end1x-end2x)/(end1z-end2z));
 
   // -----------------------------
   // IP beampipe
@@ -60,7 +61,7 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector /* sens *
 
   // -----------------------------
   // final placement
-  auto pv_assembly = det.pickMotherVolume(sdet).placeVolume(assembly, Transform3D(RotationZYX(rot.x(),rot.y(),rot.z()),Position(xoff, 0.0, end1)));
+  auto pv_assembly = det.pickMotherVolume(sdet).placeVolume(assembly, Transform3D(RotationZYX(0,yrot,0),Position(end1x, 0.0, end1z)));
   pv_assembly.addPhysVolID("system", sdet.id()).addPhysVolID("barrel", 1);
   sdet.setPlacement(pv_assembly);
   assembly->GetShape()->ComputeBBox();
