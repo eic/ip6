@@ -3,6 +3,7 @@
 
   <define>
 
+    <comment>
     <!-- Q3eR top and bottom at its front -->
     <constant name="Q3eR_ZT" value="Q3eR_StartZ - Q3eR_InnerRadius*sin(Q3eR_Theta)"/>
     <constant name="Q3eR_XT" value="Q3eR_StartX + Q3eR_InnerRadius*cos(Q3eR_Theta)"/>
@@ -62,11 +63,34 @@
     <constant name="LumiD_Z" value="-37*m"/>
     <constant name="LumiD_XY" value="0.2*m"/>
     <constant name="LumiD_DZ" value="0.35*m"/>
+    </comment>
 
   </define>
 
   <detectors>
 
+    <!-- Main vacuum volume -->
+    <detector name="BackwardsVacuum" type="BackwardsVacuum" >
+      <focus      x="Dipole_Focus_X"    y="Dipole_Focus_Y"    z="Dipole_Focus_Z" />
+      <bounding  
+        xmin="Vacuum_BB_MinX"
+        xmax="Vacuum_BB_MaxX"
+        ymin="Vacuum_BB_MinY"
+        ymax="Vacuum_BB_MaxY"
+        zmin="Vacuum_BB_MinZ"
+        zmax="Vacuum_BB_MaxZ"
+      />
+      <rotation   theta="Beam_Theta"/>
+      <dimensions xL="Beam_WidthL" xR="Beam_WidthR" y="Beam_Height" z="Beam_Length"/>
+      <exitdim    x="Exit_Width"   y="Exit_Height"  lumiZ="Lumi_Start_Z" lumiR="Lumi_Start_R"/>
+    </detector>
+
+
+
+
+
+    <comment>
+    
     <detector name="vac_b2b_window" type="BackwardsVacBox" ysiz="Tag1_size_Y" vis="Shape1_vis">
       <points win_xmin="ExitWin_XA" />
     </detector>
@@ -195,6 +219,7 @@
       <rotation x="0" y="0" z="0"/>
     </detector>
 
+    </comment>
   </detectors>
 
 </lccdd>
