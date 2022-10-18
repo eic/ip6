@@ -81,6 +81,7 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   Solid Vacuum_Box = Extended_Vacuum_Box;
 
   Assembly DetAssembly(detName + "_assembly");
+  Assembly DetAssemblyAir(detName + "_assembly_air");
 
   //Construct full vacuum chamber
   for (xml_coll_t mod(x_det, _Unicode(module)); mod; ++mod ) {
@@ -90,6 +91,7 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
     double thetamin  = dd4hep::getAttrOrDefault(mod, _Unicode(theta_min),  0.030*rad)-rot.theta();
     double thetamax  = dd4hep::getAttrOrDefault(mod, _Unicode(theta_max),  0.030*rad)-rot.theta();
     bool   max_align = dd4hep::getAttrOrDefault(mod, _Unicode(max_align),  false    );
+    bool   extend_vacuum = dd4hep::getAttrOrDefault(mod, _Unicode(extend_vacuum),  true    );
 
     xml_dim_t moddim = mod.child(_Unicode(dimensions));
     double w         = moddim.x();
@@ -143,15 +145,22 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
 //     }      
 
     RotationZYX rotate(0,thetaA,0);
-    Wall_Box   = UnionSolid(Wall_Box,   TagWallBox, Transform3D(rotate, Position(offsetx,0,offsetz)));
-    Vacuum_Box = UnionSolid(Vacuum_Box, TagVacBox,  Transform3D(rotate, Position(vacoffsetx,0,vacoffsetz)));
+
 
     Box      TempBox(vac_w,vac_h,tagboxL/2);
     Assembly TagAssembly(Form("Q2_Tagger_%d_assembly",moduleID));
     Volume   TempVol("Temp_Box", TempBox, Steel);
     TagAssembly.placeVolume(TempVol);
 
-    PlacedVolume pv_mod2 = DetAssembly.placeVolume(TagAssembly, Transform3D(rotate, Position(tagoffsetx,0,tagoffsetz)));//Very strange y offset needs correcting for...
+    Volume mother = DetAssemblyAir;
+
+    if(extend_vacuum){
+      Wall_Box   = UnionSolid(Wall_Box,   TagWallBox, Transform3D(rotate, Position(offsetx,0,offsetz)));
+      Vacuum_Box = UnionSolid(Vacuum_Box, TagVacBox,  Transform3D(rotate, Position(vacoffsetx,0,vacoffsetz)));
+      mother     = DetAssembly;
+    }
+
+    PlacedVolume pv_mod2 = mother.placeVolume(TagAssembly, Transform3D(rotate, Position(tagoffsetx,0,tagoffsetz)));//Very strange y offset needs correcting for...
     pv_mod2.addPhysVolID("module", moduleID);
 //     Box DetectorBox(vac_w,vac_h,tagboxL/2);
 //     Volume tagVol("Tracker_Box", DetectorBox, Vacuum);
@@ -293,11 +302,16 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   Volume wallVol("Tagger_Box", Wall_Box_Sub, Steel);
   wallVol.placeVolume(vacVol);
 
+  Assembly backAssembly("assembly");
+  backAssembly.placeVolume(wallVol);
+  backAssembly.placeVolume(DetAssemblyAir);
+
   DetElement det(x_det.nameStr(), detID);
 
   // placement in mother volume
   Transform3D  tr(RotationY(rot.theta()), Position(pos.x(), pos.y(), pos.z()));
-  PlacedVolume detPV = desc.pickMotherVolume(det).placeVolume(wallVol, tr);
+  PlacedVolume detPV = desc.pickMotherVolume(det).placeVolume(backAssembly, tr);
+  //  PlacedVolume detPV = desc.pickMotherVolume(det).placeVolume(wallVol, tr);
   detPV.addPhysVolID("system", detID);
   det.setPlacement(detPV);
   
