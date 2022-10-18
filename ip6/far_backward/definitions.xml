@@ -42,21 +42,21 @@
 
     <!-- Hadron magnet dimensions and positions -->
 
-    <constant name="Q1APR_InnerRadius"     value="Hadron_Beampipe_Rad"/>
-    <constant name="Q1APR_Length"          value="1.8*m"/>
-    <constant name="Q1APR_StartZ"          value="-5.29834383626*m"/>
-    <constant name="Q1APR_StartX"          value="0.13248619835*m"/>
-    <constant name="Q1APR_EndZ"            value="-7.09778136555*m"/>
-    <constant name="Q1APR_EndX"            value="0.17748151099*m"/>
-    <constant name="Q1APR_Theta"           value="CrossingAngle"/>
+    <constant name="Q1APR_InnerRadius"    value="Hadron_Beampipe_Rad"/>
+    <constant name="Q1APR_Length"         value="1.8*m"/>
+    <constant name="Q1APR_StartZ"         value="-5.29834383626*m"/>
+    <constant name="Q1APR_StartX"         value="0.13248619835*m"/>
+    <constant name="Q1APR_EndZ"           value="-7.09778136555*m"/>
+    <constant name="Q1APR_EndX"           value="0.17748151099*m"/>
+    <constant name="Q1APR_Theta"          value="CrossingAngle"/>
 
-    <constant name="Q1BPR_InnerRadius"     value="Hadron_Beampipe_Rad"/>
-    <constant name="Q1BPR_Length"          value="1.4*m"/>
-    <constant name="Q1BPR_StartZ"          value="-7.59762512369533560*m"/>
-    <constant name="Q1BPR_StartX"          value="0.189980208951863655*m"/>
-    <constant name="Q1BPR_EndZ"            value="-8.99718764648131852*m"/>
-    <constant name="Q1BPR_EndX"            value="0.224976563232413274*m"/>
-    <constant name="Q1BPR_Theta"           value="CrossingAngle"/>
+    <constant name="Q1BPR_InnerRadius"    value="Hadron_Beampipe_Rad"/>
+    <constant name="Q1BPR_Length"         value="1.4*m"/>
+    <constant name="Q1BPR_StartZ"         value="-7.59762512369533560*m"/>
+    <constant name="Q1BPR_StartX"         value="0.189980208951863655*m"/>
+    <constant name="Q1BPR_EndZ"           value="-8.99718764648131852*m"/>
+    <constant name="Q1BPR_EndX"           value="0.224976563232413274*m"/>
+    <constant name="Q1BPR_Theta"          value="CrossingAngle"/>
 
     <constant name="Q2PR_InnerRadius"     value="Hadron_Beampipe_Rad"/>
     <constant name="Q2PR_Length"          value="4.5*m"/>
@@ -100,8 +100,32 @@
     <!Entry box joining magnets, lumi and tagger systems>
     <constant name="Exit_Height"          value="B2BeR_InnerRadius"/>
     <constant name="Exit_Width"           value="B2BeR_InnerRadius"/>
-    <constant name="Lumi_Start_Z"         value="-18*m"/>
-    <constant name="Lumi_Start_R"         value="10*mm"/>
+    <constant name="LumiWin_Z"            value="-18.5*m"/>
+    <constant name="LumiWin_R"            value="10*mm"/>
+    <constant name="Exit_Theta"           value="0.07*rad"/>
+
+    <!Tagger box and dimensions and positions IMPROVE DESCRIPTION>
+    <constant name="Tagger1_Width"        value="400*mm"/>
+    <constant name="Tagger1_Height"       value="200*mm"/>
+
+    <constant name="Tag_Tracker_1_Depth"  value="605*mm"/>
+    <constant name="Tag_Cal_1_Depth"      value="200*mm"/>
+    <constant name="Tagger1_Length"       value="Tag_Tracker_1_Depth+Tag_Cal_1_Depth"/>
+
+    <constant name="Tagger1_Min_Theta"    value="0.0242*rad"/>
+    <constant name="Tagger1_Max_Theta"    value="0.0410*rad"/>
+    <constant name="Tagger1_Min_Offset"   value="Q3eR_InnerRadius"/>
+
+    <constant name="Tagger2_Width"        value="225.0*mm"/>
+    <constant name="Tagger2_Height"       value="150.0*mm"/>
+
+    <constant name="Tag_Tracker_2_Depth"  value="Tag_Tracker_1_Depth"/>
+    <constant name="Tag_Cal_2_Depth"      value="Tag_Cal_1_Depth"/>
+    <constant name="Tagger2_Length"       value="Tag_Tracker_2_Depth+Tag_Cal_2_Depth"/>
+
+    <constant name="Tagger2_Min_Theta"    value="0.02*rad"/>
+    <constant name="Tagger2_Max_Theta"    value="Tagger1_Min_Theta+0.005*rad"/>
+    <constant name="Tagger2_Min_Offset"   value="Q3eR_InnerRadius"/>
 
   </define>
 
