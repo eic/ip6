@@ -22,7 +22,7 @@
       <!calorimeter id="1" type="TaggerCalPbWO4" thickness="Tag_Cal_1_Depth"/>
     </detector>
 
-    <detector id="2" type="BackwardsTracker" name="TagTrack1"
+    <detector id="2" type="BackwardsTracker" name="TagTrack2"
       width="Tagger2_Width/2"
       height="Tagger2_Height/2"
       length="Tagger2_Length"
@@ -37,7 +37,6 @@
 
   </detectors>
 
-        <dimensions x="Tagger2_Width/2" y="Tagger2_Height/2" z="Tagger2_Length"/>
   <readouts>
 
     <readout name="TaggerTrackerHits">
@@ -46,10 +45,6 @@
     </readout>
 
   </readouts>
-
-
-
-
 
 </lccdd>
 

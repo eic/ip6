@@ -27,7 +27,6 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   double    Thickness = dim.z();
 
   //Materials
-  Material Air     = desc.material("Air");
   Material Vacuum  = desc.material("Vacuum");
   Material Steel   = desc.material("StainlessSteel");
 
@@ -139,19 +138,16 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
     RotationZYX rotate(0,thetaA,0);
 
     Volume   mother    = DetAssemblyAir;
-    Material motherMat = Air;
-
+    
     if(extend_vacuum){
       Wall_Box   = UnionSolid(Wall_Box,   TagWallBox, Transform3D(rotate, Position(offsetx,0,offsetz)));
       Vacuum_Box = UnionSolid(Vacuum_Box, TagVacBox,  Transform3D(rotate, Position(vacoffsetx,0,vacoffsetz)));
       mother     = DetAssembly;
-      motherMat = Vacuum;
     }
-
-    Box      TaggerBox(vac_w,vac_h,tagboxL/2);
-    Volume   TaggerBoxVol("Taggerbox", TaggerBox, motherMat);
     
-    PlacedVolume pv_mod2 = mother.placeVolume(TaggerBoxVol, Transform3D(rotate, Position(tagoffsetx,0,tagoffsetz)));//Very strange y offset needs correcting for...
+    Assembly TaggerAssembly("tagAssembly");
+    
+    PlacedVolume pv_mod2 = mother.placeVolume(TaggerAssembly, Transform3D(rotate, Position(tagoffsetx,0,tagoffsetz)));//Very strange y offset needs correcting for...
     pv_mod2.addPhysVolID("module", moduleID);
     DetElement moddet(moduleName, moduleID);
     moddet.setPlacement(pv_mod2);
