@@ -91,7 +91,7 @@
     <constant name="Dipole_Focus_Y"       value="0.0*mm"/>
     <constant name="Dipole_Focus_Z"       value="Q3eR_StartZ-Q3eR_StartX/tan(Beam_Theta)"/>
 
-    <!-- Central pipe dimensions>
+    <!-- Central pipe dimensions -->
     <constant name="Beam_Length"          value="(Dipole_Focus_Z-Q3eR_StartZ)/cos(Beam_Theta)"/>
     <constant name="Beam_WidthR"          value="Q3eR_InnerRadius"/>
     <constant name="Beam_WidthL"          value="Q3eR_InnerRadius"/>
