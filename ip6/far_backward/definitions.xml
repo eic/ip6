@@ -86,7 +86,7 @@
 
     <constant name="Beam_Theta"           value="Q3eR_Theta"/>
 
-    <!-- Optic dipole focal point in global coordinates -->
+    <!-- Dipole focal point in global coordinates -->
     <constant name="Dipole_Focus_X"       value="0.0*mm"/>
     <constant name="Dipole_Focus_Y"       value="0.0*mm"/>
     <constant name="Dipole_Focus_Z"       value="Q3eR_StartZ-Q3eR_StartX/tan(Beam_Theta)"/>
