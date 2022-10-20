@@ -22,7 +22,6 @@
       <dimensions xL="Beam_WidthL" xR="Beam_WidthR" y="Beam_Height" z="Beam_Length"/>
       <exitdim    x="Exit_Width"   y="Exit_Height"  lumiZ="LumiWin_Z" lumiR="LumiWin_R" maxTheta="Exit_Theta"/>
 
-      
       <module id="1"
         modname="Tagger1"
         theta_min="Tagger1_Min_Theta"
