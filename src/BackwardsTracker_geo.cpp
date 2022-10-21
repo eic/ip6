@@ -23,10 +23,11 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
   std::string   mother_name  = dd4hep::getAttrOrDefault<std::string>(x_det, _Unicode(place_into), "");
   std::string   mother_name2 = dd4hep::getAttrOrDefault<std::string>(x_det, _Unicode(place_into2), "");
   VolumeManager man          = VolumeManager::getVolumeManager(desc);
+
+  //Add check tha mother volumes exist  
   DetElement    mdet         = man.detector().child(mother_name).child(mother_name2);
 
   DetElement det(detName, detID);
-  //  DetElement det(mdet,detName, detID);
   
   //Materials
   //Material Vacuum  = desc.material("Vacuum");
@@ -34,14 +35,12 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
   Material Silicon = desc.material("Silicon");
   //Material Steel   = desc.material("StainlessSteel");
 
-  //double    wall    = dd4hep::getAttrOrDefault(x_det, _Unicode(wall), 1*mm);
   double    tag_h   = dd4hep::getAttrOrDefault(x_det, _Unicode(height), 100*mm);
   double    tag_w   = dd4hep::getAttrOrDefault(x_det, _Unicode(width), 100*mm);
   double    tagboxL = dd4hep::getAttrOrDefault(x_det, _Unicode(length), 100*mm);
   
 
   Assembly taggerAssembly("tagAssembly");
-  //Box DetectorBox(vac_w,vac_h,tagboxL/2);
   
   Volume Tagger_Air;
   
@@ -74,14 +73,9 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
     
     Tagger_Air.placeVolume(layVol, Position(0, 0, airThickness/2-layerThickness/2));
     
-//     Box    Tag_Wall_Box(wall/2,tag_h, airThickness/2);
-//     Volume wallVol("TagWallVolume", Tag_Wall_Box, Steel);
-//     wallVol.setVisAttributes("WhiteVis");
-//     Tagger_Air.placeVolume(wallVol, Position(vac_w-wall/2, 0, 0));
     taggerAssembly.placeVolume(Tagger_Air,Position(0,0,tagboxL-airThickness/2));
     
   }
-    std::cout << airThickness << " " << vacuumThickness << std::endl;
   
   // Add Hodoscope layers
   int N_layers = 0;
@@ -137,11 +131,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
   
     
   PlacedVolume pv_mod = mdet.volume().placeVolume(taggerAssembly);
-  //PlacedVolume pv_mod = desc.pickMotherVolume(det).placeVolume(Tagger_Air, Position(0, 0, -tagboxL/2 + airThickness/2));
-  for(auto child: mdet.children()){
-    cout << child.second.name() << endl;
-  }
-  cout << det.parent().name() << endl;
+
   det.setPlacement(pv_mod);
   desc.declareParent(detName, mdet);
   
