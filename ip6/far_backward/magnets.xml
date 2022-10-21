@@ -94,7 +94,7 @@
 
   <fields>
 
-    <comment> Magnetic fields <comment>
+    <comment> Magnetic fields </comment>
 
     <field name="Magnet_Q1eR_Field" type="MultipoleMagnet">
       <shape type="Tube" rmax="Q1eR_InnerRadius" dz="Q1eR_Length/2"/>
