@@ -31,7 +31,7 @@
       readout="TaggerTrackerHits">
       <trackLayer  id="1" type="timepix" z="1.2*mm" sensor_thickness="200*um"/>
       <trackLayer  id="2" type="timepix" z="300*mm" sensor_thickness="200*um"/>
-      <rrackLayer  id="3" type="timepix" z="600*mm" sensor_thickness="200*um"/>
+      <trackLayer  id="3" type="timepix" z="600*mm" sensor_thickness="200*um"/>
       <!--windowLayer id="1" type="window"  z="0*mm"   thickness="1*mm" material="Copper"/-->
     </detector>
 
