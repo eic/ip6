@@ -3,7 +3,7 @@
 
   <detectors>
 
-    <!-- Magnet volumes -->
+    <comment> Magnet volumes </comment>
 
     <detector id="Magnet_Q1eR_ID" name="Magnet_Q1eR" type="ip6_CylindricalDipoleMagnet" vis="RedVis">
       <placement  x="0" y="0" z="Q1eR_CenterPosition" theta="0*rad"/>
@@ -41,7 +41,7 @@
     </detector>
 
 
-    <!-- Inner vacuum for magnets -->
+    <comment> Inner vacuum for magnets </comment>
 
     <detector id="Pipe_to_Q1eR_ID" name="Pipe_to_Q1eR" type="BackwardsBeamPipe">
       <Pipe wall_thickness="2*mm" outerD1="Q1eR_InnerRadius*2" outerD2="Center_Beampipe_Rad*2"
@@ -94,7 +94,7 @@
 
   <fields>
 
-    <!-- Magnetic fields -->
+    <comment> Magnetic fields <comment>
 
     <field name="Magnet_Q1eR_Field" type="MultipoleMagnet">
       <shape type="Tube" rmax="Q1eR_InnerRadius" dz="Q1eR_Length/2"/>

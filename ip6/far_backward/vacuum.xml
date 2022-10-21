@@ -7,7 +7,7 @@
 
   <detectors>
 
-    <!-- Main vacuum volume -->
+    <comment> Main vacuum volume </comment>
     <detector id="TaggerTracker_1_ID" name="BackwardsTaggerVacuum" type="BackwardsVacuum" wall="2*mm" lumi="true">
       <focus      x="Dipole_Focus_X"    y="Dipole_Focus_Y"    z="Dipole_Focus_Z" />
       <bounding  
@@ -20,8 +20,11 @@
       />
       <rotation   theta="Beam_Theta"/>
       <dimensions xL="Beam_WidthL" xR="Beam_WidthR" y="Beam_Height" z="Beam_Length"/>
+
+      <comment> Vacuum volume joining with lumi </comment>
       <exitdim    x="Exit_Width"   y="Exit_Height"  lumiZ="LumiWin_Z" lumiR="LumiWin_R" maxTheta="Exit_Theta"/>
 
+      <comment> Vacuum volume extention around taggers </comment>
       <module id="1"
         modname="Tagger1"
         theta_min="Tagger1_Min_Theta"
