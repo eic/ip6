@@ -51,7 +51,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
   for (xml_coll_t lay(x_det, _Unicode(windowLayer)); lay; ++lay) {
     
     string layerType      = dd4hep::getAttrOrDefault(lay, _Unicode(type), "window");
-    string layerVis       = dd4hep::getAttrOrDefault(lay, _Unicode(vis), "RedVis");
+    string layerVis       = dd4hep::getAttrOrDefault(lay, _Unicode(vis), "FFTrackerShieldingVis");
     double layerZ         = dd4hep::getAttrOrDefault(lay, _Unicode(z), 0*mm);
     double layerThickness = dd4hep::getAttrOrDefault(lay, _Unicode(sensor_thickness), 1 * mm);
     string layerMaterial  = dd4hep::getAttrOrDefault(lay, _Unicode(material), "Copper");
@@ -64,7 +64,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
 
     Box Box_Air(tag_w,tag_h, airThickness/2);
     Tagger_Air = Volume("AirVolume",Box_Air,Air);
-    Tagger_Air.setVisAttributes(desc.visAttributes("BlueVis"));
+    Tagger_Air.setVisAttributes(desc.visAttributes("BackwardsAir"));
     //mdet.volume().placeVolume(Tagger_Air, Position(0, 0, -tagboxL/2 + airThickness/2));
 
     Box    Window_Box(tag_w,tag_h, layerThickness/2);
@@ -83,7 +83,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
     
     int    layerID        = dd4hep::getAttrOrDefault(lay, _Unicode(id), 0);
     string layerType      = dd4hep::getAttrOrDefault(lay, _Unicode(type), "timepix");
-    string layerVis       = dd4hep::getAttrOrDefault(lay, _Unicode(vis), "GreenVis");
+    string layerVis       = dd4hep::getAttrOrDefault(lay, _Unicode(vis), "FFTrackerLayerVis");
     double layerZ         = dd4hep::getAttrOrDefault(lay, _Unicode(z), 0*mm);
     double layerThickness = dd4hep::getAttrOrDefault(lay, _Unicode(sensor_thickness), 200 * um);
     

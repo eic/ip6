@@ -19,6 +19,8 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   string    detName = x_det.nameStr();
   int       detID   = x_det.id();
 
+  string    vis_name = dd4hep::getAttrOrDefault(x_det, _Unicode(vis), "BackwardsBox");
+
   // Dimensions of main beamline pipe
   xml::Component  dim = x_det.child(_Unicode(dimensions));
   double    WidthL    = dim.attr<double>(_Unicode(xL));
@@ -223,10 +225,10 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   IntersectionSolid Vacuum_Box_Sub(Vacuum_Box, Far_Backwards_Box, Transform3D(rotate2, position));
 
   Volume vacVol("Vacuum_Box", Vacuum_Box_Sub, Vacuum);
-  vacVol.setVisAttributes(desc.visAttributes("RedGreenVis"));
+  //vacVol.setVisAttributes(desc.visAttributes("RedGreenVis"));
   vacVol.placeVolume(DetAssembly); 
   Volume wallVol("Tagger_Box", Wall_Box_Sub, Steel);
-  wallVol.setVisAttributes(desc.visAttributes("RedVis"));
+  wallVol.setVisAttributes(desc.visAttributes(vis_name));
   wallVol.placeVolume(vacVol);
 
   Assembly backAssembly("assembly");
