@@ -50,11 +50,11 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
   // Add window layer and air-vacuum boxes
   for (xml_coll_t lay(x_det, _Unicode(windowLayer)); lay; ++lay) {
     
-    string layerType      = dd4hep::getAttrOrDefault(lay, _Unicode(type), "window");
-    string layerVis       = dd4hep::getAttrOrDefault(lay, _Unicode(vis), "FFTrackerShieldingVis");
-    double layerZ         = dd4hep::getAttrOrDefault(lay, _Unicode(z), 0*mm);
-    double layerThickness = dd4hep::getAttrOrDefault(lay, _Unicode(sensor_thickness), 1 * mm);
-    string layerMaterial  = dd4hep::getAttrOrDefault(lay, _Unicode(material), "Copper");
+    string layerType      = dd4hep::getAttrOrDefault<std::string>(lay, _Unicode(type), "window");
+    string layerVis       = dd4hep::getAttrOrDefault<std::string>(lay, _Unicode(vis), "FFTrackerShieldingVis");
+    double layerZ         = dd4hep::getAttrOrDefault<double>(lay, _Unicode(z), 0*mm);
+    double layerThickness = dd4hep::getAttrOrDefault<double>(lay, _Unicode(sensor_thickness), 1 * mm);
+    string layerMaterial  = dd4hep::getAttrOrDefault<std::string>(lay, _Unicode(material), "Copper");
     
     Material WindowMaterial  = desc.material(layerMaterial);
     
@@ -81,11 +81,11 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
   int N_layers = 0;
   for (xml_coll_t lay(x_det, _Unicode(trackLayer)); lay; ++lay, ++N_layers) {
     
-    int    layerID        = dd4hep::getAttrOrDefault(lay, _Unicode(id), 0);
-    string layerType      = dd4hep::getAttrOrDefault(lay, _Unicode(type), "timepix");
-    string layerVis       = dd4hep::getAttrOrDefault(lay, _Unicode(vis), "FFTrackerLayerVis");
-    double layerZ         = dd4hep::getAttrOrDefault(lay, _Unicode(z), 0*mm);
-    double layerThickness = dd4hep::getAttrOrDefault(lay, _Unicode(sensor_thickness), 200 * um);
+    int    layerID        = dd4hep::getAttrOrDefault<int>(lay, _Unicode(id), 0);
+    string layerType      = dd4hep::getAttrOrDefault<std::string>(lay, _Unicode(type), "timepix");
+    string layerVis       = dd4hep::getAttrOrDefault<std::string>(lay, _Unicode(vis), "FFTrackerLayerVis");
+    double layerZ         = dd4hep::getAttrOrDefault<double>(lay, _Unicode(z), 0*mm);
+    double layerThickness = dd4hep::getAttrOrDefault<double>(lay, _Unicode(sensor_thickness), 200 * um);
     
     Volume mother = taggerAssembly;
     double MotherThickness = tagboxL;

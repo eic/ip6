@@ -19,7 +19,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   string    detName = x_det.nameStr();
   int       detID   = x_det.id();
 
-  string    vis_name = dd4hep::getAttrOrDefault(x_det, _Unicode(vis), "BackwardsBox");
+  string    vis_name = dd4hep::getAttrOrDefault<std::string>(x_det, _Unicode(vis), "BackwardsBox");
 
   // Dimensions of main beamline pipe
   xml::Component  dim = x_det.child(_Unicode(dimensions));
@@ -42,7 +42,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   xml_dim_t rot  = x_det.rotation();
 
   // Beampipe thickness
-  double    wall = dd4hep::getAttrOrDefault(x_det, _Unicode(wall), 1*mm);
+  double    wall = dd4hep::getAttrOrDefault<double>(x_det, _Unicode(wall), 1*mm);
 
   // Make bounding box to make IntersectionSolid with other components
   xml::Component BB = x_det.child(_Unicode(bounding));
@@ -95,21 +95,21 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   //-----------------------------------------------------------------
   for (xml_coll_t mod(x_det, _Unicode(module)); mod; ++mod ) {
     
-    int    moduleID  = dd4hep::getAttrOrDefault(mod, _Unicode(id), 0);
-    string moduleName= dd4hep::getAttrOrDefault(mod, _Unicode(modname), "Tagger0");
+    int    moduleID  = dd4hep::getAttrOrDefault<int>(mod, _Unicode(id), 0);
+    string moduleName= dd4hep::getAttrOrDefault<std::string>(mod, _Unicode(modname), "Tagger0");
 
     // Offset from the electron beam
-    double tagoff    = dd4hep::getAttrOrDefault(mod, _Unicode(offset_min), 50.0*mm    );
+    double tagoff    = dd4hep::getAttrOrDefault<double>(mod, _Unicode(offset_min), 50.0*mm    );
 
     // Theta coverage expected
-    double thetamin  = dd4hep::getAttrOrDefault(mod, _Unicode(theta_min),  0.030*rad)-rot.theta();
-    double thetamax  = dd4hep::getAttrOrDefault(mod, _Unicode(theta_max),  0.030*rad)-rot.theta();
+    double thetamin  = dd4hep::getAttrOrDefault<double>(mod, _Unicode(theta_min),  0.030*rad)-rot.theta();
+    double thetamax  = dd4hep::getAttrOrDefault<double>(mod, _Unicode(theta_max),  0.030*rad)-rot.theta();
 
     // Align box to max or minimum theta expected at the tagger from focal point
-    bool   max_align = dd4hep::getAttrOrDefault(mod, _Unicode(max_align),  false    );
+    bool   max_align = dd4hep::getAttrOrDefault<bool>(mod, _Unicode(max_align),  false    );
 
     // Extend the beam vacuum around the taggers
-    bool   extend_vacuum = dd4hep::getAttrOrDefault(mod, _Unicode(extend_vacuum),  true    );
+    bool   extend_vacuum = dd4hep::getAttrOrDefault<bool>(mod, _Unicode(extend_vacuum),  true    );
 
     // Size f the actual tagger box, replicated in BackwardsTagger
     xml_dim_t moddim = mod.child(_Unicode(dimensions));
@@ -186,7 +186,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   //-----------------------------------------------------------------
   // Luminosity connecting box 
   //-----------------------------------------------------------------
-  bool addLumi = dd4hep::getAttrOrDefault(x_det, _Unicode(lumi),  true    );
+  bool addLumi = dd4hep::getAttrOrDefault<bool>(x_det, _Unicode(lumi),  true    );
 
   if(addLumi){
     
