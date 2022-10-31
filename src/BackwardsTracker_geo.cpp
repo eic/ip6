@@ -25,6 +25,10 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
   VolumeManager man          = VolumeManager::getVolumeManager(desc);
 
   //Add check tha mother volumes exist  
+  DetElement    mdet1        = man.detector().child(mother_name);
+  int motherid = mdet1.id();
+   
+    
   DetElement    mdet         = man.detector().child(mother_name).child(mother_name2);
 
   DetElement det(detName, detID);
@@ -103,9 +107,9 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
     
     // string module_name = detName + _toString(N_layers,"_TrackLayer_%d");
     
-    PlacedVolume pv_mod = mother.placeVolume(layVol, Position(0, 0, MotherThickness - layerZ + layerThickness/2));
-    //    PlacedVolume pv_mod = mother.placeVolume(layVol, Position(-wall/2, 0, MotherThickness - layerZ + layerThickness/2));
-    pv_mod.addPhysVolID("layer", layerID);
+    PlacedVolume pv_layer = mother.placeVolume(layVol, Position(0, 0, MotherThickness - layerZ + layerThickness/2));
+    pv_layer.addPhysVolID("layer", layerID);
+
   }
   
 //     // Add Calorimeter layers
@@ -132,6 +136,9 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector sens)
     
   PlacedVolume pv_mod = mdet.volume().placeVolume(taggerAssembly);
 
+  pv_mod.addPhysVolID("module", detID);
+  pv_mod.addPhysVolID("sensor", 1);
+  pv_mod.addPhysVolID("system", motherid);
   det.setPlacement(pv_mod);
   desc.declareParent(detName, mdet);
   

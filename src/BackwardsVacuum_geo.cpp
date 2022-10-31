@@ -169,7 +169,6 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
     Assembly TaggerAssembly("tagAssembly");
     
     PlacedVolume pv_mod2 = mother.placeVolume(TaggerAssembly, Transform3D(rotate, Position(tagoffsetx,0,tagoffsetz)));//Very strange y is not centered and offset needs correcting for...
-    pv_mod2.addPhysVolID("module", moduleID);
     DetElement moddet(moduleName, moduleID);
     moddet.setPlacement(pv_mod2);
     det.add(moddet);
