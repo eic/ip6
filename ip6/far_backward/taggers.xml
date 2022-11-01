@@ -16,10 +16,11 @@
       place_into="BackwardsTaggerVacuum"
       place_into2="Tagger1"
       readout="TaggerTrackerHits">
-      <trackLayer  id="1" type="timepix" z="1.2*mm" sensor_thickness="200*um"/>
-      <trackLayer  id="2" type="timepix" z="300*mm" sensor_thickness="200*um"/>
-      <trackLayer  id="3" type="timepix" z="600*mm" sensor_thickness="200*um"/>
-      <windowLayer id="1" type="window"  z="0*mm"   thickness="1*mm" material="Copper"/>
+      <trackLayer  id="0" type="timepix" z="0*mm"   sensor_thickness="400*um"/>
+      <trackLayer  id="1" type="timepix" z="300*mm" sensor_thickness="400*um"/>
+      <trackLayer  id="2" type="timepix" z="600*mm" sensor_thickness="400*um"/>
+      <trackLayer  id="3" type="timepix" z="900*mm" sensor_thickness="400*um"/>
+      <!--windowLayer id="1" type="window"  z="0*mm"   thickness="1*mm" material="Copper"/-->
     </detector>
 
 
@@ -30,9 +31,10 @@
       place_into="BackwardsTaggerVacuum"
       place_into2="Tagger2"
       readout="TaggerTrackerHits">
-      <trackLayer  id="1" type="timepix" z="1.2*mm" sensor_thickness="200*um"/>
-      <trackLayer  id="2" type="timepix" z="300*mm" sensor_thickness="200*um"/>
-      <trackLayer  id="3" type="timepix" z="600*mm" sensor_thickness="200*um"/>
+      <trackLayer  id="0" type="timepix" z="0*mm"   sensor_thickness="400*um"/>
+      <trackLayer  id="1" type="timepix" z="300*mm" sensor_thickness="400*um"/>
+      <trackLayer  id="2" type="timepix" z="600*mm" sensor_thickness="400*um"/>
+      <trackLayer  id="3" type="timepix" z="900*mm" sensor_thickness="400*um"/>
       <!--windowLayer id="1" type="window"  z="0*mm"   thickness="1*mm" material="Copper"/-->
     </detector>
 

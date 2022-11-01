@@ -110,7 +110,7 @@
     <constant name="Tagger1_Width"        value="400*mm"/>
     <constant name="Tagger1_Height"       value="200*mm"/>
 
-    <constant name="Tag_Tracker_1_Depth"  value="605*mm"/>
+    <constant name="Tag_Tracker_1_Depth"  value="905*mm"/>
     <constant name="Tag_Cal_1_Depth"      value="200*mm"/>
     <constant name="Tagger1_Length"       value="Tag_Tracker_1_Depth+Tag_Cal_1_Depth"/>
 
