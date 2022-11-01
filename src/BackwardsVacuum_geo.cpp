@@ -237,7 +237,6 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   // placement in mother volume
   Transform3D  tr(RotationY(rot.theta()), Position(pos.x(), pos.y(), pos.z()));
   PlacedVolume detPV = desc.pickMotherVolume(det).placeVolume(backAssembly, tr);
-  detPV.addPhysVolID("system", detID);
   det.setPlacement(detPV);
  
   return det;
