@@ -29,8 +29,8 @@ static Ref_t build_magnet(Detector& dtor, xml_h e, SensitiveDetector /* sens */)
   xml_dim_t coil      = x_det.child(_Unicode(coil));
   double    coil_x    = coil.dx();
   double    coil_y    = coil.dy();
-  Material  iron      = dtor.material("Vacuum");
-  Material  niobium   = dtor.material("Vacuum");
+  Material  iron      = dtor.material("Iron");
+  Material  niobium   = dtor.material("Niobium");
 
   // std::cout << det_name << " positioned at z=" << pos.z() << ", x=" << pos.x() << "\n";
 
