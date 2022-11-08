@@ -70,17 +70,22 @@
     <documentation>
       #### (190-199) Far Backward Beamline Detectors
 
-      - Low-Q2 Tagger 1       ID: 195
-      - Low-Q2 Tagger 2       ID: 196
-      - Low-Q2 Tagger Vacuum  ID: 199
-
       TODO: A lot of the repeated ID's below should be pushed into a single detector
     </documentation>
+    <constant name="Tagger1_ID"              value="187"/>
+    <constant name="Tagger2_ID"              value="188"/>
+    <constant name="TaggerVacuum_ID"         value="189"/>
+    
     <constant name="LumiCollimator_ID"       value="190"/>
     <constant name="LumiDipole_ID"           value="191"/>
-    <constant name="Tagger1_ID"              value="195"/>
-    <constant name="Tagger2_ID"              value="196"/>
-    <constant name="TaggerVacuum_ID"         value="199"/>
+    <constant name="LumiWin_ID"              value="192"/>
+    <constant name="LumiSpecTracker1_Top_ID" value="193"/>
+    <constant name="LumiSpecTracker1_Bot_ID" value="194"/>
+    <constant name="LumiSpecTracker2_Top_ID" value="195"/>
+    <constant name="LumiSpecTracker2_Bot_ID" value="196"/>
+    <constant name="TopSpecCAL_ID"           value="197"/>
+    <constant name="BotSpecCAL_ID"           value="198"/>
+
 
     <documentation>
       #### (200-219) Far Backward Beamline Magnets

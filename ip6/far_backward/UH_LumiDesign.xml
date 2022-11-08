@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lccdd>
+
+   <include ref="UHdesign/exitWindow.xml"/>
+   <!-- <include ref="UHdesign/collimator.xml"/> -->
+   <!-- <include ref="UHdesign/sweepMagnet.xml"/> -->
+   <!-- <include ref="UHdesign/converter.xml"/> -->
+   <include ref="UHdesign/specMagnet.xml"/>
+   <include ref="UHdesign/specTracker.xml"/> 
+   <include ref="UHdesign/specHomoCAL.xml"/> -->
+   <!-- <include ref="UHdesign/directCAL.xml"/> -->
+
+</lccdd>

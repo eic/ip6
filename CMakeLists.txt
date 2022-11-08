@@ -67,7 +67,7 @@ set(a_lib_name ${PROJECT_NAME})
 
 dd4hep_configure_output()
 
-file(GLOB sources CONFIGURE_DEPENDS src/*.cpp)
+file(GLOB_RECURSE sources CONFIGURE_DEPENDS src/*.cpp ip6/far_backward/*.cpp)
 dd4hep_add_plugin(${a_lib_name}
   SOURCES ${sources}
   USES ${ActsDD4hep} ROOT::Core ROOT::Gdml
