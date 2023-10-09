@@ -4,7 +4,7 @@
     // Far Forward Ion Zero Degree Calorimeter
     // W power + SciFi for Ecal
     //////////////////////////////////////////////////
-  </comment>        
+  </comment>
 
   <define>
     <constant name="ZDCEcal_FiberRadius" value="0.235*mm"/>

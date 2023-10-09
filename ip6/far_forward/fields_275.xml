@@ -2,7 +2,7 @@
 
   <constant name="IonBeamEnergy" value="275*GeV" />
 
-  <comment> 
+  <comment>
       All magnet values are input by hand and represent the implementation in EICRoot used for the Yellow Report.
   </comment>
 
@@ -29,4 +29,3 @@
   <constant name="Q1EF_BMax"  value="0.0*tesla"/>
 
 </define>
-

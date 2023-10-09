@@ -1,6 +1,6 @@
 <lccdd>
 
-  <comment>Far Forward Hadron Detectors</comment>        
+  <comment>Far Forward Hadron Detectors</comment>
 
   <define>
     <comment>
@@ -28,7 +28,7 @@
     <constant name="ZDC_1stSilicon_rotateX_angle"   value="ZDC_rotateX_angle"/>
     <constant name="ZDC_1stSilicon_rotateY_angle"   value="ZDC_rotateY_angle"/>
     <constant name="ZDC_1stSilicon_rotateZ_angle"   value="ZDC_rotateZ_angle"/>
-    
+
     <constant name="ZDC_Crystal_z_pos"           value="ZDC_z_pos + 6 *cm "/>
     <constant name="ZDC_Crystal_x_pos"           value="ZDC_Crystal_z_pos * ionCrossingAngle"/>
     <constant name="ZDC_Crystal_y_pos"           value="ZDC_y_pos"/>
@@ -53,7 +53,7 @@
     <constant name="ZDC_PbSi_rotateY_angle"       value="ZDC_rotateY_angle"/>
     <constant name="ZDC_PbSi_rotateZ_angle"       value="ZDC_rotateZ_angle"/>
     <constant name="ZDC_PbSi_nlayers"             value="12"/>
-    
+
     <constant name="ZDC_PbSci_z_pos"               value="ZDC_PbSi_z_pos + 75. *cm"/>
     <constant name="ZDC_PbSci_x_pos"               value="ZDC_PbSci_z_pos * ionCrossingAngle"/>
     <constant name="ZDC_PbSci_y_pos"               value="ZDC_y_pos"/>
@@ -63,7 +63,7 @@
     <constant name="ZDC_PbSci_nbox"                value="2"/>
     <constant name="ZDC_PbSci_nlayers_per_box"     value="15"/>
     <constant name="ZDC_PbSci_box_gap"             value="3.*cm"/>
-    
+
     <constant name="ZDC_pad_thickness"           value="320.0 * um"/>
     <constant name="ZDC_pixel_thickness"         value="300.0 * um"/>
     <constant name="ZDC_glue_thickness"          value="0.11 * mm"/>
@@ -80,5 +80,5 @@
   <include ref="ZDC_WSi.xml"/>
   <include ref="ZDC_PbSi.xml"/>
   <include ref="ZDC_PbScinti.xml"/>
-  
+
 </lccdd>

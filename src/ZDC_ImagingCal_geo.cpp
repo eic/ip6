@@ -40,11 +40,11 @@ static Ref_t create_detector(Detector& desc, xml_h handle, SensitiveDetector sen
   double zpos_0= - length/2.;
 
   for (xml_coll_t li(detElem, _Unicode(layer)); li; ++li){
-  
+
     xml_comp_t x_lyr = li;
     auto       nlyr  = x_lyr.attr<int>(_Unicode(nlayer));
-    auto       gap_z = x_lyr.attr<double>(_Unicode(gapspace));  
-  
+    auto       gap_z = x_lyr.attr<double>(_Unicode(gapspace));
+
     map<int, string>    v_sl_name;
     map<string, Volume> slices;
     map<string, double> sl_thickness;
@@ -61,7 +61,7 @@ static Ref_t create_detector(Detector& desc, xml_h handle, SensitiveDetector sen
       Volume sl_Vol("slice_vol", sl_Shape, sl_mat);
       sl_Vol.setVisAttributes(desc.visAttributes(x_sl.visStr()));
       if(x_sl.isSensitive()) sl_Vol.setSensitiveDetector(sens);
-      
+
       nsl++;
       v_sl_name[nsl] = sl_name;
       slices[sl_name] = sl_Vol;
@@ -72,15 +72,15 @@ static Ref_t create_detector(Detector& desc, xml_h handle, SensitiveDetector sen
       layerid++;
       for(int isl=0; isl<nsl; isl++){
 	string sl_name = v_sl_name[isl+1];
-	
+
 	double zpos = zpos_0 + sl_thickness[sl_name] /2.;
 	Position sl_pos(0, 0, zpos);
 	PlacedVolume pv = env.placeVolume(slices[sl_name], sl_pos);
 	if(slices[sl_name].isSensitive()) pv.addPhysVolID(sl_name, layerid);
-	
+
 	zpos_0 += sl_thickness[sl_name];
       }
-      
+
       zpos_0 += gap_z;
     }
 

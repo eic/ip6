@@ -4,7 +4,7 @@
     // Far Forward Ion Zero Degree Calorimeter
     // Pb + Scintillator (Pb/Sci) sandwich sampling  for Hcal
     ///////////////////////////////////////////////////////////
-  </comment>        
+  </comment>
 
   <detectors>
     <detector id="ZDCHcal_ID" name="ZDCHcal" type="ZDC_Sampling" readout="ZDCHcalHits" vis="ZDCHcal_Vis">
@@ -22,7 +22,7 @@
   <readouts>
     <readout name="ZDCHcalHits">
       <segmentation type="CartesianGridXY" grid_size_x="10.0 * cm" grid_size_y="10.0 * cm"/>
-      <id>system:8,layer:12,slice:12,x:32:-16,y:-16</id>  
+      <id>system:8,layer:12,slice:12,x:32:-16,y:-16</id>
     </readout>
   </readouts>
 </lccdd>
