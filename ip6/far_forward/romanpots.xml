@@ -16,18 +16,18 @@
 
   <!--
   <detectors>
-    <detector 
+    <detector
       id="ForwardRomanPotA_ID"
       name="ForwardRomanPotA"
-      readout="ForwardRomanPotHits" 
+      readout="ForwardRomanPotHits"
       type="ip6_RectangularTracker"
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
       <position x="ForwardRomanPotA_xpos" y="0" z="ForwardRomanPotA_zpos"/>
-      <layer id="1" 
+      <layer id="1"
         vis="AnlBlue"
-        x="20.0*cm" 
+        x="20.0*cm"
         y="10.0*cm" >
         <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
         <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
@@ -35,18 +35,18 @@
         <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
       </layer>
     </detector>
-    <detector 
+    <detector
       id="ForwardRomanPotB_ID"
       name="ForwardRomanPotB"
-      readout="ForwardRomanPotHits" 
+      readout="ForwardRomanPotHits"
       type="ip6_RectangularTracker"
       insideTrackingVolume="true"
       reflect="false"
       vis="AnlRed">
       <position x="ForwardRomanPotB_xpos" y="0" z="ForwardRomanPotB_zpos"/>
-      <layer id="1" 
+      <layer id="1"
         vis="AnlBlue"
-        x="20.0*cm" 
+        x="20.0*cm"
         y="10.0*cm" >
         <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
         <slice material="Air" thickness="1.0*cm" vis="AnlBlue" sensitive="true" />
@@ -61,7 +61,7 @@
   <readouts>
     <readout name="ForwardRomanPotHits">
       <segmentation type="CartesianGridXY" grid_size_x="1.0*mm" grid_size_y="1.0*mm" />
-      <id>system:8,barrel:3,layer:4,slice:4,x:32:-16,y:-16</id>  
+      <id>system:8,barrel:3,layer:4,slice:4,x:32:-16,y:-16</id>
     </readout>
   </readouts>
   -->

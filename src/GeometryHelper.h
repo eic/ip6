@@ -30,7 +30,7 @@ namespace ip6::geo {
   using UnionSolid = dd4hep::UnionSolid;
   using Material = dd4hep::Material;
   using Tube = dd4hep::Tube;
-  
+
   /* Fill rectangles in a pacman disk
    *
    * @param ref  2D reference point.
@@ -41,19 +41,19 @@ namespace ip6::geo {
    * @param rmax  outer radius of outer disk section ranging from phi min to phi max
    * @param phmin  phi min
    * @param phmax phi max
-   * N.B. Current implementation only guarantees that inner radial bound will be strictly observed. 
+   * N.B. Current implementation only guarantees that inner radial bound will be strictly observed.
    * Outer radial bunds can be penetrated by internal modules on or near the boundary.
    */
 
   vector<Point> fillRectangles(Point ref, double sx, double sy, double rmin, double rintermediate, double rmax,
                                double phmin = -M_PI, double phmax = M_PI);
-  
+
   tuple<int, int> add_individuals(function <tuple<Volume,Position> (Detector&, xml_coll_t&, SensitiveDetector&)> build_module,
                                   Detector& desc, Assembly& env, xml_coll_t& plm, SensitiveDetector& sens, int id);
 
-  tuple<int, int> add_disk(function <tuple<Volume,Position> (Detector&, xml_coll_t&, SensitiveDetector&)> build_module, 
+  tuple<int, int> add_disk(function <tuple<Volume,Position> (Detector&, xml_coll_t&, SensitiveDetector&)> build_module,
                            Detector& desc, Assembly& env, xml_coll_t& plm, SensitiveDetector& sens, int id);
-    
+
   Position get_xml_xyz(xml_comp_t& comp, dd4hep::xml::Strng_t name);
 
 

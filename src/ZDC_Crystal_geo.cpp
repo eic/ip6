@@ -47,11 +47,11 @@ static Ref_t create_detector(Detector& desc, xml_h handle, SensitiveDetector sen
   auto   frMat = desc.material(fr.attr<std::string>(_Unicode(material)));
   Volume frVol("frame_vol",frShape, frMat);
   frVol.setVisAttributes(desc.visAttributes(fr.visStr()));
-  
+
   xml_comp_t mod_x = detElem.child(_Unicode(module));
   auto       nx    = mod_x.attr<int>(_Unicode(nx));
   auto       ny    = mod_x.attr<int>(_Unicode(ny));
-  
+
   // crystal tower
   xml_comp_t twr = mod_x.child(_Unicode(tower));
   double     tsx = twr.attr<double>(_Unicode(cellx));
@@ -59,7 +59,7 @@ static Ref_t create_detector(Detector& desc, xml_h handle, SensitiveDetector sen
   double     tsz = twr.thickness();
   Material   t_mat  = desc.material(twr.materialStr());
   string     t_name = twr.nameStr();
-  
+
   Box    t_Shape(tsx/ 2., tsy / 2., tsz / 2.);
   Volume t_Vol("tower_vol", t_Shape, t_mat);
   t_Vol.setVisAttributes(desc.visAttributes(twr.visStr()));
@@ -72,10 +72,10 @@ static Ref_t create_detector(Detector& desc, xml_h handle, SensitiveDetector sen
   double     ssz = sct.thickness();
   Material   s_mat  = desc.material(sct.materialStr());
   string     s_name = sct.nameStr();
-  
+
   Box    s_Shape(ssx/ 2., ssy / 2., ssz / 2.);
   Volume s_Vol("socket_vol", s_Shape, s_mat);
-  s_Vol.setVisAttributes(desc.visAttributes(sct.visStr()));   
+  s_Vol.setVisAttributes(desc.visAttributes(sct.visStr()));
 
   PlacedVolume pv;
   double x_pos_0 = - (nx * tsx + (nx-1) * fthickness) / 2.;
@@ -85,12 +85,12 @@ static Ref_t create_detector(Detector& desc, xml_h handle, SensitiveDetector sen
   int    mod_i=0;
   for(int ix=0; ix<nx; ix++){
     double x_pos = x_pos_0 + ix * (tsx+fthickness) + tsx/2.;
-    
+
     for(int iy=0; iy<ny; iy++){
       double y_pos = y_pos_0 + iy * (tsy+fthickness) + tsy/2.;
-      
+
       mod_i++;
-      
+
       Position twr_pos(x_pos, y_pos, twr_z_pos_in_fr);
       pv = frVol.placeVolume(t_Vol, twr_pos);
       pv.addPhysVolID(t_name, mod_i);
@@ -99,11 +99,11 @@ static Ref_t create_detector(Detector& desc, xml_h handle, SensitiveDetector sen
       pv = env.placeVolume(s_Vol, sct_pos);
     }
   }
-  
+
   double f_zpos = - length/2. + fz/2.;
   Position fr_pos(0, 0, f_zpos);
   pv = env.placeVolume(frVol, fr_pos);
-  
+
   // detector position and rotation
   Volume       motherVol = desc.pickMotherVolume(det);
   Transform3D  tr(RotationZYX(rot.z(), -rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));

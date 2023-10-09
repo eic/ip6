@@ -2,7 +2,7 @@
 
   <constant name="IonBeamEnergy" value="100*GeV" />
 
-  <comment> 
+  <comment>
       These are the values from Scott's tables for the 50cm shifted hadron FF 100 GeV proton lattice. Notice they mostly do not scale with beam energy in the staightforward way from the previous lattice.
   </comment>
 
@@ -29,4 +29,3 @@
   <constant name="Q1EF_BMax"  value="0.0*tesla"/>
 
 </define>
-
