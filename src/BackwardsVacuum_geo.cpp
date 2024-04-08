@@ -14,7 +14,7 @@ using namespace dd4hep;
 
 static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/)
 {
-  
+
   xml_det_t x_det   = e;
   string    detName = x_det.nameStr();
   int       detID   = x_det.id();
@@ -33,7 +33,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   // Materials
   Material Vacuum  = desc.material("Vacuum");
   Material Steel   = desc.material("StainlessSteel");
-  
+
   // Central focal point of the geometry
   xml::Component pos = x_det.child(_Unicode(focus));
   double    off  = pos.z();
@@ -66,7 +66,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   double ED_Z       = off-EB.attr<double>(_Unicode(lumiZ));
   double Lumi_R     = EB.attr<double>(_Unicode(lumiR));
 
-  // Maximum theta to exit the dipole from 
+  // Maximum theta to exit the dipole from
   double exitTheta  = EB.attr<double>(_Unicode(maxTheta));
 
   // Generic box for making intersection solid with
@@ -79,7 +79,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   // Central pipe box
   Box Extended_Beam_Box(Width+wall,Height+wall,Thickness);
 
-  // Central vacuum box 
+  // Central vacuum box
   Box Extended_Vacuum_Box(Width,Height,Thickness);
 
   Solid Wall_Box   = Extended_Beam_Box;
@@ -94,7 +94,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   // Add Tagger box containers and vacuum box extension for modules
   //-----------------------------------------------------------------
   for (xml_coll_t mod(x_det, _Unicode(module)); mod; ++mod ) {
-    
+
     int    moduleID  = dd4hep::getAttrOrDefault<int>(mod, _Unicode(id), 0);
     string moduleName= dd4hep::getAttrOrDefault<std::string>(mod, _Unicode(modname), "Tagger0");
 
@@ -116,8 +116,8 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
     double w         = moddim.x();
     double h         = moddim.y();
     double tagboxL   = moddim.z();
-    
-    // Width and height of vacuum volume 
+
+    // Width and height of vacuum volume
     auto vac_w = w;
     //    auto vac_w = w+wall/2; // Adds space for wall to be added in tagger geometry
     auto vac_h = h;
@@ -125,7 +125,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
     // Width and height of box volume
     auto box_w = w+wall;
     auto box_h = h+wall;
-   
+
     auto theta      = thetamin;
     auto offsetx    = -(box_w-wall)*(cos(theta));
     auto offsetz    = (box_w-wall)*(sin(theta));
@@ -159,47 +159,47 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
     RotationY rotate(theta);
 
     Volume   mother    = DetAssemblyAir;
-    
+
     if(extend_vacuum){
       Wall_Box   = UnionSolid(Wall_Box,   TagWallBox, Transform3D(rotate, Position(offsetx,0,offsetz)));
       Vacuum_Box = UnionSolid(Vacuum_Box, TagVacBox,  Transform3D(rotate, Position(vacoffsetx,0,vacoffsetz)));
       mother     = DetAssembly;
     }
-    
+
     Assembly TaggerAssembly("tagAssembly");
-    
+
     PlacedVolume pv_mod2 = mother.placeVolume(TaggerAssembly, Transform3D(rotate, Position(tagoffsetx,0,tagoffsetz)));//Very strange y is not centered and offset needs correcting for...
     DetElement moddet(moduleName, moduleID);
     moddet.setPlacement(pv_mod2);
     det.add(moddet);
-    
+
   }
 
   //-----------------------------------------------------------------
-  // Cut off any vacuum right of the main beamline 
+  // Cut off any vacuum right of the main beamline
   //-----------------------------------------------------------------
 
   Wall_Box   = IntersectionSolid(Wall_Box,   Cut_Box,   Position(-xbox+Width+wall,0,0));
   Vacuum_Box = IntersectionSolid(Vacuum_Box, Cut_Box,   Position(-xbox+Width,0,0));
 
   //-----------------------------------------------------------------
-  // Luminosity connecting box 
+  // Luminosity connecting box
   //-----------------------------------------------------------------
   bool addLumi = dd4hep::getAttrOrDefault<bool>(x_det, _Unicode(lumi),  true    );
 
   if(addLumi){
-    
+
     Box  Entry_Beam_Box(ED_X+wall,ED_Y+wall,ED_Z);
     Box  Entry_Vacuum_Box(ED_X,ED_Y,ED_Z-wall);
     Tube Lumi_Exit(0,Lumi_R,ED_Z);
- 
+
     //Add entry boxes to main beamline volume
     Wall_Box   = UnionSolid(Wall_Box,   Entry_Beam_Box,   Transform3D(RotationY(-rot.theta())));
     Vacuum_Box = UnionSolid(Vacuum_Box, Entry_Vacuum_Box, Transform3D(RotationY(-rot.theta())));
     Vacuum_Box = UnionSolid(Vacuum_Box, Lumi_Exit,        Transform3D(RotationY(-rot.theta())));
 
   }
-  
+
 
   //-----------------------------------------------------------------
   // Restrict tagger boxes into region defined by exitTheta from the dipole magnet
@@ -215,7 +215,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
 
 
   //-----------------------------------------------------------------
-  // Cut solids so they are only in the far backwards box 
+  // Cut solids so they are only in the far backwards box
   //-----------------------------------------------------------------
   RotationY   rotate2(-rot.theta());
   Position    position(0,0,(exitDist-BB_Z)/cos(rot.theta()));
@@ -225,7 +225,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
 
   Volume vacVol("Vacuum_Box", Vacuum_Box_Sub, Vacuum);
   //vacVol.setVisAttributes(desc.visAttributes("RedGreenVis"));
-  vacVol.placeVolume(DetAssembly); 
+  vacVol.placeVolume(DetAssembly);
   Volume wallVol("Tagger_Box", Wall_Box_Sub, Steel);
   wallVol.setVisAttributes(desc.visAttributes(vis_name));
   wallVol.placeVolume(vacVol);
@@ -238,7 +238,7 @@ static Ref_t create_detector(Detector& desc, xml_h e, SensitiveDetector /*sens*/
   Transform3D  tr(RotationY(rot.theta()), Position(pos.x(), pos.y(), pos.z()));
   PlacedVolume detPV = desc.pickMotherVolume(det).placeVolume(backAssembly, tr);
   det.setPlacement(detPV);
- 
+
   return det;
 }
 

@@ -28,13 +28,13 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
   int       detID   = x_det.id();
   DetElement   det(detName, detID);
   sens.setType("calorimeter");
-  
+
   // assembly
   Assembly detVol(detName);
 
   xml_dim_t pos = x_det.position();
   xml_dim_t rot = x_det.rotation();
-  
+
   // module placement
   xml_comp_t plm = x_det.child(_Unicode(placements));
   map<int, int> sectorModuleNumbers;
@@ -46,20 +46,20 @@ static Ref_t createDetector(Detector& desc, xml_h e, SensitiveDetector sens)
       sectorModuleNumbers[sector] = nmod;
     }
   };
-  
+
   int sector_id = 1;
-  
+
   for (xml_coll_t mod(plm, _Unicode(individuals)); mod; ++mod) {
     auto [sector, nmod] = ip6::geo::add_individuals(build_module, desc, detVol, mod, sens, sector_id++);
     addModuleNumbers(sector, nmod);
   }
-  
+
   for (xml_coll_t disk(plm, _Unicode(disk)); disk; ++disk) {
     auto [sector, nmod] = ip6::geo::add_disk(build_module, desc, detVol, disk, sens, sector_id++);
     addModuleNumbers(sector, nmod);
   }
- 
-  // position and rotation of parent volume 
+
+  // position and rotation of parent volume
   Volume       motherVol = desc.pickMotherVolume(det);
   Transform3D  tr(RotationZYX(rot.z(), rot.y(), rot.x()), Position(pos.x(), pos.y(), pos.z()));
   PlacedVolume detPV = motherVol.placeVolume(detVol, tr);

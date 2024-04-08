@@ -34,7 +34,7 @@
     <vis name="FFPreModuleVis"      ref="FFPreLayerVis"       showDaughters="true" visible="true"/>
     <vis name="FFPreRadiatorVis"    ref="FFPreModuleVis"      showDaughters="true" visible="true"/>
     <vis name="FFPreReadoutVis"     ref="FFTrackerSurfaceVis" showDaughters="true" visible="true"/>
-      
+
     <comment>
       Magnet/beamline visualization
     </comment>
@@ -55,7 +55,7 @@
     </comment>
     <vis name="BackwardsBox"      alpha="0.3" ref="AnlLight_Gray"/>
     <vis name="BackwardsAir"      alpha="0.7" ref="AnlBlue"/>
-    
+
 
 
     <comment>

@@ -82,7 +82,7 @@ namespace ip6::geo {
   }
 
   // check if a 2d point is already in the container
-  bool already_placed(const Point& p, const vector<Point>& vec, double xs = 1.0, 
+  bool already_placed(const Point& p, const vector<Point>& vec, double xs = 1.0,
                       double ys = 1.0, double tol = 1e-6)
   {
     for (auto& pt : vec) {
@@ -104,11 +104,11 @@ namespace ip6::geo {
                            Point(pt.x() + sx / 2., pt.y() - sy / 2.),
                            Point(pt.x() + sx / 2., pt.y() + sy / 2.),
                      };
-  
+
     bool inside = false;
     int minindex = 0;
     int i=0;
- 
+
     for (auto& p : pts) {
       minindex = ( p.r() < pts[minindex].r() ) ?  i : minindex;
       i++;
@@ -116,7 +116,7 @@ namespace ip6::geo {
 
     double rmax_pacman = (pts[minindex].phi() < phmin || pts[minindex].phi() > phmax) ? rintermediate : rmax;
     inside = pts[minindex].r() <= rmax_pacman && pts[minindex].r() >= rmin;
-  
+
     return inside;
   }
 

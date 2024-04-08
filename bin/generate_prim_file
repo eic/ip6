@@ -54,7 +54,7 @@ parser.add_argument('-t', '--tag', type=str,dest='file_tag',
 parser.add_argument('--timeout', type=int,
         default=3600,
         help='Timeout in seconds')
-        
+
 parser.add_argument('passthrough', nargs='*')
 
 args = parser.parse_args()
@@ -152,5 +152,3 @@ else:
 # move the prim files (which can be quite large)
 # to the local pipeline storage path
 os.system('mv g4_0000.prim {}/{}.prim'.format(args.out_dir,args.file_tag))
-
-
