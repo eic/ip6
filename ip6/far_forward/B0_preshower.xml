@@ -8,7 +8,7 @@
     <constant name="B0Preshower_Station_1_xpos" value="-0.17249922*m" />
 
     <constant name="B0Preshower_length" value="5.0*cm" />
-    <comment> 
+    <comment>
       where do these numbers come from?
     </comment>
     <constant name="B0PreshowerCenter_xpos" value="-0.17249922*m" />
@@ -59,13 +59,13 @@
         <module_component material="Lead"         thickness="1.0*cm" vis="FFPreRadiatorVis"/>
       </module>
       <layer id="1">
-        <envelope  vis="FFPreLayerVis" rmin="B0PreshowerMod1Inner_r" rmax="B0PreshowerMod1Outer_r" length="1.0*cm" 
+        <envelope  vis="FFPreLayerVis" rmin="B0PreshowerMod1Inner_r" rmax="B0PreshowerMod1Outer_r" length="1.0*cm"
           zstart="-B0Preshower_length/2.0" />
-        <ring phi0="B0PreshowerLayerBigMod_phi0" dphi="B0PreshowerModOpeningAngle" 
-          r="B0PreshowerMod1Inner_r+B0PreshowerMod1_y/2.0" zstart="0.0*mm" 
+        <ring phi0="B0PreshowerLayerBigMod_phi0" dphi="B0PreshowerModOpeningAngle"
+          r="B0PreshowerMod1Inner_r+B0PreshowerMod1_y/2.0" zstart="0.0*mm"
           nmodules="B0PreshowerLayerBigMod_nModules" dz="0 * mm" module="Module1" />
         <ring phi0="-B0PreshowerLayerSmallMod_phi0" dphi="B0PreshowerModOpeningAngle"
-          r="B0PreshowerMod1Inner_r+B0PreshowerMod1Small_y/2.0" zstart="0.0*mm" 
+          r="B0PreshowerMod1Inner_r+B0PreshowerMod1Small_y/2.0" zstart="0.0*mm"
           nmodules="B0PreshowerLayerSmallMod_nModules" dz="0 * mm" module="SmallModule1" />
       </layer>
     </detector>
