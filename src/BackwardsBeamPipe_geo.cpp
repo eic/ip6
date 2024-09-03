@@ -42,7 +42,7 @@ static Ref_t create_detector(Detector& det, xml_h e, SensitiveDetector /* sens *
   double end2z     = Pipe_c.attr<double>(_Unicode(end2z));
   double end1x     = dd4hep::getAttrOrDefault<double>(Pipe_c, _Unicode(end1x), 0.0 );
   double end2x     = dd4hep::getAttrOrDefault<double>(Pipe_c, _Unicode(end2x), 0.0 );
-  
+
   double length = sqrt((end1z-end2z)*(end1z-end2z)+(end1x-end2x)*(end1x-end2x));
   double yrot   = atan((end1x-end2x)/(end1z-end2z));
 

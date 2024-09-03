@@ -2,9 +2,9 @@
   <comment>
     //////////////////////////////////////////////////
     // Far Forward Zero Degree Calorimeter
-    // Crystal calorimeter 
+    // Crystal calorimeter
     //////////////////////////////////////////////////
-  </comment>        
+  </comment>
 
   <define>
     <constant name="ZDC_PbSci_layer_thickness" value="ZDC_Lead_thickness + ZDC_Sci_thickness"/>

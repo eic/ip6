@@ -3,7 +3,7 @@
     <constant name="B0ECal_rotation" value="ionCrossingAngle"/>
     <constant name="B0ECal_IP_distance" value="683*cm"/>
     <constant name="B0ECal_xcenter" value="B0ECal_IP_distance*sin(ionCrossingAngle)"/>
-    <constant name="B0ECal_zcenter" value="B0ECal_IP_distance*cos(ionCrossingAngle)"/>  
+    <constant name="B0ECal_zcenter" value="B0ECal_IP_distance*cos(ionCrossingAngle)"/>
     <constant name="B0ECal_length" value="10*cm"/>
     <constant name="B0ECal_CrystalModule_width" value="2*cm"/>
     <constant name="B0ECal_CrystalModule_length" value="B0ECal_length"/>
@@ -29,9 +29,9 @@
         readout="B0ECalHits">
       <position x="B0ECal_xcenter" y="0" z="B0ECal_zcenter"/>
       <rotation x="B0ECal_rotation" y="180*deg" z="0"/>
-      <placements>        
+      <placements>
         <disk
-            rmin="B0ECal_packman_rmin" 
+            rmin="B0ECal_packman_rmin"
             rintermediate="B0ECal_packman_small_rmax"
             rmax="B0ECal_packman_large_rmax"
             phimin="B0ECal_packman_large_phimin"

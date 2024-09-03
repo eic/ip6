@@ -30,7 +30,7 @@
       </layer>
     </detector>
 
-    
+
   <detector
       id="ForwardBeamOrbitTracker_station_2_ID"
       name="BeamOrbitTracker_station_2"
@@ -50,7 +50,7 @@
           zstart="0.0/2.0" />
       </layer>
     </detector>
-	
+
     </detectors>
 
   <readouts>
